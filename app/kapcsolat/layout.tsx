@@ -1,9 +1,9 @@
 import { Metadata } from "next"
-import { hu } from "@/translations/hu"
+import { translations } from "@/translations/hu"
 
 export const metadata: Metadata = {
-  title: `${hu.contact.meta.title} - ${hu.common.company}`,
-  description: hu.contact.meta.description,
+  title: `${translations.contact.meta.title} - ${translations.common.company}`,
+  description: translations.contact.meta.description,
 }
 
 export default function ContactLayout({

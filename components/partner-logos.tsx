@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useTranslations } from "@/hooks/useTranslations"
+import { motion, Variants } from "framer-motion"
 
 const logos = [
   // Partner logos from /public/assets/partners
@@ -18,15 +19,57 @@ const logos = [
 export default function PartnerLogos() {
   const t = useTranslations()
 
+  // Animation variants for container
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  }
+
+  // Animation variants for each logo
+  const logoVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  } as const
+
   return (
-    <section className="bg-white dark:bg-secondary-900 py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-2xl font-heading font-bold leading-8 text-secondary-900 dark:text-white mb-12">
+    <div className="py-12 md:py-16 bg-white dark:bg-secondary-900">
+      <div className="container mx-auto px-4">
+        <motion.h2 
+          className="heading-2 text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           {t.partners.logos.title}
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+        </motion.h2>
+        
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {logos.map((logo) => (
-            <div key={logo.id} className="flex items-center justify-center">
+            <motion.div 
+              key={logo.id} 
+              className="flex items-center justify-center"
+              variants={logoVariants}
+              whileHover={{ scale: 1.05 }}
+            >
               <Image
                 className="max-h-32 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 border-0"
                 src={logo.src}
@@ -36,10 +79,10 @@ export default function PartnerLogos() {
                 priority
                 style={{ border: 'none' }}
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </div>
   )
 }
