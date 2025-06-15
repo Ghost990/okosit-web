@@ -5,6 +5,7 @@
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
 body {
@@ -18,5 +19,21 @@ body {
 @layer components {
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .heading-1 {
+    @apply font-heading text-4xl lg:text-5xl font-bold;
+  }
+  
+  .heading-2 {
+    @apply font-heading text-3xl lg:text-4xl font-bold;
+  }
+  
+  .heading-3 {
+    @apply font-heading text-2xl lg:text-3xl font-semibold;
+  }
+  
+  .section-title {
+    @apply font-heading text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6;
   }
 }

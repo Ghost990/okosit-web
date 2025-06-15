@@ -2,44 +2,86 @@
 
 import Image from "next/image"
 import { useTranslations } from "@/hooks/useTranslations"
-import "@/styles/partner-logos.css"
+import { motion, Variants } from "framer-motion"
 
 const logos = [
-  // Placeholder logos - we'll replace these with actual paths/data later
-  { id: 1, src: '/partners/partner1.svg', alt: 'Partner 1' },
-  { id: 2, src: '/partners/partner2.svg', alt: 'Partner 2' },
-  { id: 3, src: '/partners/partner3.svg', alt: 'Partner 3' },
-  { id: 4, src: '/partners/partner4.svg', alt: 'Partner 4' },
-  { id: 5, src: '/partners/partner5.svg', alt: 'Partner 5' },
+  // Partner logos from /public/assets/partners
+  { id: 1, src: '/assets/partners/eda32b_15f62d1e948e4477adca0370694fb817mv2.png', alt: 'Partner Logo 1' },
+  { id: 2, src: '/assets/partners/eda32b_2f7bf86b142445d08a343e323946e114~mv2.png', alt: 'Partner Logo 2' },
+  { id: 3, src: '/assets/partners/eda32b_34870679e1364b2494cf95bfd39afb15~mv2.png', alt: 'Partner Logo 3' },
+  { id: 4, src: '/assets/partners/eda32b_357bb6dd1060452399f7d061e602e139~mv2.png', alt: 'Partner Logo 4' },
+  { id: 5, src: '/assets/partners/eda32b_5e4143bb194143b28c1a86d6f704378amv2.png', alt: 'Partner Logo 5' },
+  { id: 6, src: '/assets/partners/eda32b_6bc74a604c8f494cb925aed8c52a996e~mv2.png', alt: 'Partner Logo 6' },
+  { id: 7, src: '/assets/partners/eda32b_8b472e0ed19945d695ff572c04592ef9~mv2.png', alt: 'Partner Logo 7' },
+  { id: 8, src: '/assets/partners/eda32b_dc763c46755547228f07a3b28631bd45~mv2.png', alt: 'Partner Logo 8' },
 ]
 
 export default function PartnerLogos() {
   const t = useTranslations()
-  const extendedLogos = [...logos, ...logos] // Duplicate for seamless scroll
+
+  // Animation variants for container
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  }
+
+  // Animation variants for each logo
+  const logoVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  } as const
 
   return (
-    <div className="bg-white dark:bg-secondary-900 py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-lg font-montserrat font-bold leading-8 text-secondary-900 dark:text-white">
+    <div className="py-12 md:py-16 bg-white dark:bg-secondary-900">
+      <div className="container mx-auto px-4">
+        <motion.h2 
+          className="heading-2 text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           {t.partners.logos.title}
-        </h2>
-        <div className="mt-10 w-full overflow-hidden">
-          <div className="logo-scroller">
-            <div className="logo-track">
-              {extendedLogos.map((logo, index) => (
-                <div key={index} className="mx-8">
-                  <Image
-                    className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={158}
-                    height={48}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        </motion.h2>
+        
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {logos.map((logo) => (
+            <motion.div 
+              key={logo.id} 
+              className="flex items-center justify-center"
+              variants={logoVariants}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Image
+                className="max-h-32 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 border-0"
+                src={logo.src}
+                alt={logo.alt}
+                width={280}
+                height={140}
+                priority
+                style={{ border: 'none' }}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   )

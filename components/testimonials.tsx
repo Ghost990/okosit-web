@@ -38,7 +38,7 @@ export default function Testimonials() {
           <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-800 dark:bg-primary-700/20 dark:text-primary-300 rounded-full text-sm font-medium mb-6">
             {t.testimonials.badge}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white mb-6">
+          <h2 className="heading-1 text-secondary-900 dark:text-white mb-6">
             {t.testimonials.title}
             <span className="block text-primary-600 dark:text-primary-400">{t.testimonials.subtitle}</span>
           </h2>
