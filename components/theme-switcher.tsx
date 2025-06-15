@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { useTranslations } from "@/hooks/useTranslations"
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const t = useTranslations()
 
@@ -21,11 +21,11 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="p-2 rounded-md hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors"
-      aria-label={theme === "dark" ? t.common.theme.switchToLight : t.common.theme.switchToDark}
+      aria-label={resolvedTheme === "dark" ? t.common.theme.switchToLight : t.common.theme.switchToDark}
     >
-      {theme === "dark" ? (
+      {resolvedTheme === "dark" ? (
         <Sun size={20} className="text-white" />
       ) : (
         <Moon size={20} className="text-secondary-900" />
