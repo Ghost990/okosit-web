@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,8 +13,14 @@ import { motion, Variants } from "framer-motion";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const t = useTranslations();
+  
+  // After mounting, we have access to the theme
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Animation variants
   const headerVariants: Variants = {
@@ -69,7 +75,10 @@ export default function Header() {
         <motion.div variants={logoVariants} className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">OkosIT</span>
-            {theme === "dark" ? (
+            {!mounted ? (
+              // During SSR or before hydration, use a placeholder or default logo
+              <div className="h-10 w-[120px] bg-transparent" />
+            ) : resolvedTheme === "dark" ? (
               <Image
                 src="/assets/logo_dark.png"
                 alt="OkosIT Logo"
@@ -171,13 +180,16 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">OkosIT</span>
-                {theme === "dark" ? (
+                {!mounted ? (
+                  // During SSR or before hydration, use a placeholder or default logo
+                  <div className="h-10 w-[120px] bg-transparent" />
+                ) : resolvedTheme === "dark" ? (
                   <Image
                     src="/assets/logo_dark.png"
                     alt="OkosIT Logo"
                     width={120}
                     height={40}
-                    className="h-8 w-auto"
+                    className="h-10 w-auto"
                   />
                 ) : (
                   <Image
@@ -185,7 +197,7 @@ export default function Header() {
                     alt="OkosIT Logo"
                     width={120}
                     height={40}
-                    className="h-8 w-auto"
+                    className="h-10 w-auto"
                   />
                 )}
               </Link>
