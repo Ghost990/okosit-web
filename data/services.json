@@ -1,0 +1,88 @@
+{
+  "services": [
+    {
+      "id": "rendszeruzemeltetes",
+      "title": "Rendszerüzemeltetés",
+      "description": "Teljes körű IT infrastruktúra menedzsment és monitoring szolgáltatások.",
+      "icon": "server",
+      "features": [
+        "24/7 monitoring és támogatás",
+        "Proaktív karbantartás",
+        "Biztonsági mentések",
+        "Hálózati infrastruktúra kezelés",
+        "Szerver adminisztráció"
+      ],
+      "price": "Egyedi árajánlat"
+    },
+    {
+      "id": "pc-javitas",
+      "title": "Laptop és PC javítás",
+      "description": "Gyors és megbízható számítógép javítási szolgáltatások helyszínen vagy műhelyben.",
+      "icon": "laptop",
+      "features": [
+        "Hardver diagnosztika és javítás",
+        "Szoftver telepítés és konfiguráció",
+        "Vírusirtás és tisztítás",
+        "Adatmentés és helyreállítás",
+        "Teljesítmény optimalizálás"
+      ],
+      "price": "15.000 Ft-tól"
+    },
+    {
+      "id": "webfejlesztes",
+      "title": "Webfejlesztés",
+      "description": "Modern, reszponzív weboldalak és webalkalmazások fejlesztése.",
+      "icon": "code",
+      "features": [
+        "Egyedi weboldal tervezés",
+        "Reszponzív design",
+        "SEO optimalizálás",
+        "Tartalomkezelő rendszerek",
+        "E-commerce megoldások"
+      ],
+      "price": "150.000 Ft-tól"
+    },
+    {
+      "id": "webshop",
+      "title": "Webshop készítés",
+      "description": "Teljes körű e-kereskedelmi megoldások kis- és középvállalkozások számára.",
+      "icon": "shopping-cart",
+      "features": [
+        "Egyedi webshop design",
+        "Fizetési rendszer integráció",
+        "Készletkezelés",
+        "Rendeléskezelő rendszer",
+        "Marketing eszközök"
+      ],
+      "price": "250.000 Ft-tól"
+    },
+    {
+      "id": "it-kivitelezes",
+      "title": "IT kivitelezés",
+      "description": "Komplex IT projektek tervezése és megvalósítása.",
+      "icon": "settings",
+      "features": [
+        "Hálózat kiépítés",
+        "Szerver telepítés",
+        "Biztonsági rendszerek",
+        "Infrastruktúra tervezés",
+        "Projekt menedzsment"
+      ],
+      "price": "Egyedi árajánlat"
+    },
+    {
+      "id": "eszkozberbeadas",
+      "title": "Eszközbérbeadás",
+      "description": "IT eszközök bérlése rugalmas feltételekkel.",
+      "icon": "monitor",
+      "features": [
+        "Laptop és PC bérlés",
+        "Szerver bérlés",
+        "Hálózati eszközök",
+        "Rugalmas bérleti időszakok",
+        "Teljes körű támogatás"
+      ],
+      "price": "5.000 Ft/hó-tól"
+    }
+  ]
+}
