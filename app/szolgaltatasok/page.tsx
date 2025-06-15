@@ -6,6 +6,7 @@ import Services from "@/components/services"
 import CTA from "@/components/cta"
 import StructuredDataHead from "@/components/structured-data-head"
 import { StructuredData } from "@/types"
+import { motion } from "framer-motion"
 
 export default function ServicesPage() {
   const t = useTranslations()

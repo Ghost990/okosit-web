@@ -7,6 +7,7 @@ import CTA from "@/components/cta"
 import StructuredDataHead from "@/components/structured-data-head"
 import { StructuredData } from "@/types"
 import { CheckCircle, Award, Users, Star } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function PartnersPage() {
   const t = useTranslations()
@@ -112,65 +113,191 @@ export default function PartnersPage() {
       {/* Stats */}
       <section className="py-12 bg-white dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">{t.partners.stats.clients.value}</div>
+          <motion.div 
+            className="grid md:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2
+                }
+              }
+            }}
+          >
+            <motion.div 
+              className="text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.6, ease: "easeOut" } 
+                }
+              }}
+            >
+              <motion.div 
+                className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {t.partners.stats.clients.value}
+              </motion.div>
               <div className="text-secondary-600 dark:text-secondary-400">{t.partners.stats.clients.label}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">{t.partners.stats.returning.value}</div>
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.6, ease: "easeOut" } 
+                }
+              }}
+            >
+              <motion.div 
+                className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                {t.partners.stats.returning.value}
+              </motion.div>
               <div className="text-secondary-600 dark:text-secondary-400">{t.partners.stats.returning.label}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">{t.partners.stats.experience.value}</div>
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.6, ease: "easeOut" } 
+                }
+              }}
+            >
+              <motion.div 
+                className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                {t.partners.stats.experience.value}
+              </motion.div>
               <div className="text-secondary-600 dark:text-secondary-400">{t.partners.stats.experience.label}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">{t.partners.stats.support.value}</div>
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.6, ease: "easeOut" } 
+                }
+              }}
+            >
+              <motion.div 
+                className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                {t.partners.stats.support.value}
+              </motion.div>
               <div className="text-secondary-600 dark:text-secondary-400">{t.partners.stats.support.label}</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
 
       {/* Featured Partners */}
       <section className="py-20 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.partners.featured.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
               {t.partners.featured.description}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2
+                }
+              }
+            }}
+          >
             {partners.slice(0, 3).map((partner, index) => (
-              <div key={index} className="bg-white dark:bg-secondary-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center">
-                    <span className="text-primary-600 dark:text-primary-400 font-bold">{partner.logo}</span>
+              <motion.div 
+                key={index} 
+                className="bg-white dark:bg-secondary-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { 
+                      duration: 0.6, 
+                      ease: "easeOut" 
+                    } 
+                  }
+                }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div 
+                  className="w-16 h-16 bg-primary-600 dark:bg-primary-500 text-white rounded-xl flex items-center justify-center text-2xl font-bold mb-6"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    rotate: 5,
+                    transition: { duration: 0.2 } 
+                  }}
+                >
+                  {partner.logo}
+                </motion.div>
+                <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{partner.name}</h3>
+                <div className="text-sm text-primary-600 dark:text-primary-400 mb-4">{partner.industry}</div>
+                <p className="text-secondary-600 dark:text-secondary-400 mb-6">{partner.services}</p>
+                <div className="border-t border-secondary-200 dark:border-secondary-600 pt-6 mt-6">
+                  <div className="flex items-start mb-4">
+                    <motion.div
+                      initial={{ rotate: 0 }}
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Star className="text-amber-400 mr-2 flex-shrink-0" size={20} />
+                    </motion.div>
+                    <p className="text-secondary-600 dark:text-secondary-400 italic">"{partner.testimonial}"</p>
                   </div>
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="text-yellow-400 fill-current" size={16} />
-                    ))}
+                  <div className="text-sm text-secondary-500 dark:text-secondary-400">
+                    {partner.partnership}
                   </div>
                 </div>
-                <h3 className="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-2">{partner.name}</h3>
-                <div className="text-primary-600 dark:text-primary-400 text-sm mb-4">{partner.industry}</div>
-                <p className="text-secondary-600 dark:text-secondary-400 mb-4">{partner.testimonial}</p>
-                <div className="text-sm text-secondary-500 dark:text-secondary-500">{partner.partnership}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg">
-              {t.partners.featured.viewAll}
-            </button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -180,58 +307,144 @@ export default function PartnersPage() {
       {/* Industries */}
       <section className="py-20 bg-white dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.partners.industries.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
               {t.partners.industries.description}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15
+                }
+              }
+            }}
+          >
             {industries.map((industry, index) => (
-              <div key={index} className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6 flex items-center">
-                <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mr-4">
+              <motion.div 
+                key={index} 
+                className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6 flex items-center"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { 
+                    opacity: 1, 
+                    x: 0,
+                    transition: { 
+                      duration: 0.5, 
+                      ease: "easeOut" 
+                    } 
+                  }
+                }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.div 
+                  className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mr-4"
+                  whileHover={{ 
+                    scale: 1.1,
+                    transition: { duration: 0.2 } 
+                  }}
+                >
                   <span className="text-primary-600 dark:text-primary-400 font-bold">{industry.icon}</span>
-                </div>
+                </motion.div>
                 <div>
                   <h3 className="text-lg font-bold text-secondary-900 dark:text-white">{industry.name}</h3>
                   <p className="text-primary-600 dark:text-primary-400">{industry.count}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Benefits */}
       <section className="py-20 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.partners.benefits.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
               {t.partners.benefits.description}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.1
+                }
+              }
+            }}
+          >
             {benefits.map((benefit, index) => (
-              <div key={index} className="text-center p-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full mb-6">
-                  <benefit.icon size={32} />
-                </div>
-                <h3 className="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-4">
+              <motion.div 
+                key={index} 
+                className="text-center p-8"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { 
+                      duration: 0.7, 
+                      ease: "easeOut" 
+                    } 
+                  }
+                }}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              >
+                <motion.div 
+                  className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full mb-6"
+                  whileHover={{ 
+                    scale: 1.15,
+                    backgroundColor: "#4f46e5",
+                    color: "#ffffff",
+                    transition: { duration: 0.3 } 
+                  }}
+                >
+                  <benefit.icon size={24} />
+                </motion.div>
+                <motion.h3 
+                  className="text-xl font-bold text-secondary-900 dark:text-white mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
                   {benefit.title}
-                </h3>
-                <p className="text-secondary-600 dark:text-secondary-400">
-                  {benefit.description}
-                </p>
-              </div>
+                </motion.h3>
+                <p className="text-secondary-600 dark:text-secondary-400">{benefit.description}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
