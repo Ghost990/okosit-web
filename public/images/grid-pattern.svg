@@ -1,0 +1,14 @@
+<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Grid lines -->
+  <path d="M20 0H0V20" stroke="#f0f0f0" stroke-width="1"/>
+  <path d="M0 0H20V20" stroke="#f0f0f0" stroke-width="1"/>
+  
+  <!-- Intersection dots (subtle) -->
+  <circle cx="0" cy="0" r="0.5" fill="#f0f0f0"/>
+  <circle cx="10" cy="10" r="0.5" fill="#f0f0f0"/>
+  
+  <!-- Circuit-like detail (subtle) -->
+  <rect x="5" y="5" width="1" height="1" fill="#f0f0f0" opacity="0.6"/>
+  <path d="M5 5 L7 5" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="7" cy="5" r="0.4" fill="#f0f0f0" opacity="0.6"/>
+</svg>

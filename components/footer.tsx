@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "@/hooks/useTranslations";
+import { motion } from "framer-motion";
 
 // We'll define the navigation inside the component to access translations
 
@@ -19,6 +20,32 @@ export default function Footer() {
   const { theme } = useTheme();
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
+  
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+  
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } }
+  };
 
   const navigation = {
     main: [
@@ -71,139 +98,286 @@ export default function Footer() {
   };
 
   return (
-    <footer
+    <motion.footer
       className="bg-white dark:bg-secondary-900"
       aria-labelledby="footer-heading"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8 }}
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
       <div className="container-custom py-12 lg:py-16">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
-            <Link href="/">
-              {theme === "dark" ? (
-                <Image
-                  src="/assets/logo_dark.png"
-                  alt="OkosIT Logo"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              ) : (
-                <Image
-                  src="/assets/logo.png"
-                  alt="OkosIT Logo"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              )}
-            </Link>
-            <p className="text-sm leading-6 text-secondary-600 dark:text-secondary-400">
+        <motion.div 
+          className="xl:grid xl:grid-cols-3 xl:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.div 
+            className="space-y-8"
+            variants={itemVariants}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <Link href="/">
+                {theme === "dark" ? (
+                  <Image
+                    src="/assets/logo_dark.png"
+                    alt="OkosIT Logo"
+                    width={120}
+                    height={40}
+                    className="h-10 w-auto"
+                  />
+                ) : (
+                  <Image
+                    src="/assets/logo.png"
+                    alt="OkosIT Logo"
+                    width={120}
+                    height={40}
+                    className="h-10 w-auto"
+                  />
+                )}
+              </Link>
+            </motion.div>
+            <motion.p 
+              className="text-sm leading-6 text-secondary-600 dark:text-secondary-400"
+              variants={itemVariants}
+            >
               {t.common.tagline} - {t.common.description}
-            </p>
-            <div className="flex space-x-6">
+            </motion.p>
+            <motion.div 
+              className="flex space-x-6"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.3
+                  }
+                }
+              }}
+            >
               {navigation.social.map((item) => (
-                <a
+                <motion.a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-secondary-500 hover:text-secondary-600 dark:text-secondary-400 dark:hover:text-secondary-300"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1 }
+                  }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
+                </motion.a>
               ))}
-            </div>
-          </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">
+            </motion.div>
+          </motion.div>
+          <motion.div 
+            className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0"
+            variants={itemVariants}
+          >
+            <motion.div 
+              className="md:grid md:grid-cols-2 md:gap-8"
+              variants={containerVariants}
+            >
+              <motion.div variants={itemVariants}>
+                <motion.h3 
+                  className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white"
+                  variants={itemVariants}
+                >
                   {t.footer.quickLinks}
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
+                </motion.h3>
+                <motion.ul 
+                  role="list" 
+                  className="mt-6 space-y-4"
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.05,
+                        delayChildren: 0.2
+                      }
+                    }
+                  }}
+                >
                   {navigation.main.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
+                    <motion.li 
+                      key={item.name}
+                      variants={listItemVariants}
+                    >
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400 }}
                       >
-                        {item.name}
-                      </Link>
-                    </li>
+                        <Link
+                          href={item.href}
+                          className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.div>
+                    </motion.li>
                   ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">
+                </motion.ul>
+              </motion.div>
+              <motion.div 
+                className="mt-10 md:mt-0"
+                variants={itemVariants}
+              >
+                <motion.h3 
+                  className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white"
+                  variants={itemVariants}
+                >
                   {t.footer.services}
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
+                </motion.h3>
+                <motion.ul 
+                  role="list" 
+                  className="mt-6 space-y-4"
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.05,
+                        delayChildren: 0.3
+                      }
+                    }
+                  }}
+                >
                   {navigation.services.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
+                    <motion.li 
+                      key={item.name}
+                      variants={listItemVariants}
+                    >
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400 }}
                       >
-                        {item.name}
-                      </Link>
-                    </li>
+                        <Link
+                          href={item.href}
+                          className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.div>
+                    </motion.li>
                   ))}
-                </ul>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">
+                </motion.ul>
+              </motion.div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <motion.h3 
+                className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white"
+                variants={itemVariants}
+              >
                 {t.footer.contactInfo}
-              </h3>
-              <ul role="list" className="mt-6 space-y-4">
-                <li className="flex">
-                  <div className="flex-shrink-0">
+              </motion.h3>
+              <motion.ul 
+                role="list" 
+                className="mt-6 space-y-4"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.1,
+                      delayChildren: 0.4
+                    }
+                  }
+                }}
+              >
+                <motion.li 
+                  className="flex"
+                  variants={listItemVariants}
+                  whileHover={{ x: 5 }}
+                >
+                  <motion.div 
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                  >
                     <MapPin className="h-5 w-5 text-primary-600 dark:text-primary-500" />
-                  </div>
-                  <div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
+                  </motion.div>
+                  <motion.div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
                     1234 Budapest, Példa utca 123.
-                  </div>
-                </li>
-                <li className="flex">
-                  <div className="flex-shrink-0">
+                  </motion.div>
+                </motion.li>
+                <motion.li 
+                  className="flex"
+                  variants={listItemVariants}
+                  whileHover={{ x: 5 }}
+                >
+                  <motion.div 
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                    animate={{ rotate: [0, 5, 0, -5, 0] }}
+                    transition={{ repeat: Infinity, repeatDelay: 5, duration: 0.5 }}
+                  >
                     <Phone className="h-5 w-5 text-primary-600 dark:text-primary-500" />
-                  </div>
-                  <div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
-                    <a
+                  </motion.div>
+                  <motion.div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
+                    <motion.a
                       href="tel:+36123456789"
                       className="hover:text-secondary-900 dark:hover:text-white"
+                      whileHover={{ scale: 1.05 }}
                     >
                       +36 12 345 6789
-                    </a>
-                  </div>
-                </li>
-                <li className="flex">
-                  <div className="flex-shrink-0">
+                    </motion.a>
+                  </motion.div>
+                </motion.li>
+                <motion.li 
+                  className="flex"
+                  variants={listItemVariants}
+                  whileHover={{ x: 5 }}
+                >
+                  <motion.div 
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                    animate={{ y: [0, -2, 0, 2, 0] }}
+                    transition={{ repeat: Infinity, repeatDelay: 4, duration: 1 }}
+                  >
                     <Mail className="h-5 w-5 text-primary-600 dark:text-primary-500" />
-                  </div>
-                  <div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
-                    <a
+                  </motion.div>
+                  <motion.div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
+                    <motion.a
                       href="mailto:info@okosit.hu"
                       className="hover:text-secondary-900 dark:hover:text-white"
+                      whileHover={{ scale: 1.05 }}
                     >
                       info@okosit.hu
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="mt-12 border-t border-secondary-200 dark:border-secondary-800 pt-8">
-          <p className="text-xs leading-5 text-secondary-500 dark:text-secondary-400">
+                    </motion.a>
+                  </motion.div>
+                </motion.li>
+              </motion.ul>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+        <motion.div 
+          className="mt-12 border-t border-secondary-200 dark:border-secondary-800 pt-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+        >
+          <motion.p 
+            className="text-xs leading-5 text-secondary-500 dark:text-secondary-400"
+            initial={{ y: 10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1, duration: 0.5 }}
+          >
             {t.footer.copyright(currentYear.toString())}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

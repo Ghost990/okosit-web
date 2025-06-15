@@ -13,7 +13,7 @@ export default function HomePage() {
   
   return (
     <main>
-      <Hero />
+      <Hero isHomePage={true} />
       <Services />
       {/* Testimonials component temporarily removed */}
       <PartnerLogos />
