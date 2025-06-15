@@ -14,6 +14,8 @@ export const translations = {
       subtitle: 'Vegye fel velünk a kapcsolatot még ma!',
       description: 'Segítünk megtalálni a tökéletes IT megoldást az Ön vállalkozása számára.',
       whyChooseUs: 'Miért válasszon minket?',
+      highlight: 'Kezdjünk együtt!',
+      contactInfo: 'Kapcsolati információk',
       benefits: [
         'Szakmai tapasztalat és szakértelem',
         'Személyre szabott megoldások',
@@ -138,7 +140,6 @@ export const translations = {
       rendszeruzemeltetes: 'Rendszerüzemeltetés',
       pcjavitas: 'PC és laptop javítás',
       webfejlesztes: 'Webfejlesztés',
-      webshop: 'Webshop készítés',
       itkivitelezes: 'IT kivitelezés',
       eszkozberbeadas: 'Eszközbérbeadás',
     },
@@ -233,6 +234,7 @@ export const translations = {
     values: {
       title: 'Értékeink',
       subtitle: 'Amiben hiszünk',
+      description: 'Az OkosIT alapértékei, amelyek meghatározzák munkánkat és kapcsolatainkat.',
       reliability: {
         title: 'Megbízhatóság',
         description: 'Mindig betartjuk az ígéreteinket és határidőinket.'
@@ -261,6 +263,8 @@ export const translations = {
     team: {
       title: 'Csapatunk',
       subtitle: 'Szakembereink',
+      description: 'Ismerje meg az OkosIT csapatát, akik a háttérben dolgoznak az Ön IT rendszereinek tökéletes működéséért.',
+      expertiseLabel: 'Szakterületek:',
       founder: {
         name: 'Nagy János',
         position: 'Alapitó & Ügyvezető',
@@ -289,6 +293,7 @@ export const translations = {
     timeline: {
       title: 'Történetünk',
       subtitle: 'Fontos mérföldkövek',
+      description: 'Az OkosIT fejlődése és legfontosabb mérföldkövei az alapítástól napjainkig.',
       founding: {
         title: 'Az OkosIT alapítása',
         description: 'Cégünk 2020-ban alakult azzal a céllal, hogy minőségi IT szolgáltatásokat nyújtson a hazai vállalkozások számára.'
@@ -518,25 +523,41 @@ export const translations = {
       address: 'Budapest, Példa utca 1.',
     },
     hours: {
+      title: 'Nyitvatartás',
+      description: 'Nyitvatartási időnk a hét különböző napjain.',
       label: 'Nyitvatartás',
-      value: 'H-P: 9:00-17:00'
+      value: 'H-P: 9:00-17:00',
+      weekdays: 'Hétköznap',
+      weekdaysHours: '9:00 - 17:00',
+      weekdaysType: 'Nyitva',
+      saturday: 'Szombat',
+      saturdayHours: 'Zárva',
+      saturdayType: 'Zárva',
+      sunday: 'Vasárnap',
+      sundayHours: 'Zárva',
+      sundayType: 'Zárva',
+      weekend: 'Hétvége'
     },
     callUs: 'Hívjon minket',
     form: {
       title: 'Kérjen ajánlatot',
       description: 'Töltse ki az alábbi űrlapot és munkatársunk hamarosan felveszi Önnel a kapcsolatot.',
       cta: 'Ajánlatkérés',
+      firstName: 'Keresztnév',
+      lastName: 'Vezetéknév',
+      company: 'Cég neve',
       name: 'Név',
       email: 'E-mail cím',
       phone: 'Telefonszám',
+      subject: 'Tárgy',
       message: 'Üzenet',
+      send: 'Küldés',
       submit: 'Küldés',
-      success: 'Köszönjük! Üzenete sikeresen elküldve.',
-      error: 'Hiba történt az üzenet küldése közben. Kérjük, próbálja újra később.'
-    },
-    meta: {
-      title: 'Kapcsolat - OkosIT',
-      description: 'Lépjen kapcsolatba az OkosIT csapatával. Elérhetőségeink és kapcsolatfelvételi űrlap.',
+      required: 'Kötelező mező',
+      invalidEmail: 'Érvénytelen e-mail cím',
+      success: 'Köszönjük! Üzenetét megkaptuk, hamarosan válaszolunk.',
+      error: 'Hiba történt az üzenet küldése közben. Kérjük, próbálja újra később.',
+      privacy: 'Az űrlap elküldésével elfogadom az adatvédelmi irányelveket.',
     },
     methods: {
       title: 'Elérhetőségeink',
@@ -565,39 +586,6 @@ export const translations = {
         secondary: 'Gyors és hatékony',
         description: 'Távolról is segítünk megoldani a problémákat.'
       },
-    },
-    hours: {
-      title: 'Nyitvatartás',
-      description: 'Az alábbi időpontokban állunk rendelkezésre.',
-      weekdays: 'Hétfő - Péntek',
-      weekdaysHours: '9:00 - 17:00',
-      weekdaysType: 'Teljes nyitvatartás',
-      saturday: 'Szombat',
-      saturdayHours: '10:00 - 14:00',
-      saturdayType: 'Csak előzetes egyeztetéssel',
-      sunday: 'Vasárnap',
-      sundayHours: 'Zárva',
-      sundayType: 'Sürgős esetben hívjon',
-      weekend: 'Hétvégén zárva',
-    },
-    form: {
-      title: 'Kapcsolatfelvételi űrlap',
-      description: 'Töltse ki az alábbi űrlapot és munkatársunk hamarosan felveszi Önnel a kapcsolatot.',
-      firstName: 'Keresztnév',
-      lastName: 'Vezetéknév',
-      company: 'Cég neve',
-      name: 'Név',
-      email: 'E-mail cím',
-      phone: 'Telefonszám',
-      subject: 'Tárgy',
-      message: 'Üzenet',
-      send: 'Küldés',
-      submit: 'Küldés',
-      required: 'Kötelező mező',
-      invalidEmail: 'Érvénytelen e-mail cím',
-      success: 'Köszönjük! Üzenetét megkaptuk, hamarosan válaszolunk.',
-      error: 'Hiba történt az üzenet küldése közben. Kérjük, próbálja újra később.',
-      privacy: 'Az űrlap elküldésével elfogadom az adatvédelmi irányelveket.',
     },
     response: {
       title: 'Válaszidő',
@@ -666,6 +654,8 @@ export const translations = {
     emergencySteps: {
       title: 'Sürgősségi eljárás',
       description: 'Kövesse ezeket a lépéseket sürgős IT probléma esetén:',
+      badge: 'Sürgős',
+      callToAction: 'Hívja a sürgősségi vonalat',
       steps: {
         urgent: {
           title: 'Hívja a sürgősségi vonalat',
@@ -744,6 +734,9 @@ export const translations = {
     resources: {
       title: 'Hasznos források',
       description: 'Oktatóanyagok és útmutatók a gyakori problémák megoldásához.',
+      userGuide: 'Felhasználói kézikönyv',
+      troubleshooting: 'Hibaelhárítási útmutató',
+      securityGuide: 'Biztonsági útmutató',
       items: [
         {
           title: 'IT biztonság alapjai',
@@ -783,5 +776,5 @@ export const translations = {
       description: 'Ha nem találja a választ a kérdésére, vegye fel velünk a kapcsolatot.',
       button: 'Kapcsolatfelvétel',
     },
-  },
+  }
 };

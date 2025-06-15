@@ -5,6 +5,7 @@ import Hero from "@/components/hero"
 import CTA from "@/components/cta"
 import StructuredDataHead from "@/components/structured-data-head"
 import { StructuredData } from "@/types"
+// No need for services.json import anymore
 import { 
   HelpCircle, 
   Phone, 

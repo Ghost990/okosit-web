@@ -1,54 +1,54 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
-import ThemeSwitcher from "./theme-switcher"
-import { useTheme } from "next-themes"
-import { useTranslations } from "@/hooks/useTranslations"
-import { motion, Variants } from "framer-motion"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import ThemeSwitcher from "./theme-switcher";
+import { useTheme } from "next-themes";
+import { useTranslations } from "@/hooks/useTranslations";
+import { motion, Variants } from "framer-motion";
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
-  const { theme } = useTheme()
-  const t = useTranslations()
-  
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const { theme } = useTheme();
+  const t = useTranslations();
+
   // Animation variants
   const headerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
         ease: "easeOut",
         staggerChildren: 0.1,
-        when: "beforeChildren"
-      }
-    }
-  }
-  
+        when: "beforeChildren",
+      },
+    },
+  };
+
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: -10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
-    }
-  }
-  
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
   const logoVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" }
-    }
-  }
-  
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
+
   const navigation = [
     { name: t.navigation.home, href: "/" },
     { name: t.navigation.services, href: "/szolgaltatasok" },
@@ -56,20 +56,17 @@ export default function Header() {
     { name: t.navigation.partners, href: "/partnereink" },
     { name: t.navigation.help, href: "/segitseg" },
     { name: t.navigation.contact, href: "/kapcsolat" },
-  ]
+  ];
 
   return (
-    <motion.header 
+    <motion.header
       initial="hidden"
       animate="visible"
       variants={headerVariants}
       className="bg-white shadow-sm dark:bg-secondary-900 dark:border-b dark:border-secondary-800"
     >
       <nav className="container-custom flex items-center justify-between py-4">
-        <motion.div 
-          variants={logoVariants} 
-          className="flex lg:flex-1"
-        >
+        <motion.div variants={logoVariants} className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">OkosIT</span>
             {theme === "dark" ? (
@@ -93,11 +90,8 @@ export default function Header() {
             )}
           </Link>
         </motion.div>
-        
-        <motion.div 
-          variants={itemVariants}
-          className="flex lg:hidden"
-        >
+
+        <motion.div variants={itemVariants} className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-secondary-700 dark:text-white"
@@ -107,8 +101,8 @@ export default function Header() {
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           variants={itemVariants}
           className="hidden lg:flex lg:gap-x-8"
         >
@@ -121,13 +115,13 @@ export default function Header() {
                 visible: (i) => ({
                   opacity: 1,
                   y: 0,
-                  transition: { delay: i * 0.05, duration: 0.3 }
-                })
+                  transition: { delay: i * 0.05, duration: 0.3 },
+                }),
               }}
             >
               <Link
                 href={item.href}
-                className={`text-sm font-medium ${
+                className={`text-md font-medium ${
                   pathname === item.href
                     ? "text-primary-600 dark:text-primary-400"
                     : "text-secondary-700 hover:text-primary-600 dark:text-secondary-200 dark:hover:text-primary-400"
@@ -138,15 +132,15 @@ export default function Header() {
             </motion.div>
           ))}
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           variants={itemVariants}
           className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4"
         >
           <motion.div variants={itemVariants}>
             <ThemeSwitcher />
           </motion.div>
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -160,14 +154,22 @@ export default function Header() {
           </motion.div>
         </motion.div>
       </nav>
-      
+
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50">
-          <div className="fixed inset-0 bg-black/30" aria-hidden="true" onClick={() => setMobileMenuOpen(false)} />
+          <div
+            className="fixed inset-0 bg-black/30"
+            aria-hidden="true"
+            onClick={() => setMobileMenuOpen(false)}
+          />
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-secondary-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-secondary-900/10">
             <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+              <Link
+                href="/"
+                className="-m-1.5 p-1.5"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 <span className="sr-only">OkosIT</span>
                 {theme === "dark" ? (
                   <Image
@@ -216,7 +218,9 @@ export default function Header() {
                 </div>
                 <div className="py-6 flex flex-col space-y-4">
                   <div className="flex items-center">
-                    <span className="text-secondary-700 dark:text-secondary-300 mr-2">{t.common.theme.theme}:</span>
+                    <span className="text-secondary-700 dark:text-secondary-300 mr-2">
+                      {t.common.theme.theme}:
+                    </span>
                     <ThemeSwitcher />
                   </div>
                   <Link
@@ -233,5 +237,5 @@ export default function Header() {
         </div>
       )}
     </motion.header>
-  )
+  );
 }

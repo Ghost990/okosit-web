@@ -126,7 +126,7 @@ export default function CTA() {
                 {/* Contact Methods */}
                 <motion.div
                   variants={itemVariants}
-                  className="grid sm:grid-cols-3 gap-4"
+                  className="grid grid-cols-1 gap-4"
                 >
                   <a
                     href={`tel:${t.contact.phone.value}`}
@@ -172,10 +172,10 @@ export default function CTA() {
                       />
                     </div>
                     <div className="text-white dark:text-white font-medium">
-                      {t.contact.hours.label}
+                      {t.contact.hours.weekdays}
                     </div>
                     <div className="text-primary-200 dark:text-primary-300 text-sm">
-                      H-P: 9:00-17:00
+                      {t.contact.hours.weekdaysHours}
                     </div>
                   </div>
                 </motion.div>

@@ -453,7 +453,7 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.div 
-            className="bg-white dark:bg-secondary-700 rounded-2xl p-8 shadow-lg"
+            className="bg-white dark:bg-secondary-700 rounded-2xl p-8 shadow-lg max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -501,7 +501,7 @@ export default function ContactPage() {
                     type="text"
                     name="firstName"
                     id="firstName"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />
@@ -534,7 +534,7 @@ export default function ContactPage() {
                     type="text"
                     name="lastName"
                     id="lastName"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />
@@ -568,7 +568,7 @@ export default function ContactPage() {
                     type="text"
                     name="company"
                     id="company"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />
@@ -603,7 +603,7 @@ export default function ContactPage() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />
@@ -638,7 +638,7 @@ export default function ContactPage() {
                     name="phone"
                     id="phone"
                     autoComplete="tel"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />
@@ -672,7 +672,7 @@ export default function ContactPage() {
                     type="text"
                     name="subject"
                     id="subject"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />
@@ -706,7 +706,7 @@ export default function ContactPage() {
                     id="message"
                     name="message"
                     rows={6}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                     whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
                     transition={{ duration: 0.2 }}
                   />

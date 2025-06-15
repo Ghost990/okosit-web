@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useTranslations } from "@/hooks/useTranslations"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 const logos = [
   // Partner logos from /public/assets/partners
@@ -20,7 +20,7 @@ export default function PartnerLogos() {
   const t = useTranslations()
 
   // Animation variants for container
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -32,7 +32,7 @@ export default function PartnerLogos() {
   }
 
   // Animation variants for each logo
-  const logoVariants = {
+  const logoVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -42,7 +42,7 @@ export default function PartnerLogos() {
         ease: "easeOut"
       }
     }
-  }
+  } as const
 
   return (
     <div className="py-12 md:py-16 bg-white dark:bg-secondary-900">
@@ -68,7 +68,7 @@ export default function PartnerLogos() {
               key={logo.id} 
               className="flex items-center justify-center"
               variants={logoVariants}
-              whileHover={{ scale: 1.05, grayscale: 0 }}
+              whileHover={{ scale: 1.05 }}
             >
               <Image
                 className="max-h-32 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 border-0"

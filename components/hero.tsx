@@ -12,9 +12,10 @@ interface HeroProps {
   subtitle?: string;
   description?: string;
   animation?: string;
+  isHomePage?: boolean;
 }
 
-export default function Hero({ title, subtitle, description, animation = 'cybersec' }: HeroProps) {
+export default function Hero({ title, subtitle, description, animation = 'cybersec', isHomePage = false }: HeroProps) {
   const t = useTranslations();
   const [animationData, setAnimationData] = useState<any>(null);
 
@@ -143,55 +144,57 @@ export default function Hero({ title, subtitle, description, animation = 'cybers
               {description || t.home.hero.description}
             </motion.p>
 
-            {/* Features */}
-            <motion.div 
-              className="mb-8"
-              variants={itemVariants}
-            >
-              <motion.p 
-                className="text-sm font-semibold text-secondary-700 dark:text-secondary-300 mb-4 uppercase tracking-wide"
+            {/* Features - only shown on homepage */}
+            {isHomePage && (
+              <motion.div 
+                className="mb-8"
                 variants={itemVariants}
               >
-                {t.home.hero.featuresTitle}
-              </motion.p>
-              <motion.div 
-                className="space-y-3"
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.1,
-                      delayChildren: 0.3
+                <motion.p 
+                  className="text-sm font-semibold text-secondary-700 dark:text-secondary-300 mb-4 uppercase tracking-wide"
+                  variants={itemVariants}
+                >
+                  {t.home.hero.featuresTitle}
+                </motion.p>
+                <motion.div 
+                  className="space-y-3"
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.1,
+                        delayChildren: 0.3
+                      }
                     }
-                  }
-                }}
-              >
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center space-x-3"
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
-                    whileHover={{ x: 5 }}
-                  >
+                  }}
+                >
+                  {features.map((feature, index) => (
                     <motion.div
-                      whileHover={{ rotate: 15, scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      key={index}
+                      className="flex items-center space-x-3"
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      whileHover={{ x: 5 }}
                     >
-                      <CheckCircle
-                        className="text-primary-600 dark:text-primary-400 flex-shrink-0"
-                        size={20}
-                      />
+                      <motion.div
+                        whileHover={{ rotate: 15, scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <CheckCircle
+                          className="text-primary-600 dark:text-primary-400 flex-shrink-0"
+                          size={20}
+                        />
+                      </motion.div>
+                      <span className="text-secondary-700 dark:text-secondary-300 font-medium">
+                        {feature}
+                      </span>
                     </motion.div>
-                    <span className="text-secondary-700 dark:text-secondary-300 font-medium">
-                      {feature}
-                    </span>
-                  </motion.div>
-                ))}
+                  ))}
+                </motion.div>
               </motion.div>
-            </motion.div>
+            )}
 
             {/* CTA Buttons */}
             <motion.div 
@@ -229,55 +232,57 @@ export default function Hero({ title, subtitle, description, animation = 'cybers
               </motion.div>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div 
-              className="grid grid-cols-3 gap-6"
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.2,
-                    delayChildren: 0.6
+            {/* Stats - only shown on homepage */}
+            {isHomePage && (
+              <motion.div 
+                className="grid grid-cols-3 gap-6"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.2,
+                      delayChildren: 0.6
+                    }
                   }
-                }
-              }}
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  whileHover={{ y: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <motion.div 
-                    className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 text-primary-600 dark:bg-primary-700/20 dark:text-primary-400 rounded-lg mb-2"
-                    whileHover={{ rotate: 5, scale: 1.1 }}
+                }}
+              >
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-center"
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    whileHover={{ y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <stat.icon size={24} />
+                    <motion.div 
+                      className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 text-primary-600 dark:bg-primary-700/20 dark:text-primary-400 rounded-lg mb-2"
+                      whileHover={{ rotate: 5, scale: 1.1 }}
+                    >
+                      <stat.icon size={24} />
+                    </motion.div>
+                    <motion.div 
+                      className="text-2xl font-bold text-secondary-900 dark:text-white"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8 + index * 0.1 }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <motion.div 
+                      className="text-sm text-secondary-600 dark:text-secondary-400"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.9 + index * 0.1 }}
+                    >
+                      {stat.label}
+                    </motion.div>
                   </motion.div>
-                  <motion.div 
-                    className="text-2xl font-bold text-secondary-900 dark:text-white"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
-                  >
-                    {stat.value}
-                  </motion.div>
-                  <motion.div 
-                    className="text-sm text-secondary-600 dark:text-secondary-400"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.9 + index * 0.1 }}
-                  >
-                    {stat.label}
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </motion.div>
+            )}
           </motion.div>
 
           {/* Visual */}
