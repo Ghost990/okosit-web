@@ -66,14 +66,14 @@ export default function ContactPage() {
   const officeHours = [
     { day: t.contact.hours.weekdays, hours: t.contact.hours.weekdaysHours, type: t.contact.hours.weekdaysType },
     { day: t.contact.hours.saturday, hours: t.contact.hours.saturdayHours, type: t.contact.hours.saturdayType },
-    { day: t.contact.hours.sunday, hours: t.contact.hours.sundayHours, type: t.contact.hours.sundayType },
+    { day: t.contact.hours.sunday, hours: t.contact.hours.sundayHours, type: t.contact.hours.sundayType }
   ]
 
   const responseTime = [
     { type: t.contact.response.emergency, time: t.contact.response.emergencyTime, icon: '🚨' },
     { type: t.contact.response.email, time: t.contact.response.emailTime, icon: '📧' },
     { type: t.contact.response.quote, time: t.contact.response.quoteTime, icon: '📋' },
-    { type: t.contact.response.general, time: t.contact.response.generalTime, icon: '❓' },
+    { type: t.contact.response.general, time: t.contact.response.generalTime, icon: '❓' }
   ]
   
   return (
@@ -569,6 +569,26 @@ export default function ContactPage() {
                     name="company"
                     id="company"
                     className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    whileFocus={{ scale: 1.01, boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.2)" }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </motion.div>
+              </motion.div>
+              <motion.div 
+                className="sm:col-span-2"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } }
+                }}
+              >
+                <motion.label 
+                  htmlFor="email" 
+                  className="block text-sm font-medium text-secondary-700 dark:text-secondary-300"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1, transition: { delay: 0.1 } }
+                  }}
+                >
                   {t.contact.form.email}
                 </motion.label>
                 <motion.div 
