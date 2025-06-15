@@ -478,14 +478,14 @@ export const translations = {
       },
       items: [
         {
-          title: "Pénzügy",
+          title: "Nagykereskedelem",
           description:
-            "Bankok, biztosítók és pénzügyi szolgáltatók IT infrastruktúrájának támogatása.",
+            "Raktárak, beszállítók és nagykereskedelmi vállalatok IT infrastruktúrájának támogatása.",
         },
         {
-          title: "Egészségügy",
+          title: "Logisztika",
           description:
-            "Kórházak, rendelők és egészségügyi szolgáltatók rendszereinek üzemeltetése.",
+            "Szállítmányozási cégek és logisztikai szolgáltatók rendszereinek üzemeltetése.",
         },
         {
           title: "Oktatás",

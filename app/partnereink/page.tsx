@@ -74,34 +74,24 @@ export default function PartnersPage() {
 
   const industries = [
     {
-      name: t.partners.industries.healthcare.name,
-      count: t.partners.industries.healthcare.count,
-      icon: t.partners.industries.healthcare.icon,
+      name: "Nagykereskedelem",
+      count: "10+ partner",
+      icon: "N",
+    },
+    {
+      name: "Logisztika",
+      count: "8+ partner",
+      icon: "L",
     },
     {
       name: t.partners.industries.education.name,
-      count: t.partners.industries.education.count,
+      count: "12+ partner",
       icon: t.partners.industries.education.icon,
     },
     {
       name: t.partners.industries.commerce.name,
-      count: t.partners.industries.commerce.count,
+      count: "15+ partner",
       icon: t.partners.industries.commerce.icon,
-    },
-    {
-      name: t.partners.industries.services.name,
-      count: t.partners.industries.services.count,
-      icon: t.partners.industries.services.icon,
-    },
-    {
-      name: t.partners.industries.manufacturing.name,
-      count: t.partners.industries.manufacturing.count,
-      icon: t.partners.industries.manufacturing.icon,
-    },
-    {
-      name: t.partners.industries.tech.name,
-      count: t.partners.industries.tech.count,
-      icon: t.partners.industries.tech.icon,
     },
   ];
 
@@ -145,8 +135,8 @@ export default function PartnersPage() {
               {t.partners.industries.description}
             </p>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, index) => (
               <motion.div
                 key={index}
@@ -167,6 +157,82 @@ export default function PartnersPage() {
                 </p>
               </motion.div>
             ))}
+          </div>
+
+          {/* Detailed Industry Information */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-8 text-center">
+              Iparági megoldásaink
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              {t.partners.industries.items.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="bg-white dark:bg-secondary-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-secondary-100 dark:border-secondary-700"
+                >
+                  <h4 className="text-xl font-bold text-primary-600 dark:text-primary-400 mb-3">
+                    {item.title}
+                  </h4>
+                  <p className="text-secondary-600 dark:text-secondary-300">
+                    {item.description}
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-secondary-100 dark:border-secondary-700">
+                    <h5 className="font-medium text-secondary-900 dark:text-white mb-2">
+                      Főbb szolgáltatásaink ebben az iparágban:
+                    </h5>
+                    <ul className="list-disc pl-5 text-secondary-600 dark:text-secondary-300 space-y-1">
+                      {index === 0 && (
+                        <>
+                          <li>Raktárkezelő rendszerek</li>
+                          <li>Beszállítói portál fejlesztés</li>
+                          <li>Integrált vállalatirányítási rendszerek</li>
+                        </>
+                      )}
+                      {index === 1 && (
+                        <>
+                          <li>Flottakövetési rendszerek</li>
+                          <li>Szállítmányozási szoftverek</li>
+                          <li>Útvonaltervező alkalmazások</li>
+                        </>
+                      )}
+                      {index === 2 && (
+                        <>
+                          <li>E-learning platformok</li>
+                          <li>Adminisztrációs rendszerek</li>
+                          <li>Digitális tantermi megoldások</li>
+                        </>
+                      )}
+                      {index === 3 && (
+                        <>
+                          <li>Webshop fejlesztés és karbantartás</li>
+                          <li>Készletkezelő rendszerek</li>
+                          <li>Ügyfélkapcsolati rendszerek (CRM)</li>
+                        </>
+                      )}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="inline-block bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 px-6 py-3 rounded-lg border border-primary-100 dark:border-primary-800"
+              >
+                <p className="font-medium">
+                  Egyedi iparági megoldásokért vegye fel velünk a kapcsolatot!
+                </p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
