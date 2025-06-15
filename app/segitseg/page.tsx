@@ -312,7 +312,7 @@ export default function SupportPage() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-secondary-700 rounded-xl p-8 shadow-lg">
+          <div className="bg-white dark:bg-secondary-700 rounded-xl p-8 shadow-lg max-w-3xl mx-auto">
             <form className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300">
@@ -323,7 +323,7 @@ export default function SupportPage() {
                     type="text"
                     name="firstName"
                     id="firstName"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -336,7 +336,7 @@ export default function SupportPage() {
                     type="text"
                     name="lastName"
                     id="lastName"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -349,7 +349,7 @@ export default function SupportPage() {
                     id="email"
                     name="email"
                     type="email"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function SupportPage() {
                     type="text"
                     name="subject"
                     id="subject"
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -375,7 +375,7 @@ export default function SupportPage() {
                     id="message"
                     name="message"
                     rows={6}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-2 border-secondary-300 dark:border-secondary-600 rounded-md bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white"
                   ></textarea>
                 </div>
               </div>

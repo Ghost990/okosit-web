@@ -134,12 +134,40 @@ export default function PartnersPage() {
         animation="partners"
       />
 
-      {/* Simplified content */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            {t.partners.industries.title}
-          </h2>
+      {/* Industries Section */}
+      <section className="py-16 bg-white dark:bg-secondary-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+              {t.partners.industries.title}
+            </h2>
+            <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
+              {t.partners.industries.description}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {industries.map((industry, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full mb-4">
+                  <Star className="w-8 h-8" />
+                </div>
+                <h3 className="text-lg font-bold text-secondary-900 dark:text-white mb-2">
+                  {industry.name}
+                </h3>
+                <p className="text-primary-600 dark:text-primary-400 font-medium">
+                  {industry.count}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

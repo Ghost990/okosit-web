@@ -101,7 +101,7 @@ export default function CTA() {
               variants={itemVariants}
               className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <div>
                   <h3 className="text-white text-xl font-semibold mb-4">
                     {t.common.cta.contactInfo}
@@ -128,54 +128,56 @@ export default function CTA() {
                   variants={itemVariants}
                   className="grid grid-cols-1 gap-4"
                 >
-                  <a
-                    href={`tel:${t.contact.phone.value}`}
-                    className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
-                  >
-                    <div>
-                      <Phone
-                        className="mx-auto mb-3 text-primary-300 dark:text-primary-400 group-hover:text-white dark:group-hover:text-primary-200 transition-colors"
-                        size={24}
-                      />
-                    </div>
-                    <div className="text-white dark:text-white font-medium">
-                      {t.contact.phone.label}
-                    </div>
-                    <div className="text-primary-200 dark:text-primary-300 text-sm">
-                      {t.contact.phone.value}
-                    </div>
-                  </a>
+                  <div className="grid grid-cols-3 gap-4">
+                    <a
+                      href={`tel:${t.contact.phone.value}`}
+                      className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
+                    >
+                      <div>
+                        <Phone
+                          className="mx-auto mb-3 text-primary-300 dark:text-primary-400 group-hover:text-white dark:group-hover:text-primary-200 transition-colors"
+                          size={24}
+                        />
+                      </div>
+                      <div className="text-white dark:text-white font-medium">
+                        {t.contact.phone.label}
+                      </div>
+                      <div className="text-primary-200 dark:text-primary-300 text-sm">
+                        {t.contact.phone.value}
+                      </div>
+                    </a>
 
-                  <a
-                    href={`mailto:${t.contact.email.value}`}
-                    className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
-                  >
-                    <div>
-                      <Mail
-                        className="mx-auto mb-3 text-primary-300 dark:text-primary-400 group-hover:text-white dark:group-hover:text-primary-200 transition-colors"
-                        size={24}
-                      />
-                    </div>
-                    <div className="text-white dark:text-white font-medium">
-                      {t.contact.email.label}
-                    </div>
-                    <div className="text-primary-200 dark:text-primary-300 text-sm">
-                      info@okosit.hu
-                    </div>
-                  </a>
+                    <a
+                      href={`mailto:${t.contact.email.value}`}
+                      className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
+                    >
+                      <div>
+                        <Mail
+                          className="mx-auto mb-3 text-primary-300 dark:text-primary-400 group-hover:text-white dark:group-hover:text-primary-200 transition-colors"
+                          size={24}
+                        />
+                      </div>
+                      <div className="text-white dark:text-white font-medium">
+                        {t.contact.email.label}
+                      </div>
+                      <div className="text-primary-200 dark:text-primary-300 text-sm">
+                        info@okosit.hu
+                      </div>
+                    </a>
 
-                  <div className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div>
-                      <Clock
-                        className="mx-auto mb-3 text-primary-300 dark:text-primary-400"
-                        size={24}
-                      />
-                    </div>
-                    <div className="text-white dark:text-white font-medium">
-                      {t.contact.hours.weekdays}
-                    </div>
-                    <div className="text-primary-200 dark:text-primary-300 text-sm">
-                      {t.contact.hours.weekdaysHours}
+                    <div className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center">
+                      <div>
+                        <Clock
+                          className="mx-auto mb-3 text-primary-300 dark:text-primary-400"
+                          size={24}
+                        />
+                      </div>
+                      <div className="text-white dark:text-white font-medium">
+                        {t.contact.hours.weekdays}
+                      </div>
+                      <div className="text-primary-200 dark:text-primary-300 text-sm">
+                        {t.contact.hours.weekdaysHours}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -186,7 +188,7 @@ export default function CTA() {
           {/* CTA Form/Button */}
           <motion.div
             variants={cardVariants}
-            className="bg-white dark:bg-secondary-800 rounded-2xl p-8 lg:p-12 shadow-2xl"
+            className="bg-white dark:bg-secondary-800 rounded-2xl p-8 lg:p-12 shadow-2xl max-h-fit"
           >
             <h3 className="heading-3 text-secondary-900 dark:text-white mb-6">
               {t.contact.form.title}
