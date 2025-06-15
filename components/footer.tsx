@@ -1,18 +1,25 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
-import { useTheme } from "next-themes"
-import { useTranslations } from "@/hooks/useTranslations"
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
+import { useTheme } from "next-themes";
+import { useTranslations } from "@/hooks/useTranslations";
 
 // We'll define the navigation inside the component to access translations
 
 export default function Footer() {
-  const { theme } = useTheme()
-  const t = useTranslations()
-  const currentYear = new Date().getFullYear()
-  
+  const { theme } = useTheme();
+  const t = useTranslations();
+  const currentYear = new Date().getFullYear();
+
   const navigation = {
     main: [
       { name: t.navigation.home, href: "/" },
@@ -23,11 +30,26 @@ export default function Footer() {
       { name: t.navigation.contact, href: "/kapcsolat" },
     ],
     services: [
-      { name: t.services.categories.systemOperation, href: "/szolgaltatasok#infrastruktura" },
-      { name: t.services.categories.webDevelopment, href: "/szolgaltatasok#felho" },
-      { name: t.services.categories.itImplementation, href: "/szolgaltatasok#kiberbiztonsag" },
-      { name: t.services.categories.pcRepair, href: "/szolgaltatasok#tanacsadas" },
-      { name: t.services.categories.deviceRental, href: "/szolgaltatasok#tamogatas" },
+      {
+        name: t.services.categories.systemOperation,
+        href: "/szolgaltatasok#infrastruktura",
+      },
+      {
+        name: t.services.categories.webDevelopment,
+        href: "/szolgaltatasok#felho",
+      },
+      {
+        name: t.services.categories.itImplementation,
+        href: "/szolgaltatasok#kiberbiztonsag",
+      },
+      {
+        name: t.services.categories.pcRepair,
+        href: "/szolgaltatasok#tanacsadas",
+      },
+      {
+        name: t.services.categories.deviceRental,
+        href: "/szolgaltatasok#tamogatas",
+      },
     ],
     social: [
       {
@@ -46,10 +68,13 @@ export default function Footer() {
         icon: Linkedin,
       },
     ],
-  }
+  };
 
   return (
-    <footer className="bg-white dark:bg-secondary-900" aria-labelledby="footer-heading">
+    <footer
+      className="bg-white dark:bg-secondary-900"
+      aria-labelledby="footer-heading"
+    >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -59,7 +84,7 @@ export default function Footer() {
             <Link href="/">
               {theme === "dark" ? (
                 <Image
-                  src="/logo_dark.png"
+                  src="/assets/logo_dark.png"
                   alt="OkosIT Logo"
                   width={120}
                   height={40}
@@ -67,7 +92,7 @@ export default function Footer() {
                 />
               ) : (
                 <Image
-                  src="/logo.png"
+                  src="/assets/logo.png"
                   alt="OkosIT Logo"
                   width={120}
                   height={40}
@@ -96,7 +121,9 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">{t.footer.quickLinks}</h3>
+                <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">
+                  {t.footer.quickLinks}
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.main.map((item) => (
                     <li key={item.name}>
@@ -111,7 +138,9 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">{t.footer.services}</h3>
+                <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">
+                  {t.footer.services}
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.services.map((item) => (
                     <li key={item.name}>
@@ -127,7 +156,9 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">{t.footer.contactInfo}</h3>
+              <h3 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white">
+                {t.footer.contactInfo}
+              </h3>
               <ul role="list" className="mt-6 space-y-4">
                 <li className="flex">
                   <div className="flex-shrink-0">
@@ -142,7 +173,10 @@ export default function Footer() {
                     <Phone className="h-5 w-5 text-primary-600 dark:text-primary-500" />
                   </div>
                   <div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
-                    <a href="tel:+36123456789" className="hover:text-secondary-900 dark:hover:text-white">
+                    <a
+                      href="tel:+36123456789"
+                      className="hover:text-secondary-900 dark:hover:text-white"
+                    >
                       +36 12 345 6789
                     </a>
                   </div>
@@ -152,7 +186,10 @@ export default function Footer() {
                     <Mail className="h-5 w-5 text-primary-600 dark:text-primary-500" />
                   </div>
                   <div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
-                    <a href="mailto:info@okosit.hu" className="hover:text-secondary-900 dark:hover:text-white">
+                    <a
+                      href="mailto:info@okosit.hu"
+                      className="hover:text-secondary-900 dark:hover:text-white"
+                    >
                       info@okosit.hu
                     </a>
                   </div>
@@ -168,5 +205,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

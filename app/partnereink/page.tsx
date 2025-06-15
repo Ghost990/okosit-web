@@ -137,7 +137,7 @@ export default function PartnersPage() {
       <section className="py-20 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.partners.featured.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
@@ -158,7 +158,7 @@ export default function PartnersPage() {
                     ))}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{partner.name}</h3>
+                <h3 className="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-2">{partner.name}</h3>
                 <div className="text-primary-600 dark:text-primary-400 text-sm mb-4">{partner.industry}</div>
                 <p className="text-secondary-600 dark:text-secondary-400 mb-4">{partner.testimonial}</p>
                 <div className="text-sm text-secondary-500 dark:text-secondary-500">{partner.partnership}</div>
@@ -181,7 +181,7 @@ export default function PartnersPage() {
       <section className="py-20 bg-white dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.partners.industries.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
@@ -209,7 +209,7 @@ export default function PartnersPage() {
       <section className="py-20 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.partners.benefits.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
@@ -223,7 +223,7 @@ export default function PartnersPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full mb-6">
                   <benefit.icon size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-4">
+                <h3 className="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-4">
                   {benefit.title}
                 </h3>
                 <p className="text-secondary-600 dark:text-secondary-400">

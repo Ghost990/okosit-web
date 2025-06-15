@@ -97,7 +97,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.about.values.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
@@ -147,7 +147,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.about.team.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
@@ -178,7 +178,7 @@ export default function AboutPage() {
       <section className="py-20 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
               {t.about.timeline.title}
             </h2>
             <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">

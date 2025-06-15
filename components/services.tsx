@@ -35,7 +35,7 @@ export default function Services() {
           <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-800 dark:bg-primary-700/20 dark:text-primary-300 rounded-full text-sm font-medium mb-6">
             {t.services.badge}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-montserrat font-bold text-secondary-900 dark:text-white mb-6">
+          <h2 className="heading-1 text-secondary-900 dark:text-white mb-6">
             {t.services.title}
             <span className="block text-primary-600 dark:text-primary-400">{t.services.subtitle}</span>
           </h2>
@@ -62,7 +62,7 @@ export default function Services() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3 className="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {t.services.categories[translationKey]}
                 </h3>
                 
@@ -110,7 +110,7 @@ export default function Services() {
         {/* CTA */}
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-secondary-800 dark:to-secondary-900 rounded-2xl p-8 lg:p-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-secondary-900 dark:text-white mb-4">
+            <h3 className="heading-3 text-secondary-900 dark:text-white mb-4">
               {t.services.cta.title}
             </h3>
             <p className="text-secondary-600 dark:text-secondary-400 mb-8 max-w-2xl mx-auto">

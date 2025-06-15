@@ -18,7 +18,7 @@ export default function CTA() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-montserrat font-bold text-white dark:text-white mb-6">
+          <h2 className="heading-1 text-white dark:text-white mb-6">
             {t.common.cta.title}
             <span className="block">{t.common.cta.subtitle}</span>
           </h2>
@@ -31,7 +31,7 @@ export default function CTA() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8">
-              <h3 className="text-2xl font-montserrat font-bold text-white dark:text-white mb-6">
+              <h3 className="heading-3 text-white dark:text-white mb-6">
                 {t.common.cta.whyChooseUs}
               </h3>
               <div className="space-y-4">
@@ -61,20 +61,20 @@ export default function CTA() {
               >
                 <Mail className="mx-auto mb-3 text-primary-300 dark:text-primary-400 group-hover:text-white dark:group-hover:text-primary-200 transition-colors" size={24} />
                 <div className="text-white dark:text-white font-medium">{t.contact.email.label}</div>
-                <div className="text-primary-200 dark:text-primary-300 text-sm">{t.contact.email.value}</div>
+                <div className="text-primary-200 dark:text-primary-300 text-sm">info@okosit.hu</div>
               </a>
               
               <div className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center">
                 <Clock className="mx-auto mb-3 text-primary-300 dark:text-primary-400" size={24} />
                 <div className="text-white dark:text-white font-medium">{t.contact.hours.label}</div>
-                <div className="text-primary-200 dark:text-primary-300 text-sm">{t.contact.hours.value}</div>
+                <div className="text-primary-200 dark:text-primary-300 text-sm">H-P: 9:00-17:00</div>
               </div>
             </div>
           </div>
 
           {/* CTA Form/Button */}
           <div className="bg-white dark:bg-secondary-800 rounded-2xl p-8 lg:p-12 shadow-2xl">
-            <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-6">
+            <h3 className="heading-3 text-secondary-900 dark:text-white mb-6">
               {t.contact.form.title}
             </h3>
             <p className="text-secondary-600 dark:text-secondary-400 mb-8">
@@ -86,7 +86,7 @@ export default function CTA() {
                 href="/kapcsolat"
                 className="w-full inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
               >
-                {t.contact.form.cta}
+                <span>Kapcsolatfelvételi űrlap</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Link>
               
