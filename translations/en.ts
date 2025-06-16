@@ -149,13 +149,6 @@ export const translations = {
       webshop: "Webshop Creation",
       itImplementation: "IT Implementation",
       deviceRental: "Device Rental",
-      // Service IDs from services.json
-      rendszeruzemeltetes: "System Operations",
-      "pc-javitas": "PC and Laptop Repair",
-      webfejlesztes: "Web Development",
-      webshop: "Webshop Creation",
-      "it-kivitelezes": "IT Implementation",
-      eszkozberbeadas: "Device Rental",
     },
     descriptions: {
       rendszeruzemeltetes:
@@ -367,6 +360,12 @@ export const translations = {
     logos: {
       title: "Partners who trust us",
     },
+    hero: {
+      title: "Our Partners",
+      subtitle: "Our Collaborations",
+      description:
+        "We work with reliable partners to provide the best service to our clients.",
+    },
     companies: {
       profimed: {
         name: "ProfiMed Healthcare Provider",
@@ -412,12 +411,130 @@ export const translations = {
           "OkosIT helped us develop a monitoring system that allows our clients to track and optimize their energy consumption.",
         partnership: "Since 2023",
       },
+      dataFlow: {
+        name: "DataFlow Analytics Center",
+        industry: "Data Analysis",
+        services: ["Big Data solutions", "Data visualization"],
+        testimonial:
+          "OkosIT's experts were essential in building our data analytics platform, which now holds a leading position in the market.",
+        partnership: "Since 2022",
+      },
     },
     industries: {
       title: "Industries",
       subtitle: "Sectors we work in",
       description:
         "We have extensive experience in various industries.",
+      healthcare: {
+        name: "Healthcare",
+        count: "25+ partners",
+        icon: "H",
+      },
+      education: {
+        name: "Education",
+        count: "30+ partners",
+        icon: "E",
+      },
+      commerce: {
+        name: "Commerce",
+        count: "40+ partners",
+        icon: "C",
+      },
+      services: {
+        name: "Services",
+        count: "35+ partners",
+        icon: "S",
+      },
+      manufacturing: {
+        name: "Manufacturing",
+        count: "15+ partners",
+        icon: "M",
+      },
+      tech: {
+        name: "Technology",
+        count: "20+ partners",
+        icon: "T",
+      },
+      items: [
+        {
+          title: "Wholesale",
+          description:
+            "Supporting IT infrastructure for warehouses, suppliers, and wholesale companies.",
+        },
+        {
+          title: "Logistics",
+          description:
+            "Operating systems for shipping companies and logistics providers.",
+        },
+        {
+          title: "Education",
+          description:
+            "IT solutions for schools, universities, and educational institutions.",
+        },
+      ],
+    },
+    benefits: {
+      title: "Partnership Benefits",
+      subtitle: "Why partner with us?",
+      description:
+        "Discover the advantages of collaborating with OkosIT.",
+      longTerm: {
+        title: "Long-term Collaboration",
+        description:
+          "We strive for long-term relationships with our partners to continuously support their business goals.",
+      },
+      quality: {
+        title: "Outstanding Quality",
+        description:
+          "We follow the highest quality standards in every project to ensure our partners' satisfaction.",
+      },
+      personal: {
+        title: "Personalized Solutions",
+        description:
+          "We apply an individual approach to each partner, taking into account their specific needs and goals.",
+      },
+      items: [
+        {
+          title: "Expertise",
+          description: "Years of experience in various IT fields.",
+        },
+        {
+          title: "Reliability",
+          description: "We always deliver on our promises.",
+        },
+        {
+          title: "Innovation",
+          description: "We stay up-to-date with the latest technologies.",
+        },
+      ],
+    },
+    cta: {
+      title: "Become our partner!",
+      description:
+        "Contact us to discuss partnership opportunities.",
+      button: "Contact Us",
+    },
+    featured: {
+      title: "Featured Partners",
+      subtitle: "Who we work with",
+    },
+    stats: {
+      clients: {
+        value: "100+",
+        label: "Satisfied partners",
+      },
+      projects: {
+        value: "250+",
+        label: "Successful projects",
+      },
+      satisfaction: {
+        value: "98%",
+        label: "Satisfaction rate",
+      },
+      retention: {
+        value: "95%",
+        label: "Partner retention rate",
+      },
     }
   },
 
@@ -491,7 +608,8 @@ export const translations = {
         invalidEmail: "Please enter a valid email address.",
         termsRequired: "Please accept the privacy policy.",
         serverError: "A server error occurred. Please try again later.",
-        networkError: "A network error occurred. Please check your internet connection."
+        networkError: "A network error occurred. Please check your internet connection.",
+        submitError: "An error occurred while submitting the form. Please try again."
       },
       validation: {
         name: "Please enter your name",
@@ -501,6 +619,7 @@ export const translations = {
         message: "Please enter your message",
       },
     },
+
     methods: {
       title: "Contact Methods",
       description: "Choose the contact method that works best for you.",
@@ -564,11 +683,80 @@ export const translations = {
 
   // Support page
   support: {
+    meta: {
+      title: "Help - OkosIT",
+      description: "IT support and assistance for businesses.",
+    },
     hero: {
       title: "Help",
       subtitle: "Support and Information",
       description:
         "Find answers to common questions and get help with our services.",
+    },
+    options: {
+      title: "Support Options",
+      description: "Choose the support option that works best for you.",
+      phone: {
+        title: "Phone Support",
+        description: "Call us for immediate assistance with your IT issues.",
+        action: "Call Now",
+        availability: "24/7, response within 24 hours",
+      },
+      email: {
+        title: "Email Support",
+        description: "Send us an email with your questions or issues.",
+        action: "Send Email",
+        availability: "Response within 24 hours",
+      },
+      remote: {
+        title: "Remote Assistance",
+        description: "We can solve problems remotely if needed.",
+        action: "Start Take Control",
+        availability: "By appointment",
+      },
+      onsite: {
+        title: "Onsite Support",
+        description: "For more serious issues, we provide onsite assistance.",
+        action: "Schedule Appointment",
+        availability: "Weekdays, by appointment",
+      },
+    },
+    emergency: {
+      title: "Emergency Help",
+      description: "For critical IT issues, call our emergency line:",
+      phone: "+36 30 123 4567",
+      steps: [
+        "Call the emergency line",
+        "Provide your client code",
+        "Briefly describe the problem",
+        "Our expert will call you back within 30 minutes",
+      ],
+    },
+    emergencySteps: {
+      title: "Emergency Procedure",
+      description: "Follow these steps in case of an urgent IT problem:",
+      badge: "Urgent",
+      callToAction: "Call the emergency line",
+      steps: {
+        urgent: {
+          title: "Call the emergency line",
+          description:
+            "For critical IT issues, immediately call +36703915000.",
+          action: "Call now",
+        },
+        describe: {
+          title: "Describe the problem",
+          description:
+            "Briefly and accurately describe the error and its circumstances.",
+          action: "Describe problem",
+        },
+        solution: {
+          title: "Solution",
+          description:
+            "Our experts will solve the problem as soon as possible, using remote assistance or on-site support if necessary.",
+          action: "More information",
+        },
+      },
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -576,65 +764,85 @@ export const translations = {
       categories: {
         general: {
           title: "General Questions",
-          items: [
-            {
+          questions: {
+            coverage: {
               question: "What services does OkosIT offer?",
               answer:
                 "OkosIT offers a wide range of IT services including system operations, PC and laptop repair, web development, webshop creation, IT implementation, and device rental.",
             },
-            {
+            response: {
               question: "How can I request a quote?",
               answer:
                 "You can request a quote by filling out the contact form on our website, calling us directly, or sending us an email with details about your project or needs.",
             },
-            {
+            payment: {
               question: "What areas do you serve?",
               answer:
                 "We primarily serve businesses in Hungary, but we can also provide remote services to clients in other countries.",
             },
-          ],
+          },
         },
         technical: {
           title: "Technical Support",
-          items: [
-            {
+          questions: {
+            computer: {
               question: "How quickly can you respond to technical issues?",
               answer:
                 "For our clients with service contracts, we respond to critical issues within 1-2 hours. For standard support requests, we typically respond within 24 hours.",
             },
-            {
+            backup: {
               question: "Do you offer remote support?",
               answer:
                 "Yes, we offer remote support for many technical issues, which allows us to resolve problems quickly without the need for an on-site visit.",
             },
-            {
+            virus: {
               question: "What should I do if my computer won't start?",
               answer:
                 "First, check that all cables are properly connected and that the power outlet is working. If the problem persists, contact our technical support team for assistance.",
             },
-          ],
+          },
         },
         services: {
           title: "Services",
-          items: [
-            {
+          questions: {
+            website: {
               question: "What does system operations service include?",
               answer:
                 "Our system operations service includes 24/7 server monitoring, proactive maintenance, security backups, network infrastructure management, and server administration.",
             },
-            {
+            urgent: {
               question: "How long does it take to develop a website?",
               answer:
                 "The timeline for website development depends on the complexity of the project. A simple website can be completed in 2-3 weeks, while more complex projects may take 1-3 months.",
             },
-            {
+            warranty: {
               question: "Do you offer website maintenance services?",
               answer:
                 "Yes, we offer website maintenance services to ensure your website remains secure, up-to-date, and functioning properly.",
             },
-          ],
+          },
         },
       },
+    },
+    resources: {
+      title: "Useful Resources",
+      description:
+        "Tutorials and guides to solve common problems.",
+      userGuide: "User Manual",
+      troubleshooting: "Troubleshooting Guide",
+      securityGuide: "Security Guide",
+      items: [
+        {
+          title: "IT Security Basics",
+          description: "Guide to safe internet usage.",
+          link: "/help/it-security",
+        },
+        {
+          title: "Data Recovery Steps",
+          description: "What to do if you've lost your data?",
+          link: "/help/data-recovery",
+        },
+      ],
     },
     contactForm: {
       title: "Contact Form",
@@ -649,6 +857,20 @@ export const translations = {
       submit: "Submit",
       success: "Your message has been sent successfully. We'll get back to you soon!",
       error: "There was an error sending your message. Please try again later.",
+      privacy: "By submitting this form, I accept the privacy policy.",
+      company: "Company Name (optional)",
+      urgency: "Urgency",
+      urgencyOptions: {
+        low: "Not Urgent",
+        medium: "Normal",
+        high: "Urgent",
+      },
+    },
+    contact: {
+      title: "Contact Us",
+      description:
+        "If you can't find the answer to your question, please contact us.",
+      button: "Contact Us",
     },
   },
 };
