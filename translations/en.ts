@@ -522,6 +522,12 @@ export const translations = {
         secondary: "Appointment required",
         description: "Visit our office by scheduling an appointment.",
       },
+      remote: {
+        title: "Remote Assistance",
+        primary: "Take Control",
+        secondary: "Fast and efficient",
+        description: "We can help solve problems remotely.",
+      },
     },
     info: {
       title: "Contact Information",
