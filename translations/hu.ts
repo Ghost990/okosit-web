@@ -313,8 +313,8 @@ export const translations = {
         label: "Szerver felügyelet",
       },
       experience: {
-        value: "10+",
-        label: "Év tapasztalat",
+        value: "100%",
+        label: "Biztonsági megfelelés",
       },
     },
     timeline: {
