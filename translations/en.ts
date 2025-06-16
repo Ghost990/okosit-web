@@ -529,6 +529,18 @@ export const translations = {
         description: "We can help solve problems remotely.",
       },
     },
+    response: {
+      title: "Response Time",
+      description: "We typically respond to inquiries within the following timeframes.",
+      emergency: "Emergency",
+      emergencyTime: "Within 2 hours",
+      email: "Email",
+      emailTime: "1 business day",
+      quote: "Quote Request",
+      quoteTime: "2 business days",
+      general: "PING",
+      generalTime: "time<0.1ms TTL=64",
+    },
     info: {
       title: "Contact Information",
       address: "Address",
