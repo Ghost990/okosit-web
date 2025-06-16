@@ -223,12 +223,13 @@ export default function SupportPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <ObfuscatedPhone
-              phone="+36703915000"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 shadow-md hover:shadow-lg"
-            >
-              {t.support.emergencySteps.callToAction}
-            </ObfuscatedPhone>
+            <div className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 shadow-md hover:shadow-lg">
+              <ObfuscatedPhone
+                phone="+36703915000"
+                className="mr-2"
+              />
+              <span>{t.support.emergencySteps.callToAction}</span>
+            </div>
           </div>
         </div>
       </section>
