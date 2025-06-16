@@ -1,0 +1,17 @@
+/* Partner logos styling */
+.partner-logo {
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.partner-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.partner-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+}
