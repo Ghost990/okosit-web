@@ -550,6 +550,7 @@ export const translations = {
       description:
         "Vegye fel velünk a kapcsolatot és beszéljük meg az együttműködés lehetőségeit.",
       button: "Kapcsolatfelvétel",
+      customSolutions: "Egyedi iparági megoldásokért vegye fel velünk a kapcsolatot!",
     },
   },
 
