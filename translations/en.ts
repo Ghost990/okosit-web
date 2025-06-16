@@ -513,6 +513,7 @@ export const translations = {
       description:
         "Contact us to discuss partnership opportunities.",
       button: "Contact Us",
+      customSolutions: "Contact us for custom industry solutions!",
     },
     featured: {
       title: "Featured Partners",

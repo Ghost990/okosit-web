@@ -203,7 +203,7 @@ export default function CTA() {
                   href="/kapcsolat"
                   className="w-full inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
                 >
-                  <span>Kapcsolatfelvételi űrlap</span>
+                  <span>{t.contact.form.title}</span>
                   <div className="ml-2">
                     <ArrowRight
                       className="group-hover:translate-x-1 transition-transform"
