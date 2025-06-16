@@ -59,7 +59,7 @@ export default function Hero({
   const stats = [
     { icon: Users, value: "200+", label: t.home.stats.clients },
     { icon: Zap, value: "24/7", label: t.home.stats.support },
-    { icon: Shield, value: "99.9%", label: t.home.stats.availability },
+    { icon: Shield, value: "10+", label: t.home.stats.experience },
   ];
 
   // Animation variants

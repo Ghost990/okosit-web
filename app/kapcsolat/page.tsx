@@ -109,15 +109,14 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            animate="visible" // Changed from whileInView to animate for immediate loading
             variants={{
               hidden: {},
               visible: {
                 transition: {
-                  staggerChildren: 0.15
+                  staggerChildren: 0.05 // Reduced stagger time for faster appearance
                 }
               }
             }}
@@ -145,16 +144,11 @@ export default function ContactPage() {
               >
                 <motion.div 
                   className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-xl mb-6 group-hover:bg-primary-600 group-hover:text-white dark:group-hover:bg-primary-500 transition-all duration-300"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  animate={index % 2 === 0 ? 
-                    { y: [0, -5, 0] } : 
-                    { rotate: [0, 5, 0] }
-                  }
-                  transition={{ 
-                    duration: 2, 
-                    repeat: Infinity, 
-                    repeatDelay: 1 + index * 0.5 
-                  }}
+                  whileHover={{ scale: 1.05 }}
+                  // Simplified animation to improve performance
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <method.icon size={32} />
                 </motion.div>

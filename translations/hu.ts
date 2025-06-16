@@ -110,9 +110,10 @@ export const translations = {
     },
     stats: {
       clients: "Elégedett ügyfelek",
-      support: "Támogatás",
+      support: "Szerver felügyelet",
       availability: "Rendelkezésre állás",
       experience: "Év tapasztalat",
+      satisfaction: "Ügyfél elégedettség",
     },
   },
 
@@ -121,20 +122,20 @@ export const translations = {
     meta: {
       title: "Szolgáltatások - OkosIT",
       description:
-        "Fedezze fel teljes körű IT szolgáltatásainkat: rendszerüzemeltetés, webfejlesztés, PC javítás és további megoldások vállalkozások számára.",
+        "Szakmai tapasztalattal és egyéni megközelítéssel segítünk vállalkozása technológiai kihivásainak megoldásában.",
     },
     title: "Szolgáltatásaink",
-    subtitle: "Komplex IT megoldások",
+    subtitle: "Technológiai megoldások",
     description:
-      "Teljes körű IT szolgáltatások vállalkozások számára, a rendszerüzemeltettől a webfejlesztésig.",
+      "Teljes körű IT szolgáltatások vállalkozások számára, a rendszerüzemeltetéstől a webfejlesztésig.",
     badge: "Professzionális szolgáltatások",
     details: "Részletek",
     moreFeatures: "+ további {count} szolgáltatás",
     hero: {
       title: "Szolgáltatásaink",
-      subtitle: "Komplex IT megoldások",
+      subtitle: "Technológiai megoldások",
       description:
-        "Teljes körű IT szolgáltatások vállalkozások számára, a rendszerüzemeltettéstől a webfejlesztésig.",
+        "Teljes körű IT szolgáltatások vállalkozások számára, a rendszerüzemeltetéstől a webfejlesztésig.",
     },
     categories: {
       systemOperation: "Rendszerüzemeltetés",
@@ -163,7 +164,7 @@ export const translations = {
     },
     features: {
       rendszeruzemeltetes: [
-        "24/7 monitoring és támogatás",
+        "24/7 szerver felügyelet",
         "Proaktív karbantartás",
         "Biztonsági mentések",
         "Hálózati infrastruktúra kezelés",
@@ -299,12 +300,12 @@ export const translations = {
         label: "Elégedett ügyfél",
       },
       availability: {
-        value: "99.9%",
-        label: "Rendelkezésre állás",
+        value: "10+",
+        label: "Év tapasztalat",
       },
       support: {
         value: "24/7",
-        label: "Támogatás",
+        label: "Szerver felügyelet",
       },
       experience: {
         value: "10+",
