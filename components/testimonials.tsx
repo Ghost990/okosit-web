@@ -92,9 +92,9 @@ export default function Testimonials() {
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { value: '200+', label: t.home.stats.clients },
-            { value: '99.9%', label: t.home.stats.availability },
+            { value: '10+', label: t.home.stats.experience },
             { value: '24/7', label: t.home.stats.support },
-            { value: '5+', label: t.home.stats.experience },
+            { value: '100%', label: t.home.stats.satisfaction },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl lg:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">

@@ -16,12 +16,16 @@ export const ObfuscatedEmail: React.FC<{ email: string; className?: string }> = 
 
   // Only render the actual email on the client side
   useEffect(() => {
-    setMounted(true);
+    // Use requestAnimationFrame for smoother transition
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   if (!mounted) {
-    // Server-side or during hydration, render a placeholder
-    return <span className={className}>[email protected]</span>;
+    // Server-side or during hydration, render a placeholder that looks similar to real content
+    return <span className={`${className} opacity-70`}>{email.replace(/@/g, '[at]').replace(/\./g, '[dot]')}</span>;
   }
 
   // Client-side, assemble the email from parts with data attributes
@@ -62,12 +66,16 @@ export const ObfuscatedPhone: React.FC<{
 
   // Only render the actual phone on the client side
   useEffect(() => {
-    setMounted(true);
+    // Use requestAnimationFrame for smoother transition
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   if (!mounted) {
-    // Server-side or during hydration, render a placeholder
-    return <span className={className}>+36 XX XXX XXXX</span>;
+    // Server-side or during hydration, render a placeholder that looks similar to real content
+    return <span className={`${className} opacity-70`}>{phone.replace(/\d(?=\d{2})/g, 'X')}</span>;
   }
 
   // Format the phone number based on the format prop
