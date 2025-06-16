@@ -229,7 +229,7 @@ export default function PartnersPage() {
                 className="inline-block bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 px-6 py-3 rounded-lg border border-primary-100 dark:border-primary-800"
               >
                 <p className="font-medium">
-                  Egyedi iparági megoldásokért vegye fel velünk a kapcsolatot!
+                  {t.partners.cta.customSolutions}
                 </p>
               </motion.div>
             </div>
