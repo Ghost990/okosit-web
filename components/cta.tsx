@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail, Clock } from "lucide-react";
 import { useTranslations } from "@/hooks/useTranslations";
-import { motion, Variants } from "framer-motion";
+import { LocaleLink } from "@/utils/locale-links";
+import { Variants } from "framer-motion";
 
 export default function CTA() {
   const t = useTranslations();
@@ -199,7 +201,7 @@ export default function CTA() {
 
             <div className="space-y-4">
               <div>
-                <Link
+                <LocaleLink
                   href="/kapcsolat"
                   className="w-full inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
                 >
@@ -210,7 +212,7 @@ export default function CTA() {
                       size={20}
                     />
                   </div>
-                </Link>
+                </LocaleLink>
               </div>
 
               <div className="text-center">

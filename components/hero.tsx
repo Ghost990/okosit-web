@@ -4,6 +4,7 @@ import Link from "next/link";
 import Lottie from "lottie-react";
 import { ArrowRight, CheckCircle, Zap, Shield, Users } from "lucide-react";
 import { useTranslations } from "@/hooks/useTranslations";
+import { LocaleLink } from "@/utils/locale-links";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -231,7 +232,7 @@ export default function Hero({
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <Link
+                <LocaleLink
                   href="/kapcsolat"
                   className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
                 >
@@ -247,18 +248,18 @@ export default function Hero({
                   >
                     <ArrowRight size={20} />
                   </motion.div>
-                </Link>
+                </LocaleLink>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <Link
+                <LocaleLink
                   href="/szolgaltatasok"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-secondary-300 text-secondary-700 dark:border-secondary-700 dark:text-secondary-300 dark:hover:border-primary-500 dark:hover:text-primary-400 transition-all duration-300"
                 >
                   {t.home.hero.secondaryCTA}
-                </Link>
+                </LocaleLink>
               </motion.div>
             </motion.div>
 

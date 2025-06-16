@@ -16,6 +16,9 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ObfuscatedPhone, ObfuscatedEmail } from "./obfuscated-contact";
+import { useLocalizedPath } from "@/utils/navigation";
+import FooterLink from "./footer-link";
+import { LocaleLink } from "@/utils/locale-links";
 
 // We'll define the navigation inside the component to access translations
 
@@ -24,6 +27,7 @@ export default function Footer() {
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
   const [mounted, setMounted] = useState(false);
+  const getLocalizedPath = useLocalizedPath();
   
   // Only show the logo after client-side hydration to avoid mismatch
   useEffect(() => {
@@ -131,7 +135,7 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <Link href="/">
+              <LocaleLink href="/">
                 {mounted ? (
                   theme === "dark" ? (
                     <Image
@@ -154,7 +158,7 @@ export default function Footer() {
                   // Placeholder during server-side rendering to prevent hydration mismatch
                   <div className="h-10 w-[120px]" />
                 )}
-              </Link>
+              </LocaleLink>
             </motion.div>
             <motion.p
               className="text-sm leading-6 text-secondary-600 dark:text-secondary-400"
@@ -228,12 +232,12 @@ export default function Footer() {
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 400 }}
                       >
-                        <Link
+                        <LocaleLink
                           href={item.href}
                           className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
                         >
                           {item.name}
-                        </Link>
+                        </LocaleLink>
                       </motion.div>
                     </motion.li>
                   ))}
@@ -265,12 +269,12 @@ export default function Footer() {
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 400 }}
                       >
-                        <Link
+                        <LocaleLink
                           href={item.href}
                           className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
                         >
                           {item.name}
-                        </Link>
+                        </LocaleLink>
                       </motion.div>
                     </motion.li>
                   ))}
