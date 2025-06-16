@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useTranslations } from "@/hooks/useTranslations"
 import { motion, Variants } from "framer-motion"
+import "@/styles/partner-logos.css"
 
 const logos = [
   // Partner logos from /public/assets/partners
@@ -66,12 +67,12 @@ export default function PartnerLogos() {
           {logos.map((logo) => (
             <motion.div 
               key={logo.id} 
-              className="flex items-center justify-center"
+              className="partner-logo-container flex items-center justify-center"
               variants={logoVariants}
               whileHover={{ scale: 1.05 }}
             >
               <Image
-                className="max-h-32 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 border-0"
+                className="partner-logo max-h-32 w-auto object-contain border-0"
                 src={logo.src}
                 alt={logo.alt}
                 width={280}

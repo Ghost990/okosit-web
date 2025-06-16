@@ -626,7 +626,8 @@ export const translations = {
         invalidEmail: "Kérjük, adjon meg egy érvényes e-mail címet.",
         termsRequired: "Kérjük, fogadja el az adatvédelmi irányelveket.",
         serverError: "Szerver hiba történt. Kérjük, próbálja újra később.",
-        networkError: "Hálózati hiba történt. Kérjük, ellenőrizze az internetkapcsolatát."
+        networkError: "Hálózati hiba történt. Kérjük, ellenőrizze az internetkapcsolatát.",
+        submitError: "Hiba történt az űrlap beküldése során. Kérjük, próbálja újra."
       },
     },
     methods: {
