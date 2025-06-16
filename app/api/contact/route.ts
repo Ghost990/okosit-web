@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       from: 'Okosit Contact Form <onboarding@resend.dev>', // Using Resend sandbox domain for testing
       to: ['ghost990@gmail.com'], // Using verified email for testing
       subject: `Kapcsolatfelvételi űrlap: ${subject}`,
-      reply_to: email,
+      replyTo: email,
       text: `
         Név: ${firstName} ${lastName}
         Email: ${email}
