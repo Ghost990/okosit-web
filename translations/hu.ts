@@ -7,7 +7,7 @@ export const translations = {
   // Common elements
   common: {
     company: "OkosIT",
-    tagline: "Az Ön okos IT partnere",
+    tagline: "Az Ön OkosIT partnere",
     description:
       "Rugalmas, megbízható és skálázható IT megoldások vállalkozások számára.",
     cta: {
@@ -92,7 +92,7 @@ export const translations = {
   // Home page
   home: {
     hero: {
-      title: "Okos IT",
+      title: "OkosIT",
       subtitle: "Digitalizálja üzletét szakértő segítséggel",
       description:
         "Az OkosIT professzionális IT szolgáltatásokat nyújt, amelyek segítenek vállalkozásának növekedésében és hatékonyságának javításában.",
@@ -332,7 +332,7 @@ export const translations = {
           "Szolgáltatási portfóliónkat kibővítettük webfejlesztéssel és webshop készítéssel.",
       },
       support: {
-        title: "24/7 támogatás bevezetése",
+        title: "24/7 szerver felügyelet bevezetése",
         description:
           "Bevezettük a nonstop ügyfélszolgálatot, hogy ügyfeleink bármikor számíthassanak ránk.",
       },
@@ -531,7 +531,7 @@ export const translations = {
         },
         {
           title: "Megbízhatóság",
-          description: "99.9% rendelkezésre állás és gyors reagálás.",
+          description: "10+ év tapasztalat és gyors reagálás.",
         },
         {
           title: "Innováció",
@@ -574,14 +574,14 @@ export const translations = {
         "Kérdése van? Vegye fel velünk a kapcsolatot a következő módon:",
       email: "info@okosit.hu",
       phone: "+36 30 123 4567",
-      address: "Budapest, Példa utca 1.",
+      address: "1043 Budapest, Berda József utca 12",
     },
     hours: {
-      title: "Nyitvatartás",
-      description: "Nyitvatartási időnk a hét különböző napjain.",
-      label: "Nyitvatartás",
+      title: "Rendelkezésre állás",
+      description: "Rendelkezésre állási időnk a hét különböző napjain.",
+      label: "Rendelkezésre állás",
       value: "H-P: 9:00-17:00",
-      weekdays: "Hétköznap",
+      weekdays: "Munkanapokon",
       weekdaysHours: "9:00 - 17:00",
       weekdaysType: "Nyitva",
       saturday: "Szombat",
@@ -620,7 +620,7 @@ export const translations = {
       description: "Válassza az Önnek legmegfelelőbb kapcsolatfelvételi módot.",
       phone: {
         title: "Telefon",
-        primary: "+36 30 123 4567",
+        primary: "+36 70 391 5000",
         secondary: "Munkanapokon 9:00-17:00",
         description: "Hívjon minket bármilyen IT kérdéssel kapcsolatban.",
       },
@@ -632,13 +632,13 @@ export const translations = {
       },
       location: {
         title: "Cím",
-        primary: "1234 Budapest, Példa utca 123.",
+        primary: "1043 Budapest, Berda József utca 12",
         secondary: "Előzetes egyeztetés szükséges",
         description: "Személyes konzultációhoz kérjük, egyeztessen időpontot.",
       },
       remote: {
         title: "Távoli segítség",
-        primary: "TeamViewer",
+        primary: "Take Control",
         secondary: "Gyors és hatékony",
         description: "Távolról is segítünk megoldani a problémákat.",
       },
@@ -650,11 +650,11 @@ export const translations = {
       emergency: "Sürgős eset",
       emergencyTime: "2 órán belül",
       email: "E-mail",
-      emailTime: "24 órán belül",
+      emailTime: "1 munkanap",
       quote: "Árajánlat",
-      quoteTime: "48 órán belül",
-      general: "Általános kérdés",
-      generalTime: "24-48 órán belül",
+      quoteTime: "2 munkanap",
+      general: "PING",
+      generalTime: "time<0.1ms TTL=64",
     },
   },
 
@@ -688,7 +688,7 @@ export const translations = {
       remote: {
         title: "Távoli segítségnyújtás",
         description: "Távolról is megoldjuk a problémákat, ha szükséges.",
-        action: "TeamViewer letöltése",
+        action: "Take Control indítása",
         availability: "Előzetes egyeztetés alapján",
       },
       onsite: {
@@ -719,7 +719,7 @@ export const translations = {
         urgent: {
           title: "Hívja a sürgősségi vonalat",
           description:
-            "Kritikus IT probléma esetén azonnal hívja a +36301234567 számot.",
+            "Kritikus IT probléma esetén azonnal hívja a +36703915000 számot.",
           action: "Hívás most",
         },
         describe: {
@@ -791,7 +791,7 @@ export const translations = {
             urgent: {
               question: "Mit tegyek sürgős IT probléma esetén?",
               answer:
-                "Sürgős esetben hívja a sürgősségi vonalunkat a +36301234567 számon, amely munkaidőn kívül is elérhető. Szakembereink a lehető leghamarabb segítenek a probléma megoldásában.",
+                "Sürgős esetben hívja a sürgősségi vonalunkat a +36703915000 számon, amely munkaidőn kívül is elérhető. Szakembereink a lehető leghamarabb segítenek a probléma megoldásában.",
             },
             warranty: {
               question: "Milyen garanciát vállalnak a szolgáltatásokra?",

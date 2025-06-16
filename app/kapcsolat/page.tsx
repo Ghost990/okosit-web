@@ -15,6 +15,7 @@ import {
   Calendar,
   Send
 } from "lucide-react"
+import { ObfuscatedPhone, ObfuscatedEmail } from "@/components/obfuscated-contact"
 
 export default function ContactPage() {
   const t = useTranslations()
@@ -35,7 +36,8 @@ export default function ContactPage() {
       primary: t.contact.methods.phone.primary,
       secondary: t.contact.methods.phone.secondary,
       description: t.contact.methods.phone.description,
-      action: 'tel:+36301234567'
+      action: null, // Using ObfuscatedPhone component instead
+      phoneNumber: '+36703915000'
     },
     {
       icon: Mail,
@@ -43,7 +45,8 @@ export default function ContactPage() {
       primary: t.contact.methods.email.primary,
       secondary: t.contact.methods.email.secondary,
       description: t.contact.methods.email.description,
-      action: `mailto:${t.contact.methods.email.primary}`
+      action: null, // Using ObfuscatedEmail component instead
+      emailAddress: t.contact.methods.email.primary
     },
     {
       icon: MapPin,
@@ -59,7 +62,7 @@ export default function ContactPage() {
       primary: t.contact.methods.remote.primary,
       secondary: t.contact.methods.remote.secondary,
       description: t.contact.methods.remote.description,
-      action: 'https://get.teamviewer.com/okosit'
+      action: 'https://startcontrol.com'
     }
   ]
 
@@ -106,7 +109,7 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
@@ -171,7 +174,17 @@ export default function ContactPage() {
                     visible: { opacity: 1, transition: { delay: 0.3 } }
                   }}
                 >
-                  {method.action ? (
+                  {method.phoneNumber ? (
+                    <ObfuscatedPhone
+                      phone={method.phoneNumber}
+                      className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                    />
+                  ) : method.emailAddress ? (
+                    <ObfuscatedEmail
+                      email={method.emailAddress}
+                      className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                    />
+                  ) : method.action ? (
                     <motion.a
                       href={method.action}
                       target={method.action.startsWith('http') ? '_blank' : undefined}
@@ -351,7 +364,7 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
