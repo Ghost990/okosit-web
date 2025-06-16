@@ -23,6 +23,12 @@ export default function Footer() {
   const { theme } = useTheme();
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
+  const [mounted, setMounted] = useState(false);
+  
+  // Only show the logo after client-side hydration to avoid mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -126,22 +132,27 @@ export default function Footer() {
               transition={{ type: "spring", stiffness: 400 }}
             >
               <Link href="/">
-                {theme === "dark" ? (
-                  <Image
-                    src="/assets/logo_dark.png"
-                    alt="OkosIT Logo"
-                    width={120}
-                    height={40}
-                    className="h-10 w-auto"
-                  />
+                {mounted ? (
+                  theme === "dark" ? (
+                    <Image
+                      src="/assets/logo_dark.png"
+                      alt="OkosIT Logo"
+                      width={120}
+                      height={40}
+                      className="h-10 w-auto"
+                    />
+                  ) : (
+                    <Image
+                      src="/assets/logo.png"
+                      alt="OkosIT Logo"
+                      width={120}
+                      height={40}
+                      className="h-10 w-auto"
+                    />
+                  )
                 ) : (
-                  <Image
-                    src="/assets/logo.png"
-                    alt="OkosIT Logo"
-                    width={120}
-                    height={40}
-                    className="h-10 w-auto"
-                  />
+                  // Placeholder during server-side rendering to prevent hydration mismatch
+                  <div className="h-10 w-[120px]" />
                 )}
               </Link>
             </motion.div>
