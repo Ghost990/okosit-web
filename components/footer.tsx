@@ -8,11 +8,14 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Phone,
+  Phone
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "@/hooks/useTranslations";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { ObfuscatedPhone, ObfuscatedEmail } from "./obfuscated-contact";
 
 // We'll define the navigation inside the component to access translations
 
@@ -20,7 +23,7 @@ export default function Footer() {
   const { theme } = useTheme();
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
-  
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,23 +31,23 @@ export default function Footer() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
-  
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
-  
+
   const listItemVariants = {
     hidden: { opacity: 0, x: -10 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } }
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
   };
 
   const navigation = {
@@ -110,17 +113,14 @@ export default function Footer() {
         Footer
       </h2>
       <div className="container-custom py-12 lg:py-16">
-        <motion.div 
+        <motion.div
           className="xl:grid xl:grid-cols-3 xl:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
-          <motion.div 
-            className="space-y-8"
-            variants={itemVariants}
-          >
+          <motion.div className="space-y-8" variants={itemVariants}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
@@ -145,22 +145,22 @@ export default function Footer() {
                 )}
               </Link>
             </motion.div>
-            <motion.p 
+            <motion.p
               className="text-sm leading-6 text-secondary-600 dark:text-secondary-400"
               variants={itemVariants}
             >
               {t.common.tagline} - {t.common.description}
             </motion.p>
-            <motion.div 
+            <motion.div
               className="flex space-x-6"
               variants={{
                 hidden: {},
                 visible: {
                   transition: {
                     staggerChildren: 0.1,
-                    delayChildren: 0.3
-                  }
-                }
+                    delayChildren: 0.3,
+                  },
+                },
               }}
             >
               {navigation.social.map((item) => (
@@ -172,7 +172,7 @@ export default function Footer() {
                   className="text-secondary-500 hover:text-secondary-600 dark:text-secondary-400 dark:hover:text-secondary-300"
                   variants={{
                     hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1 }
+                    visible: { opacity: 1, scale: 1 },
                   }}
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
@@ -183,39 +183,36 @@ export default function Footer() {
               ))}
             </motion.div>
           </motion.div>
-          <motion.div 
-            className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0"
+          <motion.div
+            className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-8 xl:col-span-2 xl:mt-0"
             variants={itemVariants}
           >
-            <motion.div 
+            <motion.div
               className="md:grid md:grid-cols-2 md:gap-8"
               variants={containerVariants}
             >
               <motion.div variants={itemVariants}>
-                <motion.h3 
+                <motion.h3
                   className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white"
                   variants={itemVariants}
                 >
                   {t.footer.quickLinks}
                 </motion.h3>
-                <motion.ul 
-                  role="list" 
+                <motion.ul
+                  role="list"
                   className="mt-6 space-y-4"
                   variants={{
                     hidden: {},
                     visible: {
                       transition: {
                         staggerChildren: 0.05,
-                        delayChildren: 0.2
-                      }
-                    }
+                        delayChildren: 0.2,
+                      },
+                    },
                   }}
                 >
                   {navigation.main.map((item) => (
-                    <motion.li 
-                      key={item.name}
-                      variants={listItemVariants}
-                    >
+                    <motion.li key={item.name} variants={listItemVariants}>
                       <motion.div
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 400 }}
@@ -231,34 +228,28 @@ export default function Footer() {
                   ))}
                 </motion.ul>
               </motion.div>
-              <motion.div 
-                className="mt-10 md:mt-0"
-                variants={itemVariants}
-              >
-                <motion.h3 
+              <motion.div className="mt-10 md:mt-0" variants={itemVariants}>
+                <motion.h3
                   className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white"
                   variants={itemVariants}
                 >
                   {t.footer.services}
                 </motion.h3>
-                <motion.ul 
-                  role="list" 
+                <motion.ul
+                  role="list"
                   className="mt-6 space-y-4"
                   variants={{
                     hidden: {},
                     visible: {
                       transition: {
                         staggerChildren: 0.05,
-                        delayChildren: 0.3
-                      }
-                    }
+                        delayChildren: 0.3,
+                      },
+                    },
                   }}
                 >
                   {navigation.services.map((item) => (
-                    <motion.li 
-                      key={item.name}
-                      variants={listItemVariants}
-                    >
+                    <motion.li key={item.name} variants={listItemVariants}>
                       <motion.div
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 400 }}
@@ -276,73 +267,78 @@ export default function Footer() {
               </motion.div>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <motion.h3 
+              <motion.h3
                 className="text-sm font-semibold leading-6 text-secondary-900 dark:text-white"
                 variants={itemVariants}
               >
                 {t.footer.contactInfo}
               </motion.h3>
-              <motion.ul 
-                role="list" 
-                className="mt-6 space-y-4"
+              <motion.ul
+                role="list"
+                className="mt-6 space-y-4 flex flex-col"
                 variants={{
                   hidden: {},
                   visible: {
                     transition: {
                       staggerChildren: 0.1,
-                      delayChildren: 0.4
-                    }
-                  }
+                      delayChildren: 0.4,
+                    },
+                  },
                 }}
               >
-                <motion.li 
+                <motion.li
                   className="flex"
                   variants={listItemVariants}
                   whileHover={{ x: 5 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0"
                     whileHover={{ rotate: 10, scale: 1.1 }}
                   >
                     <MapPin className="h-5 w-5 text-primary-600 dark:text-primary-500" />
                   </motion.div>
                   <motion.div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
-                    1234 Budapest, Példa utca 123.
+                    1043 Budapest, Berda József utca 12.
                   </motion.div>
                 </motion.li>
-                <motion.li 
+                <motion.li
                   className="flex"
                   variants={listItemVariants}
                   whileHover={{ x: 5 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0"
                     whileHover={{ rotate: 10, scale: 1.1 }}
                     animate={{ rotate: [0, 5, 0, -5, 0] }}
-                    transition={{ repeat: Infinity, repeatDelay: 5, duration: 0.5 }}
+                    transition={{
+                      repeat: Infinity,
+                      repeatDelay: 5,
+                      duration: 0.5,
+                    }}
                   >
                     <Phone className="h-5 w-5 text-primary-600 dark:text-primary-500" />
                   </motion.div>
                   <motion.div className="ml-3 text-sm leading-6 text-secondary-600 dark:text-secondary-400">
-                    <motion.a
-                      href="tel:+36123456789"
+                    <ObfuscatedPhone
+                      phone="+36703915000"
                       className="hover:text-secondary-900 dark:hover:text-white"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      +36 12 345 6789
-                    </motion.a>
+                    />
                   </motion.div>
                 </motion.li>
-                <motion.li 
+                <motion.li
                   className="flex"
                   variants={listItemVariants}
                   whileHover={{ x: 5 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0"
                     whileHover={{ rotate: 10, scale: 1.1 }}
                     animate={{ y: [0, -2, 0, 2, 0] }}
-                    transition={{ repeat: Infinity, repeatDelay: 4, duration: 1 }}
+                    transition={{
+                      repeat: Infinity,
+                      repeatDelay: 4,
+                      duration: 1,
+                    }}
                   >
                     <Mail className="h-5 w-5 text-primary-600 dark:text-primary-500" />
                   </motion.div>
@@ -360,14 +356,14 @@ export default function Footer() {
             </motion.div>
           </motion.div>
         </motion.div>
-        <motion.div 
+        <motion.div
           className="mt-12 border-t border-secondary-200 dark:border-secondary-800 pt-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.5 }}
         >
-          <motion.p 
+          <motion.p
             className="text-xs leading-5 text-secondary-500 dark:text-secondary-400"
             initial={{ y: 10, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}

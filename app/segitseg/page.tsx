@@ -17,6 +17,7 @@ import {
   AlertTriangle,
   Info 
 } from "lucide-react"
+import { ObfuscatedPhone, ObfuscatedEmail } from "@/components/obfuscated-contact"
 
 export default function SupportPage() {
   const t = useTranslations()
@@ -36,7 +37,8 @@ export default function SupportPage() {
       title: t.support.options.phone.title,
       description: t.support.options.phone.description,
       action: t.support.options.phone.action,
-      link: 'tel:+36301234567',
+      link: null,
+      phoneNumber: '+36703915000',
       availability: t.support.options.phone.availability
     },
     {
@@ -52,7 +54,7 @@ export default function SupportPage() {
       title: t.support.options.remote.title,
       description: t.support.options.remote.description,
       action: t.support.options.remote.action,
-      link: 'https://get.teamviewer.com/okosit',
+      link: 'https://startcontrol.com',
       availability: t.support.options.remote.availability
     }
   ]
@@ -221,12 +223,12 @@ export default function SupportPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <a 
-              href="tel:+36301234567" 
+            <ObfuscatedPhone
+              phone="+36703915000"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               {t.support.emergencySteps.callToAction}
-            </a>
+            </ObfuscatedPhone>
           </div>
         </div>
       </section>
