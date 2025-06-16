@@ -11,9 +11,10 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-// Services data defined directly in the component
 import { useTranslations } from "@/hooks/useTranslations";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import servicesData from "@/data/services.json";
 
 const iconMap = {
   server: Server,
@@ -25,75 +26,7 @@ const iconMap = {
 };
 
 export default function Services() {
-  // Define services data directly
-  const services = [
-    {
-      id: "it-support",
-      icon: "server",
-      features: [
-        "24/7 monitoring",
-        "Remote assistance",
-        "Hardware diagnostics",
-        "Software troubleshooting",
-      ],
-      price: "Egyedi árajánlat",
-    },
-    {
-      id: "network",
-      icon: "settings",
-      features: [
-        "Network design",
-        "Security implementation",
-        "Performance optimization",
-        "Wireless solutions",
-      ],
-      price: "Egyedi árajánlat",
-    },
-    {
-      id: "webdev",
-      icon: "code",
-      features: [
-        "Responsive design",
-        "CMS integration",
-        "SEO optimization",
-        "Performance tuning",
-      ],
-      price: "150.000 Ft-tól",
-    },
-    {
-      id: "webshop",
-      icon: "shopping-cart",
-      features: [
-        "E-commerce solutions",
-        "Payment integration",
-        "Inventory management",
-        "Customer analytics",
-      ],
-      price: "200.000 Ft-tól",
-    },
-    {
-      id: "consulting",
-      icon: "laptop",
-      features: [
-        "IT strategy",
-        "Digital transformation",
-        "Process optimization",
-        "Technology assessment",
-      ],
-      price: "Egyedi árajánlat",
-    },
-    {
-      id: "software",
-      icon: "monitor",
-      features: [
-        "Custom development",
-        "Legacy integration",
-        "Database solutions",
-        "API development",
-      ],
-      price: "Egyedi árajánlat",
-    },
-  ];
+  const [services, setServices] = useState(servicesData.services);
   const t = useTranslations();
 
   // Animation variants
