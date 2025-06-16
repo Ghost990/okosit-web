@@ -77,7 +77,7 @@ export default function Header() {
     >
       <nav className="container-custom flex items-center justify-between py-4 px-4 md:px-6">
         <motion.div variants={logoVariants} className="flex xl:flex-0">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <LocaleLink href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">OkosIT</span>
             {!mounted ? (
               // During SSR or before hydration, use a placeholder or default logo
@@ -101,7 +101,7 @@ export default function Header() {
                 className="h-10 w-auto"
               />
             )}
-          </Link>
+          </LocaleLink>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex xl:hidden">
