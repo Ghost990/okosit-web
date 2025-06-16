@@ -308,8 +308,8 @@ export const translations = {
         label: "Server monitoring",
       },
       experience: {
-        value: "10+",
-        label: "Years of experience",
+        value: "100%",
+        label: "Security compliance",
       },
     },
     timeline: {
