@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import ThemeSwitcher from "./theme-switcher";
+import ThemeSwitcher from "./theme-switcher"
+import LanguageSwitcher from "./language-switcher";
 import { useTheme } from "next-themes";
 import { useTranslations } from "@/hooks/useTranslations";
 import { motion, Variants } from "framer-motion";
@@ -71,8 +72,8 @@ export default function Header() {
       variants={headerVariants}
       className="bg-white shadow-sm dark:bg-secondary-900 dark:border-b dark:border-secondary-800"
     >
-      <nav className="container-custom flex items-center justify-between py-4">
-        <motion.div variants={logoVariants} className="flex lg:flex-1">
+      <nav className="container-custom flex items-center justify-between py-4 px-4 md:px-6">
+        <motion.div variants={logoVariants} className="flex xl:flex-0">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">OkosIT</span>
             {!mounted ? (
@@ -100,7 +101,7 @@ export default function Header() {
           </Link>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="flex lg:hidden">
+        <motion.div variants={itemVariants} className="flex xl:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-secondary-700 dark:text-white"
@@ -113,7 +114,7 @@ export default function Header() {
 
         <motion.div
           variants={itemVariants}
-          className="hidden lg:flex lg:gap-x-8"
+          className="hidden xl:flex xl:gap-x-6 xl:ml-6"
         >
           {navigation.map((item, index) => (
             <motion.div
@@ -144,10 +145,13 @@ export default function Header() {
 
         <motion.div
           variants={itemVariants}
-          className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4"
+          className="hidden xl:flex xl:flex-1 xl:justify-end xl:gap-x-4"
         >
-          <motion.div variants={itemVariants}>
-            <ThemeSwitcher />
+          <motion.div variants={itemVariants} className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <div className="ml-2">
+              <ThemeSwitcher />
+            </div>
           </motion.div>
           <motion.div
             variants={itemVariants}
@@ -166,7 +170,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50">
+        <div className="xl:hidden fixed inset-0 z-50">
           <div
             className="fixed inset-0 bg-black/30"
             aria-hidden="true"
@@ -234,6 +238,12 @@ export default function Header() {
                       {t.common.theme.theme}:
                     </span>
                     <ThemeSwitcher />
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-secondary-700 dark:text-secondary-300 mr-2">
+                      {t.common.language?.language || "Language"}:
+                    </span>
+                    <LanguageSwitcher />
                   </div>
                   <Link
                     href="/kapcsolat"

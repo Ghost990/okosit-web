@@ -34,6 +34,11 @@ export const translations = {
       switchToDark: "Váltás sötét módra",
       theme: "Téma",
     },
+    language: {
+      switchToHungarian: "Váltás magyar nyelvre",
+      switchToEnglish: "Váltás angol nyelvre",
+      language: "Nyelv",
+    },
   },
 
   // Navigation
@@ -609,12 +614,20 @@ export const translations = {
       message: "Üzenet",
       send: "Küldés",
       submit: "Küldés",
+      sending: "Küldés folyamatban...",
       required: "Kötelező mező",
       invalidEmail: "Érvénytelen e-mail cím",
       success: "Köszönjük! Üzenetét megkaptuk, hamarosan válaszolunk.",
       error:
         "Hiba történt az üzenet küldése közben. Kérjük, próbálja újra később.",
       privacy: "Az űrlap elküldésével elfogadom az adatvédelmi irányelveket.",
+      errors: {
+        requiredFields: "Kérjük, töltse ki az összes kötelező mezőt.",
+        invalidEmail: "Kérjük, adjon meg egy érvényes e-mail címet.",
+        termsRequired: "Kérjük, fogadja el az adatvédelmi irányelveket.",
+        serverError: "Szerver hiba történt. Kérjük, próbálja újra később.",
+        networkError: "Hálózati hiba történt. Kérjük, ellenőrizze az internetkapcsolatát."
+      },
     },
     methods: {
       title: "Elérhetőségeink",
