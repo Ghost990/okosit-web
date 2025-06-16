@@ -10,6 +10,8 @@ import LanguageSwitcher from "./language-switcher";
 import { useTheme } from "next-themes";
 import { useTranslations } from "@/hooks/useTranslations";
 import { motion, Variants } from "framer-motion";
+import { useLocalizedPath } from "@/utils/navigation";
+import { LocaleLink } from "@/utils/locale-links";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,6 +19,7 @@ export default function Header() {
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const t = useTranslations();
+  const getLocalizedPath = useLocalizedPath();
   
   // After mounting, we have access to the theme
   useEffect(() => {
@@ -129,16 +132,12 @@ export default function Header() {
                 }),
               }}
             >
-              <Link
+              <LocaleLink
                 href={item.href}
-                className={`text-md font-medium ${
-                  pathname === item.href
-                    ? "text-primary-600 dark:text-primary-400"
-                    : "text-secondary-700 hover:text-primary-600 dark:text-secondary-200 dark:hover:text-primary-400"
-                } transition-colors`}
+                className={`${pathname === item.href || pathname === getLocalizedPath(item.href) ? "text-primary-600 dark:text-primary-400" : "text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white"} px-3 py-2 text-sm font-medium transition-colors`}
               >
                 {item.name}
-              </Link>
+              </LocaleLink>
             </motion.div>
           ))}
         </motion.div>
@@ -218,18 +217,17 @@ export default function Header() {
               <div className="-my-6 divide-y divide-secondary-100 dark:divide-secondary-800">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <Link
-                      key={item.name}
+                    <LocaleLink
                       href={item.href}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-base font-medium ${
-                        pathname === item.href
+                        pathname === item.href || pathname === getLocalizedPath(item.href)
                           ? "text-primary-600 bg-primary-50 dark:bg-secondary-800 dark:text-primary-400"
                           : "text-secondary-700 hover:bg-secondary-50 dark:text-secondary-200 dark:hover:bg-secondary-800"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </Link>
+                    </LocaleLink>
                   ))}
                 </div>
                 <div className="py-6 flex flex-col space-y-4">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Server,
   Laptop,
@@ -12,6 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useTranslations } from "@/hooks/useTranslations";
+import { LocaleLink } from "@/utils/locale-links";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import servicesData from "@/data/services.json";
@@ -226,7 +228,7 @@ export default function Services() {
                     {t.services.prices[translationKey] || service.price}
                   </motion.div>
                   <motion.div whileHover={{ x: 5 }} whileTap={{ scale: 0.95 }}>
-                    <Link
+                    <LocaleLink
                       href="/kapcsolat"
                       className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors group-hover:translate-x-1 transform duration-300"
                     >
@@ -241,7 +243,7 @@ export default function Services() {
                       >
                         <ArrowRight size={16} className="ml-1" />
                       </motion.div>
-                    </Link>
+                    </LocaleLink>
                   </motion.div>
                 </motion.div>
               </motion.div>
@@ -291,7 +293,7 @@ export default function Services() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link
+              <LocaleLink
                 href="/kapcsolat"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white text-lg font-semibold rounded-lg hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
               >
@@ -303,7 +305,7 @@ export default function Services() {
                 >
                   <ArrowRight size={20} />
                 </motion.div>
-              </Link>
+              </LocaleLink>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 type Locale = "hu" | "en";
 
@@ -12,26 +13,50 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Initialize with Hungarian as default, but check localStorage on mount
-  const [locale, setLocale] = useState<Locale>("hu");
+  // Initialize with Hungarian as default, but check URL and cookies on mount
+  const [locale, setLocaleState] = useState<Locale>("hu");
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     // Only run on client side
     setMounted(true);
-    const savedLocale = localStorage.getItem("locale") as Locale;
-    if (savedLocale && (savedLocale === "hu" || savedLocale === "en")) {
-      setLocale(savedLocale);
-    }
+    
+    // Check URL for locale
+    const urlLocale = window.location.pathname.startsWith('/en') ? 'en' : 'hu';
+    setLocaleState(urlLocale as Locale);
+    
+    // Set cookie for middleware
+    document.cookie = `NEXT_LOCALE=${urlLocale}; path=/; max-age=31536000`; // 1 year
+    
+    // Set HTML lang attribute
+    document.documentElement.lang = urlLocale;
   }, []);
 
-  // Update localStorage and HTML lang attribute when locale changes
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem("locale", locale);
-      document.documentElement.lang = locale;
+  // Function to change locale with routing
+  const setLocale = (newLocale: Locale) => {
+    if (newLocale === locale) return;
+    
+    setLocaleState(newLocale);
+    document.documentElement.lang = newLocale;
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`; // 1 year
+    
+    // Handle routing based on locale change
+    const currentPath = pathname || window.location.pathname;
+    
+    // Remove any existing locale prefix
+    let newPath = currentPath.replace(/^\/(en|hu)/, '');
+    if (newPath === '') newPath = '/';
+    
+    // Add new locale prefix if English
+    if (newLocale === 'en') {
+      newPath = `/en${newPath === '/' ? '' : newPath}`;
     }
-  }, [locale, mounted]);
+    
+    // Navigate to the new path
+    router.push(newPath);
+  };
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale }}>
