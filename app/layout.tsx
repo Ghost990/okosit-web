@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/contexts/language-context'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
@@ -35,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="hu" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <body className={`${inter.variable} ${montserrat.variable} ${poppins.variable} font-inter`}>
         <ThemeProvider
           attribute="class"
@@ -43,13 +44,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <LanguageProvider>
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

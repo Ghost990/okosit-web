@@ -34,6 +34,11 @@ export const translations = {
       switchToDark: "Váltás sötét módra",
       theme: "Téma",
     },
+    language: {
+      switchToHungarian: "Váltás magyar nyelvre",
+      switchToEnglish: "Váltás angol nyelvre",
+      language: "Nyelv",
+    },
   },
 
   // Navigation
