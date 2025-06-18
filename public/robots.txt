@@ -1,0 +1,17 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://okosit-web.vercel.app/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /_error
+Disallow: /404
+Disallow: /500
+
+# Crawl-delay: 10
+# Uncomment the above line if your server is getting too many requests from search engines
