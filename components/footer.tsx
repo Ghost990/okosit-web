@@ -28,6 +28,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [mounted, setMounted] = useState(false);
   const getLocalizedPath = useLocalizedPath();
+
+
   
   // Only show the logo after client-side hydration to avoid mismatch
   useEffect(() => {
@@ -109,6 +111,10 @@ export default function Footer() {
       },
     ],
   };
+
+  console.log('Footer navigation.services constructed:', JSON.stringify(navigation.services));
+
+
 
   return (
     <motion.footer
