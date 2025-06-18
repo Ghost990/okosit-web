@@ -98,6 +98,7 @@ export default function Header() {
                 width={120}
                 height={40}
                 priority
+                unoptimized
                 className="h-10 w-auto"
               />
             )}
