@@ -23,7 +23,7 @@ import { LocaleLink } from "@/utils/locale-links";
 // We'll define the navigation inside the component to access translations
 
 export default function Footer() {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
   const [mounted, setMounted] = useState(false);
@@ -137,7 +137,7 @@ export default function Footer() {
             >
               <LocaleLink href="/">
                 {mounted ? (
-                  theme === "dark" ? (
+                  resolvedTheme === "dark" ? (
                     <Image
                       src="/assets/logo_dark.png"
                       alt="OkosIT Logo"
