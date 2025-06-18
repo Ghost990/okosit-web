@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const webpack = require('webpack');
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
+// Bundle analyzer is disabled
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: process.env.ANALYZE === 'true',
+//   openAnalyzer: false,
+//   analyzerMode: 'static',
+//   generateStatsFile: true,
+//   statsFilename: './analyze/stats.json',
+//   reportFilename: './analyze/report.html',
+//   excludeAssets: [/node_modules/],
+// });
 
 const nextConfig = {
   reactStrictMode: true,
@@ -28,6 +35,10 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     scrollRestoration: true,
+    // Completely disable tracing to avoid permission errors
+    outputFileTracing: false,
+    // Disable trace generation
+    trace: false,
   },
 
   // Enable React features
@@ -111,5 +122,5 @@ const nextConfig = {
   },
 };
 
-// Export the configuration with optimizations
-module.exports = withBundleAnalyzer(nextConfig);
+// Export the configuration without bundle analyzer
+module.exports = nextConfig;
