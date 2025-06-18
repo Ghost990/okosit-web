@@ -144,7 +144,7 @@ export default function Footer() {
                 {mounted ? (
                   resolvedTheme === "dark" ? (
                     <Image
-                      src="/assets/logo_dark.png"
+                      src={`${config.baseUrl}/assets/logo_dark.png`}
                       alt="OkosIT Logo"
                       width={120}
                       height={40}
