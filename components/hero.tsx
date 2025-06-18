@@ -27,27 +27,31 @@ export default function Hero({
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    // Only load animation for homepage
     if (isHomePage) {
-      // Dynamically import the animation data based on the animation prop
-      // First try to load the requested animation
-      import(`../public/assets/${animation}.json`)
-        .then((data) => {
-          setAnimationData(data.default);
-        })
-        .catch((error) => {
-          // If the requested animation fails to load, fall back to cybersec.json
-          console.warn(
-            `Animation ${animation}.json not found, using fallback animation`
-          );
-          import(`../public/assets/cybersec.json`)
-            .then((data) => {
-              setAnimationData(data.default);
-            })
-            .catch((fallbackError) => {
-              console.error("Failed to load fallback animation:", fallbackError);
-            });
-        });
+      const loadAnimation = async (animationName: string, isFallback = false) => {
+        try {
+          const response = await fetch(`/assets/${animationName}.json`);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch ${animationName}.json: ${response.status} ${response.statusText}`);
+          }
+          const data = await response.json();
+          setAnimationData(data);
+        } catch (error) {
+          if (!isFallback) {
+            console.warn(
+              `Animation /assets/${animationName}.json not found or failed to load, attempting fallback. Error:`,
+              error
+            );
+            loadAnimation("cybersec", true); // Attempt to load fallback
+          } else {
+            console.error(
+              "Failed to load fallback animation /assets/cybersec.json. Error:",
+              error
+            );
+          }
+        }
+      };
+      loadAnimation(animation);
     }
   }, [animation, isHomePage]);
 
