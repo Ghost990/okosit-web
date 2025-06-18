@@ -112,8 +112,6 @@ export default function Footer() {
     ],
   };
 
-  console.log('Footer navigation.services constructed:', JSON.stringify(navigation.services));
-
 
 
   return (
