@@ -40,11 +40,15 @@ export default function RootLayout({
     <html lang="hu" suppressHydrationWarning>
       <head>
         {/* Favicon */}
-        <link rel="icon" href="/assets/favicon.png" type="image/png" />
-        <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className={`${inter.variable} ${montserrat.variable} ${poppins.variable} font-inter antialiased`}>
         {/* Website structured data */}
