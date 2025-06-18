@@ -51,23 +51,47 @@ def create_favicon_variants(source_path, output_dir='public/assets'):
             print(f"Created: {apple_touch_path}")
             
             # Generate PWA icons
-            sizes = [192, 512]
+            sizes = [16, 32, 192, 512]
             for size in sizes:
                 # Regular icon
-                icon_path = os.path.join(output_dir, f'icon-{size}x{size}.png')
+                icon_path = os.path.join(output_dir, f'favicon-{size}x{size}.png' if size <= 32 else f'icon-{size}x{size}.png')
                 img.resize((size, size)).save(icon_path, 'PNG')
                 print(f"Created: {icon_path}")
                 
-                # Maskable icon (with padding for safe area)
-                maskable_size = int(size * 0.8)  # 80% of the size for safe area
-                maskable_icon = Image.new('RGBA', (size, size), (0, 0, 0, 0))
-                resized_img = img.resize((maskable_size, maskable_size))
-                position = ((size - maskable_size) // 2, (size - maskable_size) // 2)
-                maskable_icon.paste(resized_img, position)
-                
-                maskable_path = os.path.join(output_dir, f'icon-maskable-{size}x{size}.png')
-                maskable_icon.save(maskable_path, 'PNG')
-                print(f"Created: {maskable_path}")
+                # Maskable icon (with padding for safe area) - only for PWA sizes
+                if size >= 192:
+                    maskable_size = int(size * 0.8)  # 80% of the size for safe area
+                    maskable_icon = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+                    resized_img = img.resize((maskable_size, maskable_size))
+                    position = ((size - maskable_size) // 2, (size - maskable_size) // 2)
+                    maskable_icon.paste(resized_img, position)
+                    
+                    maskable_path = os.path.join(output_dir, f'icon-maskable-{size}x{size}.png')
+                    maskable_icon.save(maskable_path, 'PNG')
+                    print(f"Created: {maskable_path}")
+            
+            # Generate Windows-specific icons
+            windows_sizes = [70, 150, 310]
+            for size in windows_sizes:
+                win_icon_path = os.path.join(output_dir, f'mstile-{size}x{size}.png')
+                img.resize((size, size)).save(win_icon_path, 'PNG')
+                print(f"Created: {win_icon_path}")
+            
+            # Create a browserconfig.xml file
+            browserconfig_path = os.path.join(os.path.dirname(output_dir), 'browserconfig.xml')
+            with open(browserconfig_path, 'w') as f:
+                f.write('''<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="/assets/mstile-70x70.png"/>
+            <square150x150logo src="/assets/mstile-150x150.png"/>
+            <square310x310logo src="/assets/mstile-310x310.png"/>
+            <TileColor>#000000</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>''')
+            print(f"Created: {browserconfig_path}")
             
             print("\nAll favicon variants have been generated successfully!")
             
