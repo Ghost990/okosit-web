@@ -12,6 +12,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { motion, Variants } from "framer-motion";
 import { useLocalizedPath } from "@/utils/navigation";
 import { LocaleLink } from "@/utils/locale-links";
+import { config } from "@/config";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -93,7 +94,7 @@ export default function Header() {
               />
             ) : (
              <Image
-                src="/assets/logo.png"
+                src={`${config.baseUrl}/assets/logo.png`}
                 alt="OkosIT Logo"
                 width={120}
                 height={40}
@@ -196,7 +197,7 @@ export default function Header() {
                   />
                 ) : (
                   <Image
-                    src="/assets/logo.png"
+                    src={`${config.baseUrl}/assets/logo.png`}
                     alt="OkosIT Logo"
                     width={120}
                     height={40}

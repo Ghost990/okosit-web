@@ -19,6 +19,7 @@ import { ObfuscatedPhone, ObfuscatedEmail } from "./obfuscated-contact";
 import { useLocalizedPath } from "@/utils/navigation";
 import FooterLink from "./footer-link";
 import { LocaleLink } from "@/utils/locale-links";
+import { config } from "@/config";
 
 // We'll define the navigation inside the component to access translations
 
@@ -151,7 +152,7 @@ export default function Footer() {
                     />
                   ) : (
                     <Image
-                      src="/assets/logo.png"
+                      src={`${config.baseUrl}/assets/logo.png`}
                       alt="OkosIT Logo"
                       width={120}
                       height={40}
