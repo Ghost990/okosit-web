@@ -60,14 +60,24 @@ export default function Header() {
     },
   };
 
+  // Navigation items - use non-localized paths
   const navigation = [
-    { name: t.navigation.home, href: "/" },
+    { name: t.navigation.home, href: "/", exact: true },
     { name: t.navigation.services, href: "/szolgaltatasok" },
     { name: t.navigation.about, href: "/rolunk" },
     { name: t.navigation.partners, href: "/partnereink" },
     { name: t.navigation.help, href: "/segitseg" },
     { name: t.navigation.contact, href: "/kapcsolat" },
   ];
+  
+  // Check if a path is active
+  const isActive = (href: string, exact = false) => {
+    if (!pathname) return false;
+    if (exact) {
+      return pathname === href || pathname === getLocalizedPath(href);
+    }
+    return pathname.startsWith(href) || pathname.startsWith(getLocalizedPath(href));
+  };
 
   return (
     <motion.header
@@ -135,7 +145,7 @@ export default function Header() {
             >
               <LocaleLink
                 href={item.href}
-                className={`${pathname === item.href || pathname === getLocalizedPath(item.href) ? "text-primary-600 dark:text-primary-400" : "text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white"} px-3 py-2 text-sm font-medium transition-colors`}
+                className={`${isActive(item.href, item.exact) ? "text-primary-600 dark:text-primary-400" : "text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white"} px-3 py-2 text-sm font-medium transition-colors`}
               >
                 {item.name}
               </LocaleLink>
@@ -158,12 +168,12 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link
+            <LocaleLink
               href="/kapcsolat"
               className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-700 dark:hover:bg-primary-800"
             >
               {t.header.freeConsultation}
-            </Link>
+            </LocaleLink>
           </motion.div>
         </motion.div>
       </nav>
@@ -219,10 +229,10 @@ export default function Header() {
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
                     <LocaleLink
-                      key={item.href} // Added key prop
+                      key={item.href}
                       href={item.href}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-base font-medium ${
-                        pathname === item.href || pathname === getLocalizedPath(item.href)
+                        isActive(item.href, item.exact)
                           ? "text-primary-600 bg-primary-50 dark:bg-secondary-800 dark:text-primary-400"
                           : "text-secondary-700 hover:bg-secondary-50 dark:text-secondary-200 dark:hover:bg-secondary-800"
                       }`}
@@ -245,13 +255,13 @@ export default function Header() {
                     </span>
                     <LanguageSwitcher />
                   </div>
-                  <Link
+                  <LocaleLink
                     href="/kapcsolat"
                     className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 text-center dark:bg-primary-700 dark:hover:bg-primary-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {t.header.freeConsultation}
-                  </Link>
+                  </LocaleLink>
                 </div>
               </div>
             </div>

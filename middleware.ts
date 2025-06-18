@@ -33,34 +33,49 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   // Get pathname
   const pathname = request.nextUrl.pathname;
+  const response = NextResponse.next();
 
-  // Check if the pathname is missing a locale
+  // Skip middleware for static files and API routes
+  if (
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/assets/') ||
+    pathname.endsWith('.ico') ||
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.jpeg') ||
+    pathname.endsWith('.svg') ||
+    pathname.endsWith('.json')
+  ) {
+    return response;
+  }
+
+  // Check if the pathname already has a locale
   const pathnameHasLocale = locales.some(
     locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
+  // If pathname has no locale, redirect to appropriate localized path
   if (!pathnameHasLocale) {
-    // Get the preferred locale
     const locale = getLocale(request);
+    const newPath = locale === 'hu' 
+      ? pathname === '/' ? '/' : pathname
+      : `/en${pathname === '/' ? '' : pathname}`;
 
-    // If preferred locale is English, redirect to /en path
-    if (locale === 'en') {
-      // e.g. incoming request is /about
-      // The new URL is /en/about
-      return NextResponse.redirect(
-        new URL(`/en${pathname === '/' ? '' : pathname}`, request.url)
-      );
+    // Only redirect if the path would actually change
+    if (newPath !== pathname) {
+      return NextResponse.redirect(new URL(newPath, request.url));
     }
   }
 
-  const response = NextResponse.next();
-
-  // When a user visits a URL with a locale, set that locale in a cookie
-  if (pathnameHasLocale) {
-    const locale = pathname.split('/')[1];
-    if (locales.includes(locale)) {
-      response.cookies.set('NEXT_LOCALE', locale);
-    }
+  // Set locale cookie based on URL
+  const locale = pathnameHasLocale ? pathname.split('/')[1] : getLocale(request);
+  if (locales.includes(locale)) {
+    response.cookies.set('NEXT_LOCALE', locale, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+      sameSite: 'lax',
+    });
   }
 
   return response;
