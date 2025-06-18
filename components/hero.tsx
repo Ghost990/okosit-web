@@ -30,22 +30,24 @@ export default function Hero({
     if (isHomePage) {
       const loadAnimation = async (animationName: string, isFallback = false) => {
         try {
-          const response = await fetch(`/assets/${animationName}.json`);
+          // Use absolute path from public directory
+          const response = await fetch(`/assets/${animationName}${animationName.endsWith('.json') ? '' : '.json'}`);
           if (!response.ok) {
-            throw new Error(`Failed to fetch ${animationName}.json: ${response.status} ${response.statusText}`);
+            throw new Error(`Failed to fetch ${animationName}: ${response.status} ${response.statusText}`);
           }
           const data = await response.json();
           setAnimationData(data);
         } catch (error) {
           if (!isFallback) {
             console.warn(
-              `Animation /assets/${animationName}.json not found or failed to load, attempting fallback. Error:`,
+              `Animation /assets/${animationName} not found or failed to load, attempting fallback. Error:`,
               error
             );
-            loadAnimation("cybersec", true); // Attempt to load fallback
+            // Try loading the fallback animation with .json extension if not already present
+            loadAnimation(animationName.endsWith('.json') ? animationName : `${animationName}.json`, true);
           } else {
             console.error(
-              "Failed to load fallback animation /assets/cybersec.json. Error:",
+              `Failed to load fallback animation /assets/${animationName}. Error:`,
               error
             );
           }
