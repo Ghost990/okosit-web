@@ -92,11 +92,12 @@ export default function Header() {
                 className="h-10 w-auto"
               />
             ) : (
-             <img
+             <Image
                 src="/assets/logo.png"
                 alt="OkosIT Logo"
-                width="120"
-                height="40"
+                width={120}
+                height={40}
+                priority
                 className="h-10 w-auto"
               />
             )}
@@ -194,11 +195,11 @@ export default function Header() {
                     className="h-10 w-auto"
                   />
                 ) : (
-                  <img
+                  <Image
                     src="/assets/logo.png"
                     alt="OkosIT Logo"
-                    width="120"
-                    height="40"
+                    width={120}
+                    height={40}
                     className="h-10 w-auto"
                   />
                 )}
