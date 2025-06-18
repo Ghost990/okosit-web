@@ -33,12 +33,8 @@ const nextConfig = {
 
   // Experimental features
   experimental: {
-    optimizeCss: true,
+    // Only include valid experimental features
     scrollRestoration: true,
-    // Completely disable tracing to avoid permission errors
-    outputFileTracing: false,
-    // Disable trace generation
-    trace: false,
   },
 
   // Enable React features
