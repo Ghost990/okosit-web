@@ -33,13 +33,8 @@ const nextConfig = {
 
   // Experimental features
   experimental: {
-    // Disabled optimizeCss to avoid critters dependency issue
-    optimizeCss: false,
+    // Only include valid experimental features
     scrollRestoration: true,
-    // Completely disable tracing to avoid permission errors
-    outputFileTracing: false,
-    // Disable trace generation
-    trace: false,
   },
 
   // Enable React features
