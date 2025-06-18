@@ -173,12 +173,25 @@ export default function SupportPage() {
                   <Clock className="w-4 h-4 mr-2" />
                   {option.availability}
                 </div>
-                <a 
-                  href={option.link} 
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300"
-                >
-                  {option.action}
-                </a>
+                {option.phoneNumber ? (
+                  <div className="inline-flex">
+                    <ObfuscatedPhone 
+                      phone={option.phoneNumber}
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300"
+                    />
+                  </div>
+                ) : option.link ? (
+                  <a 
+                    href={option.link} 
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300"
+                  >
+                    {option.action}
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-400 cursor-not-allowed">
+                    {option.action}
+                  </span>
+                )}
               </div>
             ))}
           </div>

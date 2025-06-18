@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 type Locale = "hu" | "en";
@@ -12,27 +12,58 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Helper function to safely get the locale from the URL on client side
+const getInitialLocale = (): Locale => {
+  if (typeof window === 'undefined') return 'hu'; // Default to Hungarian on server
+  return window.location.pathname.startsWith('/en') ? 'en' : 'hu';
+};
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   // Initialize with Hungarian as default, but check URL and cookies on mount
-  const [locale, setLocaleState] = useState<Locale>("hu");
+  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+
+  // Memoize the context value to prevent unnecessary re-renders
+  const contextValue = useMemo<LanguageContextType>(
+    () => ({
+      locale,
+      setLocale: (newLocale: Locale) => {
+        if (newLocale === locale) return;
+        setLocaleState(newLocale);
+        
+        // Update URL
+        const newPath = newLocale === 'en' 
+          ? `/en${pathname === '/' ? '' : pathname}`
+          : pathname?.replace(/^\/en/, '') || '/';
+        
+        router.push(newPath);
+        
+        // Update cookie
+        document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`; // 1 year
+        document.documentElement.lang = newLocale;
+      },
+    }),
+    [locale, pathname, router]
+  );
 
   useEffect(() => {
     // Only run on client side
     setMounted(true);
     
-    // Check URL for locale
-    const urlLocale = window.location.pathname.startsWith('/en') ? 'en' : 'hu';
-    setLocaleState(urlLocale as Locale);
+    // Update document language
+    document.documentElement.lang = locale;
     
-    // Set cookie for middleware
-    document.cookie = `NEXT_LOCALE=${urlLocale}; path=/; max-age=31536000`; // 1 year
+    // Set cookie for consistency
+    const cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000`; // 1 year
+    document.cookie = cookie;
     
-    // Set HTML lang attribute
-    document.documentElement.lang = urlLocale;
-  }, []);
+    // Cleanup function to handle component unmount
+    return () => {
+      // Any cleanup if needed
+    };
+  }, [locale]);
 
   // Function to change locale with routing
   const setLocale = (newLocale: Locale) => {
@@ -59,7 +90,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );
