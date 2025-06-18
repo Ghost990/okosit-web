@@ -85,7 +85,7 @@ export default function Header() {
               <div className="h-10 w-[120px] bg-transparent" />
             ) : resolvedTheme === "dark" ? (
               <Image
-                src="/assets/logo_dark.png"
+                src={`${config.baseUrl}/assets/logo_dark.png`}
                 alt="OkosIT Logo"
                 width={120}
                 height={40}
@@ -189,7 +189,7 @@ export default function Header() {
                   <div className="h-10 w-[120px] bg-transparent" />
                 ) : resolvedTheme === "dark" ? (
                   <Image
-                    src="/assets/logo_dark.png"
+                    src={`${config.baseUrl}/assets/logo_dark.png`}
                     alt="OkosIT Logo"
                     width={120}
                     height={40}
