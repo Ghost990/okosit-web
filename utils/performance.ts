@@ -31,12 +31,12 @@ export const measurePageLoad = (): void => {
         },
         {
           name: 'Total Blocking Time',
-          value: performance.getEntriesByName('total-blocking-time')[0]?.value || 0,
+          value: (performance.getEntriesByName('total-blocking-time')[0] as any)?.value || 0,
           rating: 'good',
         },
         {
           name: 'Cumulative Layout Shift',
-          value: performance.getEntriesByName('cumulative-layout-shift')[0]?.value || 0,
+          value: (performance.getEntriesByName('cumulative-layout-shift')[0] as any)?.value || 0,
           rating: 'good',
         },
       ];

@@ -1,6 +1,6 @@
 module.exports = {
   enabled: process.env.ANALYZE === 'true',
-  openAnalyzer: true,
+  openAnalyzer: false,
   analyzerMode: 'static',
   reportFilename: 'analyze/analyze.html',
   generateStatsFile: true,
