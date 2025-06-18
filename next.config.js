@@ -33,7 +33,8 @@ const nextConfig = {
 
   // Experimental features
   experimental: {
-    optimizeCss: true,
+    // Disabled optimizeCss to avoid critters dependency issue
+    optimizeCss: false,
     scrollRestoration: true,
     // Completely disable tracing to avoid permission errors
     outputFileTracing: false,
