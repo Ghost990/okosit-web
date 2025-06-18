@@ -38,6 +38,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="hu" suppressHydrationWarning>
+      <head>
+        {/* Favicon */}
+        <link rel="icon" href="/assets/favicon.png" type="image/png" />
+        <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body className={`${inter.variable} ${montserrat.variable} ${poppins.variable} font-inter antialiased`}>
         {/* Website structured data */}
         <script
