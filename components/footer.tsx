@@ -150,11 +150,11 @@ export default function Footer() {
                       className="h-10 w-auto"
                     />
                   ) : (
-                    <img
+                    <Image
                       src="/assets/logo.png"
                       alt="OkosIT Logo"
-                      width="120"
-                      height="40"
+                      width={120}
+                      height={40}
                       className="h-10 w-auto"
                     />
                   )
