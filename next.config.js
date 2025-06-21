@@ -35,6 +35,8 @@ const nextConfig = {
   experimental: {
     // Only include valid experimental features
     scrollRestoration: true,
+    // Enable module-level tree shaking for large libraries
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
   // Enable React features
@@ -79,7 +81,17 @@ const nextConfig = {
   },
 
   async headers() {
+    const assetHeader = {
+      source: '/assets/:path*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable',
+        },
+      ],
+    };
     return [
+      assetHeader,
       {
         source: '/:path*',
         headers: [
@@ -94,6 +106,10 @@ const nextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
           },
         ],
       },
