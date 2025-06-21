@@ -57,21 +57,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href="/_next/static/media/Montserrat.var.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/_next/static/media/Poppins.var.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+
         
+        {/* Preload hero LCP image */}
+        <link rel="preload" href="/assets/hero-lcp.webp" as="image" />
         {/* Preload other critical assets */}
         <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
         
@@ -85,21 +74,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         
-        {/* Preload critical CSS */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              @font-face {
-                font-family: 'Inter';
-                font-style: normal;
-                font-display: swap;
-                font-weight: 100 900;
-                src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hjQ.woff2') format('woff2');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-              }
-            `,
-          }}
-        />
+
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className={`${inter.variable} ${montserrat.variable} ${poppins.variable} font-inter antialiased`}>

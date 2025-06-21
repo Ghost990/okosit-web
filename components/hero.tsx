@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
+// Lazy-load lottie-react on client side only
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import { ArrowRight, CheckCircle, Zap, Shield, Users } from "lucide-react";
 import { useTranslations } from "@/hooks/useTranslations";
 import { LocaleLink } from "@/utils/locale-links";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 interface HeroProps {
@@ -28,12 +30,19 @@ export default function Hero({
 
   useEffect(() => {
     if (isHomePage) {
-      const loadAnimation = async (animationName: string, isFallback = false) => {
+      const loadAnimation = async (
+        animationName: string,
+        isFallback = false
+      ) => {
         try {
           // Use absolute path from public directory
-          const response = await fetch(`/assets/${animationName}${animationName.endsWith('.json') ? '' : '.json'}`);
+          const response = await fetch(
+            `/assets/${animationName}${animationName.endsWith(".json") ? "" : ".json"}`
+          );
           if (!response.ok) {
-            throw new Error(`Failed to fetch ${animationName}: ${response.status} ${response.statusText}`);
+            throw new Error(
+              `Failed to fetch ${animationName}: ${response.status} ${response.statusText}`
+            );
           }
           const data = await response.json();
           setAnimationData(data);
@@ -44,7 +53,12 @@ export default function Hero({
               error
             );
             // Try loading the fallback animation with .json extension if not already present
-            loadAnimation(animationName.endsWith('.json') ? animationName : `${animationName}.json`, true);
+            loadAnimation(
+              animationName.endsWith(".json")
+                ? animationName
+                : `${animationName}.json`,
+              true
+            );
           } else {
             console.error(
               `Failed to load fallback animation /assets/${animationName}. Error:`,
@@ -92,9 +106,11 @@ export default function Hero({
 
   return (
     <motion.section
-      className={`relative overflow-hidden ${isHomePage 
-        ? 'bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-secondary-800 dark:via-secondary-900 dark:to-gray-900' 
-        : 'bg-gradient-to-br from-primary-100 via-primary-50 to-secondary-100 dark:from-secondary-700 dark:via-secondary-800 dark:to-gray-900'}`}
+      className={`relative overflow-hidden ${
+        isHomePage
+          ? "bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-secondary-800 dark:via-secondary-900 dark:to-gray-900"
+          : "bg-gradient-to-br from-primary-100 via-primary-50 to-secondary-100 dark:from-secondary-700 dark:via-secondary-800 dark:to-gray-900"
+      }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -109,15 +125,17 @@ export default function Hero({
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: isHomePage 
-              ? `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` 
+            backgroundImage: isHomePage
+              ? `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
               : `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.15'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: isHomePage ? 'auto' : '80px 80px'
+            backgroundSize: isHomePage ? "auto" : "80px 80px",
           }}
         />
       </motion.div>
 
-      <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${isHomePage ? 'py-20 lg:py-32' : 'py-16 lg:py-24'}`}>
+      <div
+        className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${isHomePage ? "py-20 lg:py-32" : "py-16 lg:py-24"}`}
+      >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
@@ -326,6 +344,7 @@ export default function Hero({
           {isHomePage ? (
             <motion.div
               className="relative flex items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -337,18 +356,24 @@ export default function Hero({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.5 }}
+                  style={{ willChange: 'opacity' }}
                 >
-                  <Lottie
-                    animationData={animationData}
-                    loop={true}
-                    className="w-full max-w-lg h-auto"
-                  />
+                  <Suspense
+                    fallback={<div className="w-full max-w-lg h-[360px]" />}
+                  >
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      className="w-full max-w-lg h-auto"
+                    />
+                  </Suspense>
                 </motion.div>
               )}
             </motion.div>
           ) : (
             <motion.div
               className="relative hidden lg:flex items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 0.8, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
