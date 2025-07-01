@@ -15,6 +15,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Image optimization settings
   images: {
+    unoptimized: true, // Critical for static exports - generates regular <img> tags
     remotePatterns: [
       {
         protocol: 'https',
@@ -48,8 +49,8 @@ const nextConfig = {
   // Enable production browser source maps
   productionBrowserSourceMaps: false,
 
-  // Enable static exports for better caching
-  output: 'standalone',
+  // Enable static export for hosting on static servers
+  output: 'export',
 
   // Enable webpack optimizations
   webpack: (config, { isServer, dev }) => {
