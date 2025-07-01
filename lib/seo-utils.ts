@@ -182,19 +182,24 @@ export function generateBreadcrumbStructuredData(
 
 // Generate metadata for the home page
 export function generateHomePageMetadata(): Metadata {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://okosit-web.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://okosit.hu';
   
   return generatePageMetadata({
-    title: 'OkosIT - Az Ön okos IT partnere',
+    title: 'OkosIT - Az Ön okosIT partnere',
     description: 'Rugalmas, megbízható és skálázható IT megoldások vállalkozások számára.',
     url: siteUrl,
+    siteName: 'OkosIT',
+    locale: 'hu_HU',
+    type: 'website',
     images: [
       {
-        url: `${siteUrl}/og-image.jpg`,
+        url: 'http://okosit.hu/00_share/okosit_share.png',
         width: 1200,
         height: 630,
-        alt: 'OkosIT - Az Ön okos IT partnere',
+        alt: 'OkosIT - Az Ön okosIT partnere',
       },
     ],
+    twitterCard: 'summary_large_image',
+    twitterSite: '@okosit',
   });
 }
