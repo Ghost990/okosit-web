@@ -48,7 +48,7 @@ type SeoProps = {
 };
 
 export function generateMetadata({
-  title = 'OkosIT - Az Ön okos IT partnere',
+  title = 'OkosIT - Az Ön okosIT partnere',
   description = 'Rugalmas, megbízható és skálázható IT megoldások vállalkozások számára.',
   keywords = [
     'OkosIT',
