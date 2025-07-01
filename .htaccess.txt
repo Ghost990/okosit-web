@@ -1,0 +1,41 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Allow Facebook crawler and other social media bots
+<IfModule mod_setenvif.c>
+  SetEnvIf User-Agent "facebookexternalhit/[0-9]|Facebot|Twitterbot|Pinterest|LinkedInBot" social_bot
+</IfModule>
+
+# Ensure no blocking rules apply to social media crawlers
+<IfModule mod_rewrite.c>
+  RewriteCond %{ENV:social_bot} ^social_bot$
+  RewriteRule .* - [E=no_bot_block:1]
+</IfModule>
+
+# If the requested resource exists as a file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, try adding .html extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ $1.html [L]
+
+# If the .html version doesn't exist either, redirect to index.html for client-side routing
+RewriteCond %{REQUEST_FILENAME}.html !-f
+RewriteRule ^(.*)$ /index.html [L]
+
+# Set proper caching headers for static assets
+<FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Set caching for Next.js static assets
+<FilesMatch "^/_next/static/.*$">
+    Header set Cache-Control "max-age=31536000, immutable"
+</FilesMatch>
