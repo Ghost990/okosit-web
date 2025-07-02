@@ -874,4 +874,35 @@ export const translations = {
       button: "Contact Us",
     },
   },
+
+  // Cookie consent
+  cookieConsent: {
+    title: "Cookie Settings",
+    description: "To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behavior or unique IDs on this website. Not consenting or withdrawing consent, may adversely affect certain features and functions.",
+    settingsDescription: "Choose what types of cookies to allow. You can change these settings at any time.",
+    accept: "Accept",
+    decline: "Decline",
+    viewSettings: "View Settings",
+    saveSettings: "Save Settings",
+    back: "Back",
+    privacyPolicy: "Privacy Policy",
+    categories: {
+      essential: {
+        name: "Essential Cookies",
+        description: "These cookies are necessary for the proper functioning of the website.",
+        required: true
+      },
+      analytics: {
+        name: "Analytics Cookies",
+        description: "These cookies help us understand how you use the website so we can improve the user experience.",
+        required: false
+      },
+      marketing: {
+        name: "Marketing Cookies",
+        description: "These cookies help us display targeted advertisements.",
+        required: false
+      }
+    },
+    required: "required"
+  }
 };

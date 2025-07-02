@@ -868,4 +868,35 @@ export const translations = {
       button: "Kapcsolatfelvétel",
     },
   },
+
+  // Cookie consent
+  cookieConsent: {
+    title: "Adatkezelési beállítások",
+    description: "A lehető legjobb élmény biztosítása érdekében olyan technológiákat használunk, mint a sütik, amelyek segítségével adatokat tárolunk és/vagy érünk el az eszközén. Ezen technológiák használatához való hozzájárulás lehetővé teszi számunkra, hogy például böngészési viselkedést vagy egyedi azonosítókat dolgozzunk fel ezen a weboldalon. A hozzájárulás megtagadása vagy visszavonása bizonyos funkciók és jellemzők működésére negatív hatással lehet.",
+    settingsDescription: "Válassza ki, milyen típusú sütiket szeretne engedélyezni. A beállítások bármikor módosíthatók.",
+    accept: "Elfogadom",
+    decline: "Elutasítom",
+    viewSettings: "Beállítások megtekintése",
+    saveSettings: "Beállítások mentése",
+    back: "Vissza",
+    privacyPolicy: "Adatkezelési tájékoztató",
+    categories: {
+      essential: {
+        name: "Szükséges sütik",
+        description: "Ezek a sütik szükségesek a weboldal megfelelő működéséhez.",
+        required: true
+      },
+      analytics: {
+        name: "Analitikai sütik",
+        description: "Ezek a sütik segítenek nekünk megérteni, hogyan használja a weboldalt, hogy javíthassuk a felhasználói élményt.",
+        required: false
+      },
+      marketing: {
+        name: "Marketing sütik",
+        description: "Ezek a sütik segítenek nekünk célzott hirdetések megjelenítésében.",
+        required: false
+      }
+    },
+    required: "kötelező"
+  }
 };
