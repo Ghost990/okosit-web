@@ -79,6 +79,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
         {/* Favicon */}
         <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="icon"
           type="image/png"
@@ -170,7 +171,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 url: "https://okosit-web.vercel.app",
                 name: "OkosIT - IT Megoldások és Szolgáltatások",
                 description:
-                  "Szakértő IT megoldások és szolgáltatások vállalkozások számára. Ingyenes konzultáció, testreszabott megoldások és kiváló ügyfélszolgálat.",
+                  "Szakértő IT megoldások és szolgáltatások vállalkozások számára. Ingyenes konzultáció, testreszabott megoldások, kiváló üzemeltetés és szerviz.",
                 publisher: {
                   "@id": "#organization",
                 },
@@ -183,7 +184,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     "@type": "Thing",
                     name: "IT szolgáltatások",
                     description:
-                      "Szakértő IT megoldások és támogatás vállalkozások számára",
+                      "Szakértő IT megoldások, üzemeltetés és szerviz vállalkozások számára",
                   },
                   {
                     "@type": "Thing",

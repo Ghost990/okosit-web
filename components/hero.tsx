@@ -159,7 +159,7 @@ export default function Hero({
             >
               {title || t.home.hero.title}{" "}
               <motion.div
-                className="text-primary-600 dark:text-primary-400 relative"
+                className="text-primary-600 dark:text-primary-400 relative max-w-[18rem]"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
