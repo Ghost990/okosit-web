@@ -9,7 +9,7 @@ export const translations = {
     company: "OkosIT",
     tagline: "Az Ön OkosIT partnere",
     description:
-      "Rugalmas, megbízható és skálázható IT megoldások vállalkozások számára.",
+      "Rugalmas, megbízható, skálázható üzemeltetés és szerviz vállalkozások számára.",
     cta: {
       title: "Kész a következő lépésre?",
       subtitle: "Vegye fel velünk a kapcsolatot még ma!",
@@ -100,9 +100,9 @@ export const translations = {
       title: "OkosIT",
       subtitle: "Digitalizálja üzletét szakértő segítséggel",
       description:
-        "Az OkosIT professzionális IT szolgáltatásokat nyújt, amelyek segítenek vállalkozásának növekedésében és hatékonyságának javításában.",
+        "Az OkosIT megbízható üzemeltetési és szervizszolgáltatásokat nyújt, hogy vállalkozása zökkenőmentesen működjön és hatékonyan fejlődjön.",
       badge: "Professzionális IT",
-      highlight: "megoldások vállalkozásoknak",
+      highlight: "üzemeltetés és szerviz",
       featuresTitle: "Szolgáltatásaink",
       primaryCTA: "Ingyenes konzultáció",
       secondaryCTA: "Szolgáltatások",

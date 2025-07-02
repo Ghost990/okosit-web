@@ -211,7 +211,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       buttonClasses="hidden"
       declineButtonClasses="hidden"
       disableButtonStyles={true}
-      hideButtonsFromScreen={true}
       expires={365}
       onAccept={handleAccept}
       onDecline={handleDecline}
@@ -325,7 +324,9 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
                 href={privacyPolicyUrl}
                 className={`${isDark ? "text-primary-400" : "text-primary-600"} hover:underline`}
               >
-                {t.cookieConsent.privacyPolicy}
+                {typeof t.cookieConsent.privacyPolicy === "string"
+                  ? t.cookieConsent.privacyPolicy
+                  : t.cookieConsent.privacyPolicy.title}
               </Link>
             </div>
           </>
