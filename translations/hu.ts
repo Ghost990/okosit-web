@@ -879,7 +879,108 @@ export const translations = {
     viewSettings: "Beállítások megtekintése",
     saveSettings: "Beállítások mentése",
     back: "Vissza",
-    privacyPolicy: "Adatkezelési tájékoztató",
+    privacyPolicy: {
+      title: "Adatkezelési tájékoztató",
+      sections: [
+        {
+          heading: "1. Bevezetés",
+          content: [
+            "Az OkosIT elkötelezett a felhasználók személyes adatainak védelme iránt. Jelen adatkezelési tájékoztató célja, hogy ismertesse, milyen adatokat gyűjtünk Önről weboldalunk használata során, valamint hogyan használjuk, továbbítjuk és védjük ezeket az adatokat.",
+            "Ez a tájékoztató összhangban van az Európai Unió Általános Adatvédelmi Rendeletével (GDPR) és a magyar adatvédelmi törvényekkel."
+          ]
+        },
+        {
+          heading: "2. Adatkezelő",
+          content: [
+            "Név: OkosIT",
+            "E-mail: info@okosit.hu",
+            "Weboldal: www.okosit.hu"
+          ]
+        },
+        {
+          heading: "3. Kezelt adatok köre",
+          content: [
+            "3.1 Weboldal látogatása során gyűjtött adatok:",
+            "Weboldalunk használata során az alábbi adatokat gyűjtjük:",
+            "- Látogatás időpontja",
+            "- Meglátogatott oldalak",
+            "- Használt eszköz típusa",
+            "- Használt böngésző típusa",
+            "- IP cím (anonimizált formában)",
+            "- Hivatkozási forrás",
+            "Ezen adatokat kizárólag analitikai célokra, a weboldalunk használatának elemzésére, valamint a felhasználói élmény javítására használjuk.",
+            "3.2 Cookie-k (sütik) használata:",
+            "Weboldalunk cookie-kat (sütiket) használ, amelyek a felhasználói élmény javítását szolgálják. A cookie-k olyan kis adatfájlok, amelyeket az Ön böngészője tárol az eszközén.",
+            "Weboldalunkon az alábbi típusú cookie-kat használjuk:",
+            "- Feltétlenül szükséges cookie-k: Ezek nélkülözhetetlenek a weboldal működéséhez.",
+            "- Analitikai cookie-k: Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és csak az Ön hozzájárulása esetén aktiválódnak.",
+            "Az analitikai cookie-k használatához az Ön kifejezett hozzájárulása szükséges, amelyet a weboldalunkon megjelenő cookie-kezelő sáv segítségével adhat meg vagy utasíthat el."
+          ]
+        },
+        {
+          heading: "4. Google Analytics használata",
+          content: [
+            "Weboldalunk a Google Analytics szolgáltatást használja a látogatói forgalom elemzésére. A Google Analytics cookie-kat helyez el az Ön eszközén, amelyek segítségével adatokat gyűjt arról, hogyan használja weboldalunkat.",
+            "A Google Analytics által gyűjtött főbb adatok:",
+            "- Megtekintett oldalak",
+            "- A weboldalon töltött idő",
+            "- Honnan érkezett a látogató",
+            "- Milyen eszközt és böngészőt használ",
+            "- Demográfiai adatok (nem, kor) - kizárólag anonimizált, aggregált formában",
+            "Fontos megjegyezni, hogy a Google Analytics:",
+            "- Csak az Ön kifejezett hozzájárulása esetén aktiválódik",
+            "- IP címek anonimizálásával működik weboldalunkon",
+            "- Adatai nem kerülnek összekapcsolásra egyéb személyes azonosításra alkalmas információkkal",
+            "A Google Analytics szolgáltatással kapcsolatos további információkért látogasson el a Google adatvédelmi irányelveihez: https://policies.google.com/privacy"
+          ]
+        },
+        {
+          heading: "5. Az adatkezelés jogalapja",
+          content: [
+            "Az adatkezelés jogalapja a GDPR 6. cikk (1) bekezdésének a) pontja szerint az Ön önkéntes hozzájárulása, amelyet a weboldalunkon megjelenő cookie-kezelő sávon adhat meg."
+          ]
+        },
+        {
+          heading: "6. Az adatok tárolásának időtartama",
+          content: [
+            "Az analitikai célból gyűjtött adatokat 26 hónapig tároljuk, majd automatikusan törlésre kerülnek."
+          ]
+        },
+        {
+          heading: "7. Az Ön jogai",
+          content: [
+            "A GDPR értelmében Önnek joga van:",
+            "- Tájékoztatást kérni az adatkezelésről",
+            "- Hozzáférést kérni a tárolt személyes adataihoz",
+            "- Kérni az adatok helyesbítését vagy törlését",
+            "- Az adatkezelés korlátozását kérni",
+            "- Tiltakozni az adatkezelés ellen",
+            "- Adathordozhatósághoz való jog",
+            "- A hozzájárulás bármikor történő visszavonásához való jog",
+            "Jogainak gyakorlásához vagy bármilyen adatvédelemmel kapcsolatos kérdéssel forduljon hozzánk az info@okosit.hu e-mail címen."
+          ]
+        },
+        {
+          heading: "8. Adatbiztonság",
+          content: [
+            "Megteszünk minden észszerű és megfelelő biztonsági intézkedést a személyes adatok védelmének biztosítása érdekében az adatvesztés, visszaélés, vagy módosítás ellen."
+          ]
+        },
+        {
+          heading: "9. Kapcsolat",
+          content: [
+            "Ha bármilyen kérdése van az adatkezeléssel kapcsolatban, kérjük, vegye fel velünk a kapcsolatot az info@okosit.hu e-mail címen."
+          ]
+        },
+        {
+          heading: "10. Változások az adatkezelési tájékoztatóban",
+          content: [
+            "Fenntartjuk a jogot, hogy ezt az adatkezelési tájékoztatót bármikor módosítsuk. A módosításokról a weboldalunkon tájékoztatjuk a felhasználókat.",
+            "Utolsó frissítés: 2025. július 1."
+          ]
+        }
+      ]
+    },
     categories: {
       essential: {
         name: "Szükséges sütik",

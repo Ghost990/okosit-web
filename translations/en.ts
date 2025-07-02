@@ -679,6 +679,108 @@ export const translations = {
       title: "Frequently Asked Questions",
       description: "Find answers to common questions about our services.",
       viewAll: "View all FAQs",
+    },
+    privacyPolicy: {
+      title: "Privacy Policy",
+      sections: [
+        {
+          heading: "1. Introduction",
+          content: [
+            "OkosIT is committed to protecting the personal data of its users. This privacy policy aims to explain what data we collect about you when you use our website, and how we use, transfer, and protect this data.",
+            "This policy is in accordance with the General Data Protection Regulation (GDPR) of the European Union and Hungarian data protection laws."
+          ]
+        },
+        {
+          heading: "2. Data Controller",
+          content: [
+            "Name: OkosIT",
+            "Email: info@okosit.hu",
+            "Website: www.okosit.hu"
+          ]
+        },
+        {
+          heading: "3. Scope of Data Processed",
+          content: [
+            "3.1 Data collected during website visits:",
+            "When using our website, we collect the following data:",
+            "- Time of visit",
+            "- Pages visited",
+            "- Type of device used",
+            "- Type of browser used",
+            "- IP address (in anonymized form)",
+            "- Referrer",
+            "This data is used exclusively for analytical purposes, to analyze the use of our website and to improve the user experience.",
+            "3.2 Use of cookies:",
+            "Our website uses cookies to enhance the user experience. Cookies are small data files stored by your browser on your device.",
+            "We use the following types of cookies on our website:",
+            "- Strictly necessary cookies: These are essential for the operation of the website.",
+            "- Analytical cookies: These help us understand how visitors use the website and are only activated with your consent.",
+            "The use of analytical cookies requires your explicit consent, which you can give or refuse using the cookie consent bar displayed on our website."
+          ]
+        },
+        {
+          heading: "4. Use of Google Analytics",
+          content: [
+            "Our website uses the Google Analytics service to analyze visitor traffic. Google Analytics places cookies on your device to collect data about how you use our website.",
+            "The main data collected by Google Analytics:",
+            "- Pages viewed",
+            "- Time spent on the website",
+            "- Where the visitor came from",
+            "- What device and browser is used",
+            "- Demographic data (gender, age) - only in anonymized, aggregated form",
+            "It is important to note that Google Analytics:",
+            "- Is only activated with your explicit consent",
+            "- Operates with IP anonymization on our website",
+            "- Your data is not linked to other personally identifiable information",
+            "For more information about Google Analytics, please visit Google's privacy policy: https://policies.google.com/privacy"
+          ]
+        },
+        {
+          heading: "5. Legal Basis for Data Processing",
+          content: [
+            "The legal basis for data processing is your voluntary consent under Article 6(1)(a) of the GDPR, which you can provide via the cookie consent bar displayed on our website."
+          ]
+        },
+        {
+          heading: "6. Data Retention Period",
+          content: [
+            "Data collected for analytical purposes is stored for 26 months and then automatically deleted."
+          ]
+        },
+        {
+          heading: "7. Your Rights",
+          content: [
+            "Under the GDPR, you have the right to:",
+            "- Request information about data processing",
+            "- Access your stored personal data",
+            "- Request correction or deletion of data",
+            "- Request restriction of data processing",
+            "- Object to data processing",
+            "- Right to data portability",
+            "- Right to withdraw consent at any time",
+            "To exercise your rights or for any data protection related questions, please contact us at info@okosit.hu."
+          ]
+        },
+        {
+          heading: "8. Data Security",
+          content: [
+            "We take all reasonable and appropriate security measures to protect personal data against loss, misuse, or alteration."
+          ]
+        },
+        {
+          heading: "9. Contact",
+          content: [
+            "If you have any questions regarding data processing, please contact us at info@okosit.hu."
+          ]
+        },
+        {
+          heading: "10. Changes to the Privacy Policy",
+          content: [
+            "We reserve the right to modify this privacy policy at any time. Users will be informed of any changes on our website.",
+            "Last updated: July 1, 2025."
+          ]
+        }
+      ]
     }
   },
 
