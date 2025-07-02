@@ -251,7 +251,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <ClientFooter />
             </div>
             <CookieConsent />
-            <AnalyticsInitializer />
+            <Suspense fallback={null}>
+              <AnalyticsInitializer />
+            </Suspense>
           </LanguageProvider>
         </ThemeProvider>
       </body>
