@@ -18,19 +18,27 @@ export default function AdatkezelesiTajekoztato() {
   return (
     <>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 max-w-7xl">
-        <div className="prose prose-lg prose-indigo mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-            {policy.title}
-          </h1>
-          {policy.sections.map((section, idx) => (
-            <div className="mt-10" key={idx}>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{section.heading}</h2>
-              {section.content.map((para, pidx) => (
-                <p key={pidx}>{para}</p>
-              ))}
-            </div>
-          ))}
-        </div>
+        {typeof policy === "string" ? (
+          <div className="prose prose-lg prose-indigo mx-auto">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+              {policy}
+            </h1>
+          </div>
+        ) : (
+          <div className="prose prose-lg prose-indigo mx-auto">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+              {policy.title}
+            </h1>
+            {policy.sections.map((section, idx) => (
+              <div className="mt-10" key={idx}>
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{section.heading}</h2>
+                {section.content.map((para, pidx) => (
+                  <p key={pidx}>{para}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <CookieConsent disableOverlay privacyPolicyUrl="/adatkezelesi-tajekoztato" />
     </>
