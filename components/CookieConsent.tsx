@@ -325,7 +325,9 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
                 href={privacyPolicyUrl}
                 className={`${isDark ? "text-primary-400" : "text-primary-600"} hover:underline`}
               >
-                {t.cookieConsent.privacyPolicy}
+                {typeof t.cookieConsent.privacyPolicy === "string"
+                  ? t.cookieConsent.privacyPolicy
+                  : t.cookieConsent.privacyPolicy.title}
               </Link>
             </div>
           </>
