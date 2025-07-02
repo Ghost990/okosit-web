@@ -211,7 +211,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       buttonClasses="hidden"
       declineButtonClasses="hidden"
       disableButtonStyles={true}
-      hideButtonsFromScreen={true}
       expires={365}
       onAccept={handleAccept}
       onDecline={handleDecline}
