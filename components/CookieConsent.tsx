@@ -13,6 +13,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 
 interface CookieConsentProps {
   privacyPolicyUrl?: string;
+  disableOverlay?: boolean;
 }
 
 interface CookieCategory {
@@ -24,7 +25,8 @@ interface CookieCategory {
 }
 
 const CookieConsent: React.FC<CookieConsentProps> = ({
-  privacyPolicyUrl = "/adatvedelem",
+  privacyPolicyUrl = "/adatkezelesi-tajekoztato",
+  disableOverlay = false,
 }) => {
   const [hydrated, setHydrated] = useState(false);
   const { theme, resolvedTheme } = useTheme();
@@ -37,42 +39,44 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       name: t.cookieConsent.categories.essential.name,
       description: t.cookieConsent.categories.essential.description,
       required: t.cookieConsent.categories.essential.required,
-      checked: true
+      checked: true,
     },
     {
       id: "analytics",
       name: t.cookieConsent.categories.analytics.name,
       description: t.cookieConsent.categories.analytics.description,
       required: t.cookieConsent.categories.analytics.required,
-      checked: true // Analytics ON by default
+      checked: true, // Analytics ON by default
     },
     {
       id: "marketing",
       name: t.cookieConsent.categories.marketing.name,
       description: t.cookieConsent.categories.marketing.description,
       required: t.cookieConsent.categories.marketing.required,
-      checked: false
-    }
+      checked: false,
+    },
   ]);
-  
+
   // This effect ensures the component only renders on the client to avoid hydration issues
   useEffect(() => {
     setHydrated(true);
-    
+
     // Check if cookies already exist and update checkboxes accordingly
     if (Cookies.get(CONSENT_COOKIE_NAME) === "true") {
       const analyticsAccepted = Cookies.get(ANALYTICS_CONSENT_NAME) === "true";
-      
-      setCookieCategories(prev => prev.map(category => {
-        if (category.id === "analytics") {
-          return { ...category, checked: analyticsAccepted };
-        }
-        if (category.id === "marketing") {
-          // You can add additional cookie checks here
-          return { ...category, checked: analyticsAccepted };
-        }
-        return category;
-      }));
+
+      setCookieCategories((prev) =>
+        prev.map((category) => {
+          if (category.id === "analytics") {
+            return { ...category, checked: analyticsAccepted };
+          }
+          if (category.id === "marketing") {
+            // You can add additional cookie checks here
+            return { ...category, checked: analyticsAccepted };
+          }
+          return category;
+        })
+      );
     }
   }, []);
 
@@ -81,23 +85,29 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   }
 
   const toggleCategory = (categoryId: string) => {
-    setCookieCategories(prev => prev.map(category => {
-      if (category.id === categoryId && !category.required) {
-        return { ...category, checked: !category.checked };
-      }
-      return category;
-    }));
+    setCookieCategories((prev) =>
+      prev.map((category) => {
+        if (category.id === categoryId && !category.required) {
+          return { ...category, checked: !category.checked };
+        }
+        return category;
+      })
+    );
   };
 
   const handleAccept = () => {
     // Set the main consent cookie
     Cookies.set(CONSENT_COOKIE_NAME, "true", { expires: 365 });
-    
+
     // Set analytics consent based on selection
-    const analyticsCategory = cookieCategories.find(cat => cat.id === "analytics");
+    const analyticsCategory = cookieCategories.find(
+      (cat) => cat.id === "analytics"
+    );
     const analyticsAccepted = analyticsCategory?.checked || false;
-    Cookies.set(ANALYTICS_CONSENT_NAME, analyticsAccepted.toString(), { expires: 365 });
-    
+    Cookies.set(ANALYTICS_CONSENT_NAME, analyticsAccepted.toString(), {
+      expires: 365,
+    });
+
     // Properly format log message
     console.log(`Cookies accepted: analytics=${analyticsAccepted}`);
 
@@ -105,11 +115,13 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     if (analyticsAccepted) {
       initializeAnalytics();
     }
-    
+
     // Try to force the banner to hide
     try {
-      document.getElementsByClassName("CookieConsent")[0]?.classList.add("hidden");
-      
+      document
+        .getElementsByClassName("CookieConsent")[0]
+        ?.classList.add("hidden");
+
       // Fallback: refresh the page after a short delay
       setTimeout(() => {
         window.location.reload();
@@ -125,7 +137,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     // Set the main consent cookie as true but all optional categories as false
     Cookies.set(CONSENT_COOKIE_NAME, "true", { expires: 365 });
     Cookies.set(ANALYTICS_CONSENT_NAME, "false", { expires: 365 });
-    
+
     console.log("Cookies declined");
 
     // Remove any analytics cookies
@@ -136,19 +148,23 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     // Clean up any Facebook Pixel cookies if they exist
     Cookies.remove("_fbp");
     Cookies.remove("_fbc");
-    
+
     // Update local state
-    setCookieCategories(prev => prev.map(category => {
-      if (!category.required) {
-        return { ...category, checked: false };
-      }
-      return category;
-    }));
-    
+    setCookieCategories((prev) =>
+      prev.map((category) => {
+        if (!category.required) {
+          return { ...category, checked: false };
+        }
+        return category;
+      })
+    );
+
     // Try to force the banner to hide
     try {
-      document.getElementsByClassName("CookieConsent")[0]?.classList.add("hidden");
-      
+      document
+        .getElementsByClassName("CookieConsent")[0]
+        ?.classList.add("hidden");
+
       // Fallback: refresh the page after a short delay
       setTimeout(() => {
         window.location.reload();
@@ -159,7 +175,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       window.location.reload();
     }
   };
-  
+
   const handleSaveSettings = () => {
     handleAccept();
     setShowSettings(false);
@@ -173,7 +189,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       declineButtonText=""
       enableDeclineButton
       cookieName={CONSENT_COOKIE_NAME}
-      overlay
+      overlay={!disableOverlay}
       overlayStyle={{
         backgroundColor: "rgba(0,0,0,0.5)",
       }}
@@ -202,23 +218,14 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     >
       <div className="max-w-full">
         <div className="flex items-center mb-2">
-          <div className="w-8 h-8 mr-2 relative flex-shrink-0">
-            <Image
-              src="/assets/icon.svg"
-              alt="OkosIT Logo"
-              width={32}
-              height={32}
-              className="object-contain"
-            />
-          </div>
+          <Settings
+            className={`ml-2 ${isDark ? "text-white" : "text-secondary-800"}`}
+            size={18}
+          />
           <h3
-            className={`text-lg font-semibold font-heading flex items-center ${isDark ? "text-white" : "text-secondary-800"}`}
+            className={`pl-2 text-lg font-semibold font-heading flex items-center ${isDark ? "text-white" : "text-secondary-800"}`}
           >
             {t.cookieConsent.title}
-            <Settings 
-              className={`ml-2 ${isDark ? "text-white" : "text-secondary-800"}`} 
-              size={18} 
-            />
           </h3>
         </div>
 
@@ -229,10 +236,13 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
             >
               {t.cookieConsent.settingsDescription}
             </p>
-            
+
             <div className="space-y-3">
-              {cookieCategories.map(category => (
-                <div key={category.id} className="pb-2 border-b border-gray-200 dark:border-gray-700">
+              {cookieCategories.map((category) => (
+                <div
+                  key={category.id}
+                  className="pb-2 border-b border-gray-200 dark:border-gray-700"
+                >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <input
@@ -241,26 +251,30 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
                         checked={category.checked}
                         onChange={() => toggleCategory(category.id)}
                         disabled={category.required}
-                        className={`mr-2 h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500 ${category.required ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
+                        className={`mr-2 h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500 ${category.required ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
                       />
                       <label
                         htmlFor={`cookie-${category.id}`}
-                        className={`font-medium ${isDark ? "text-white" : "text-secondary-800"} ${category.required ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                        className={`font-medium ${isDark ? "text-white" : "text-secondary-800"} ${category.required ? "cursor-not-allowed" : "cursor-pointer"}`}
                       >
                         {category.name}
                         {category.required && (
-                          <span className="ml-1 text-xs font-normal text-gray-400">({t.cookieConsent.required})</span>
+                          <span className="ml-1 text-xs font-normal text-gray-400">
+                            ({t.cookieConsent.required})
+                          </span>
                         )}
                       </label>
                     </div>
                   </div>
-                  <p className={`text-xs mt-1 ${isDark ? "text-gray-300" : "text-secondary-600"}`}>
+                  <p
+                    className={`text-xs mt-1 ${isDark ? "text-gray-300" : "text-secondary-600"}`}
+                  >
                     {category.description}
                   </p>
                 </div>
               ))}
             </div>
-            
+
             <div className="flex flex-wrap mt-4 gap-2">
               <button
                 onClick={handleSaveSettings}
