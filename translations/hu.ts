@@ -9,7 +9,7 @@ export const translations = {
     company: "OkosIT",
     tagline: "Az Ön OkosIT partnere",
     description:
-      "Rugalmas, megbízható és skálázható IT megoldások vállalkozások számára.",
+      "Rugalmas, megbízható, skálázható üzemeltetés és szerviz vállalkozások számára.",
     cta: {
       title: "Kész a következő lépésre?",
       subtitle: "Vegye fel velünk a kapcsolatot még ma!",
@@ -100,9 +100,9 @@ export const translations = {
       title: "OkosIT",
       subtitle: "Digitalizálja üzletét szakértő segítséggel",
       description:
-        "Az OkosIT professzionális IT szolgáltatásokat nyújt, amelyek segítenek vállalkozásának növekedésében és hatékonyságának javításában.",
+        "Az OkosIT megbízható üzemeltetési és szervizszolgáltatásokat nyújt, hogy vállalkozása zökkenőmentesen működjön és hatékonyan fejlődjön.",
       badge: "Professzionális IT",
-      highlight: "megoldások vállalkozásoknak",
+      highlight: "üzemeltetés és szerviz",
       featuresTitle: "Szolgáltatásaink",
       primaryCTA: "Ingyenes konzultáció",
       secondaryCTA: "Szolgáltatások",
@@ -114,7 +114,7 @@ export const translations = {
       },
     },
     stats: {
-      clients: "Elégedett ügyfelek",
+      clients: "Felügyelt eszközök",
       support: "Szerver felügyelet",
       availability: "Rendelkezésre állás",
       experience: "Év tapasztalat",
@@ -148,12 +148,12 @@ export const translations = {
       webDevelopment: "Webfejlesztés",
       webshop: "Webshop készítés",
       itImplementation: "IT kivitelezés",
-      deviceRental: "Eszközbérbeadás",
+      deviceRental: "IT eszközök bérbeadása",
       rendszeruzemeltetes: "Rendszerüzemeltetés",
       pcjavitas: "PC és laptop javítás",
       webfejlesztes: "Webfejlesztés",
       itkivitelezes: "IT kivitelezés",
-      eszkozberbeadas: "Eszközbérbeadás",
+      eszkozberbeadas: "IT eszközök bérbeadása",
     },
     descriptions: {
       rendszeruzemeltetes:
@@ -281,24 +281,6 @@ export const translations = {
         description: "Az ügyfelek igényei és elégedettsége az első számunkra.",
       },
     },
-    team: {
-      title: "Csapatunk",
-      subtitle: "Szakembereink",
-      description:
-        "Ismerje meg az OkosIT csapatát, akik a háttérben dolgoznak az Ön IT rendszereinek tökéletes működéséért.",
-      expertiseLabel: "Szakterületek:",
-      founder: {
-        name: "Tari Sándor",
-        position: "Alapitó & Ügyvezető",
-        description:
-          "Több mint 15 éves tapasztalattal rendelkezik az IT szektorban. Szakmai tudása és vezetői képességei biztosítják a cég sikereit.",
-        expertise: [
-          "Rendszerüzemeltetés",
-          "Projektmenedzsment",
-          "IT Stratégia",
-        ],
-      },
-    },
     stats: {
       clients: {
         value: "500+",
@@ -314,7 +296,7 @@ export const translations = {
       },
       experience: {
         value: "100%",
-        label: "Biztonsági megfelelés",
+        label: "100% bizalom",
       },
     },
     timeline: {
@@ -325,12 +307,12 @@ export const translations = {
       founding: {
         title: "Az OkosIT alapítása",
         description:
-          "Cégünk 2020-ban alakult azzal a céllal, hogy minőségi IT szolgáltatásokat nyújtson a hazai vállalkozások számára.",
+          "Cégünk 2014-ben alakult azzal a céllal, hogy a hazai mikro- és kisvállalkozások a lehető legmagasabb szintű IT támogatásban részesülhessenek.",
       },
-      clients50: {
-        title: "50 elégedett ügyfél",
+      firstNetwork: {
+        title: "Első hálózat átadása",
         description:
-          "Egy év alatt elértük az 50 ügyfél mérföldkövet, ami igazolta szolgáltatásaink minőségét.",
+          "Átadjuk első hálózatunk, ami teljeskörűen általunk tervezett és kivitelezett.",
       },
       expansion: {
         title: "Szolgáltatások bővítése",
@@ -338,19 +320,24 @@ export const translations = {
           "Szolgáltatási portfóliónkat kibővítettük webfejlesztéssel és webshop készítéssel.",
       },
       support: {
-        title: "24/7 szerver felügyelet bevezetése",
+        title: "24/7 szerver felügyelet",
         description:
-          "Bevezettük a nonstop ügyfélszolgálatot, hogy ügyfeleink bármikor számíthassanak ránk.",
+          "Már több mint 10db folyamatos üzemeltetésű szerver tartozik felügyeletünk alá.",
       },
       present: {
         title: "Jelenlegi helyzet",
         description:
           "Ma már több mint 500 elégedett ügyféllel rendelkezünk és folyamatosan bővülünk.",
       },
-      clients200: {
-        title: "200 ügyfél elérése",
+      endpoints250: {
+        title: "250+ üzemeltetett IT végpont",
         description:
-          "2024-ben elértük a 200 ügyfél mérföldkövet, ami jelentős növekedést jelent az előző évhez képest.",
+          "Elérjük üzemeltetési rendszerünk korlátját, magasabb szintre emeljük a támogatási rendszert.",
+      },
+      webshop: {
+        title: "Webshop",
+        description:
+          "Elindítjuk saját webshopunk, ahol általunk kiválasztott és előkészített magas minőségű eszközök vásárlására nyílik lehetőség.",
       },
     },
   },
@@ -458,9 +445,9 @@ export const translations = {
         icon: "H",
       },
       education: {
-        name: "Oktatás",
+        name: "Építőipar",
         count: "30+ partner",
-        icon: "E",
+        icon: "C",
       },
       commerce: {
         name: "Kereskedelem",
@@ -494,9 +481,9 @@ export const translations = {
             "Szállítmányozási cégek és logisztikai szolgáltatók rendszereinek üzemeltetése.",
         },
         {
-          title: "Oktatás",
+          title: "Építőipar",
           description:
-            "Iskolák, egyetemek és oktatási intézmények IT megoldásai.",
+            "Építőipari vállalatok, kivitelezők és építési szakemberek IT megoldásai.",
         },
         {
           title: "Kiskereskedelem",
@@ -569,7 +556,7 @@ export const translations = {
     },
     phone: {
       label: "Telefonszám",
-      value: "+36 30 123 4567",
+      value: "+36703915000",
     },
     email: {
       label: "E-mail cím",
@@ -580,7 +567,7 @@ export const translations = {
       description:
         "Kérdése van? Vegye fel velünk a kapcsolatot a következő módon:",
       email: "info@okosit.hu",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       address: "1043 Budapest, Berda József utca 12",
     },
     hours: {
@@ -718,7 +705,7 @@ export const translations = {
     emergency: {
       title: "Sürgős segítség",
       description: "Kritikus IT problémák esetén hívja sürgősségi vonalunkat:",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       steps: [
         "Hívja a sürgősségi vonalat",
         "Adja meg ügyfélkódját",
@@ -868,4 +855,136 @@ export const translations = {
       button: "Kapcsolatfelvétel",
     },
   },
+
+  // Cookie consent
+  cookieConsent: {
+    title: "Adatkezelési beállítások",
+    description: "A lehető legjobb élmény biztosítása érdekében olyan technológiákat használunk, mint a sütik, amelyek segítségével adatokat tárolunk és/vagy érünk el az eszközén. Ezen technológiák használatához való hozzájárulás lehetővé teszi számunkra, hogy például böngészési viselkedést vagy egyedi azonosítókat dolgozzunk fel ezen a weboldalon. A hozzájárulás megtagadása vagy visszavonása bizonyos funkciók és jellemzők működésére negatív hatással lehet.",
+    settingsDescription: "Válassza ki, milyen típusú sütiket szeretne engedélyezni. A beállítások bármikor módosíthatók.",
+    accept: "Elfogadom",
+    decline: "Elutasítom",
+    viewSettings: "Beállítások megtekintése",
+    saveSettings: "Beállítások mentése",
+    back: "Vissza",
+    privacyPolicy: {
+      title: "Adatkezelési tájékoztató",
+      sections: [
+        {
+          heading: "1. Bevezetés",
+          content: [
+            "Az OkosIT elkötelezett a felhasználók személyes adatainak védelme iránt. Jelen adatkezelési tájékoztató célja, hogy ismertesse, milyen adatokat gyűjtünk Önről weboldalunk használata során, valamint hogyan használjuk, továbbítjuk és védjük ezeket az adatokat.",
+            "Ez a tájékoztató összhangban van az Európai Unió Általános Adatvédelmi Rendeletével (GDPR) és a magyar adatvédelmi törvényekkel."
+          ]
+        },
+        {
+          heading: "2. Adatkezelő",
+          content: [
+            "Név: OkosIT",
+            "E-mail: info@okosit.hu",
+            "Weboldal: www.okosit.hu"
+          ]
+        },
+        {
+          heading: "3. Kezelt adatok köre",
+          content: [
+            "3.1 Weboldal látogatása során gyűjtött adatok:",
+            "Weboldalunk használata során az alábbi adatokat gyűjtjük:",
+            "- Látogatás időpontja",
+            "- Meglátogatott oldalak",
+            "- Használt eszköz típusa",
+            "- Használt böngésző típusa",
+            "- IP cím (anonimizált formában)",
+            "- Hivatkozási forrás",
+            "Ezen adatokat kizárólag analitikai célokra, a weboldalunk használatának elemzésére, valamint a felhasználói élmény javítására használjuk.",
+            "3.2 Cookie-k (sütik) használata:",
+            "Weboldalunk cookie-kat (sütiket) használ, amelyek a felhasználói élmény javítását szolgálják. A cookie-k olyan kis adatfájlok, amelyeket az Ön böngészője tárol az eszközén.",
+            "Weboldalunkon az alábbi típusú cookie-kat használjuk:",
+            "- Feltétlenül szükséges cookie-k: Ezek nélkülözhetetlenek a weboldal működéséhez.",
+            "- Analitikai cookie-k: Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és csak az Ön hozzájárulása esetén aktiválódnak.",
+            "Az analitikai cookie-k használatához az Ön kifejezett hozzájárulása szükséges, amelyet a weboldalunkon megjelenő cookie-kezelő sáv segítségével adhat meg vagy utasíthat el."
+          ]
+        },
+        {
+          heading: "4. Google Analytics használata",
+          content: [
+            "Weboldalunk a Google Analytics szolgáltatást használja a látogatói forgalom elemzésére. A Google Analytics cookie-kat helyez el az Ön eszközén, amelyek segítségével adatokat gyűjt arról, hogyan használja weboldalunkat.",
+            "A Google Analytics által gyűjtött főbb adatok:",
+            "- Megtekintett oldalak",
+            "- A weboldalon töltött idő",
+            "- Honnan érkezett a látogató",
+            "- Milyen eszközt és böngészőt használ",
+            "- Demográfiai adatok (nem, kor) - kizárólag anonimizált, aggregált formában",
+            "Fontos megjegyezni, hogy a Google Analytics:",
+            "- Csak az Ön kifejezett hozzájárulása esetén aktiválódik",
+            "- IP címek anonimizálásával működik weboldalunkon",
+            "- Adatai nem kerülnek összekapcsolásra egyéb személyes azonosításra alkalmas információkkal",
+            "A Google Analytics szolgáltatással kapcsolatos további információkért látogasson el a Google adatvédelmi irányelveihez: https://policies.google.com/privacy"
+          ]
+        },
+        {
+          heading: "5. Az adatkezelés jogalapja",
+          content: [
+            "Az adatkezelés jogalapja a GDPR 6. cikk (1) bekezdésének a) pontja szerint az Ön önkéntes hozzájárulása, amelyet a weboldalunkon megjelenő cookie-kezelő sávon adhat meg."
+          ]
+        },
+        {
+          heading: "6. Az adatok tárolásának időtartama",
+          content: [
+            "Az analitikai célból gyűjtött adatokat 26 hónapig tároljuk, majd automatikusan törlésre kerülnek."
+          ]
+        },
+        {
+          heading: "7. Az Ön jogai",
+          content: [
+            "A GDPR értelmében Önnek joga van:",
+            "- Tájékoztatást kérni az adatkezelésről",
+            "- Hozzáférést kérni a tárolt személyes adataihoz",
+            "- Kérni az adatok helyesbítését vagy törlését",
+            "- Az adatkezelés korlátozását kérni",
+            "- Tiltakozni az adatkezelés ellen",
+            "- Adathordozhatósághoz való jog",
+            "- A hozzájárulás bármikor történő visszavonásához való jog",
+            "Jogainak gyakorlásához vagy bármilyen adatvédelemmel kapcsolatos kérdéssel forduljon hozzánk az info@okosit.hu e-mail címen."
+          ]
+        },
+        {
+          heading: "8. Adatbiztonság",
+          content: [
+            "Megteszünk minden észszerű és megfelelő biztonsági intézkedést a személyes adatok védelmének biztosítása érdekében az adatvesztés, visszaélés, vagy módosítás ellen."
+          ]
+        },
+        {
+          heading: "9. Kapcsolat",
+          content: [
+            "Ha bármilyen kérdése van az adatkezeléssel kapcsolatban, kérjük, vegye fel velünk a kapcsolatot az info@okosit.hu e-mail címen."
+          ]
+        },
+        {
+          heading: "10. Változások az adatkezelési tájékoztatóban",
+          content: [
+            "Fenntartjuk a jogot, hogy ezt az adatkezelési tájékoztatót bármikor módosítsuk. A módosításokról a weboldalunkon tájékoztatjuk a felhasználókat.",
+            "Utolsó frissítés: 2025. július 1."
+          ]
+        }
+      ]
+    },
+    categories: {
+      essential: {
+        name: "Szükséges sütik",
+        description: "Ezek a sütik szükségesek a weboldal megfelelő működéséhez.",
+        required: true
+      },
+      analytics: {
+        name: "Analitikai sütik",
+        description: "Ezek a sütik segítenek nekünk megérteni, hogyan használja a weboldalt, hogy javíthassuk a felhasználói élményt.",
+        required: false
+      },
+      marketing: {
+        name: "Marketing sütik",
+        description: "Ezek a sütik segítenek nekünk célzott hirdetések megjelenítésében.",
+        required: false
+      }
+    },
+    required: "kötelező"
+  }
 };

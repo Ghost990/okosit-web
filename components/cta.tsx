@@ -130,7 +130,7 @@ export default function CTA() {
                   variants={itemVariants}
                   className="grid grid-cols-1 gap-4"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <a
                       href={`tel:${t.contact.phone.value}`}
                       className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
