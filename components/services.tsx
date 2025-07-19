@@ -121,7 +121,7 @@ export default function Services() {
             return (
               <motion.div
                 key={service.id}
-                className="group bg-white dark:bg-secondary-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-secondary-100 dark:border-secondary-700 hover:border-primary-200 dark:hover:border-primary-600 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-secondary-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-secondary-100 dark:border-secondary-700 hover:border-primary-200 dark:hover:border-primary-600 transform hover:-translate-y-2 flex flex-col h-full"
                 variants={{
                   hidden: { opacity: 0, y: 50 },
                   visible: {
@@ -162,7 +162,7 @@ export default function Services() {
 
                 {/* Features */}
                 <motion.div
-                  className="space-y-2 mb-6"
+                  className="space-y-2 mb-6 flex-grow"
                   initial="hidden"
                   animate="visible"
                   variants={{

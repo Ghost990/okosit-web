@@ -114,7 +114,7 @@ export const translations = {
       },
     },
     stats: {
-      clients: "Elégedett ügyfelek",
+      clients: "Felügyelt eszközök",
       support: "Szerver felügyelet",
       availability: "Rendelkezésre állás",
       experience: "Év tapasztalat",
@@ -148,12 +148,12 @@ export const translations = {
       webDevelopment: "Webfejlesztés",
       webshop: "Webshop készítés",
       itImplementation: "IT kivitelezés",
-      deviceRental: "Eszközbérbeadás",
+      deviceRental: "IT eszközök bérbeadása",
       rendszeruzemeltetes: "Rendszerüzemeltetés",
       pcjavitas: "PC és laptop javítás",
       webfejlesztes: "Webfejlesztés",
       itkivitelezes: "IT kivitelezés",
-      eszkozberbeadas: "Eszközbérbeadás",
+      eszkozberbeadas: "IT eszközök bérbeadása",
     },
     descriptions: {
       rendszeruzemeltetes:
@@ -281,24 +281,6 @@ export const translations = {
         description: "Az ügyfelek igényei és elégedettsége az első számunkra.",
       },
     },
-    team: {
-      title: "Csapatunk",
-      subtitle: "Szakembereink",
-      description:
-        "Ismerje meg az OkosIT csapatát, akik a háttérben dolgoznak az Ön IT rendszereinek tökéletes működéséért.",
-      expertiseLabel: "Szakterületek:",
-      founder: {
-        name: "Tari Sándor",
-        position: "Alapitó & Ügyvezető",
-        description:
-          "Több mint 15 éves tapasztalattal rendelkezik az IT szektorban. Szakmai tudása és vezetői képességei biztosítják a cég sikereit.",
-        expertise: [
-          "Rendszerüzemeltetés",
-          "Projektmenedzsment",
-          "IT Stratégia",
-        ],
-      },
-    },
     stats: {
       clients: {
         value: "500+",
@@ -314,7 +296,7 @@ export const translations = {
       },
       experience: {
         value: "100%",
-        label: "Biztonsági megfelelés",
+        label: "100% bizalom",
       },
     },
     timeline: {
@@ -325,12 +307,12 @@ export const translations = {
       founding: {
         title: "Az OkosIT alapítása",
         description:
-          "Cégünk 2020-ban alakult azzal a céllal, hogy minőségi IT szolgáltatásokat nyújtson a hazai vállalkozások számára.",
+          "Cégünk 2014-ben alakult azzal a céllal, hogy a hazai mikro- és kisvállalkozások a lehető legmagasabb szintű IT támogatásban részesülhessenek.",
       },
-      clients50: {
-        title: "50 elégedett ügyfél",
+      firstNetwork: {
+        title: "Első hálózat átadása",
         description:
-          "Egy év alatt elértük az 50 ügyfél mérföldkövet, ami igazolta szolgáltatásaink minőségét.",
+          "Átadjuk első hálózatunk, ami teljeskörűen általunk tervezett és kivitelezett.",
       },
       expansion: {
         title: "Szolgáltatások bővítése",
@@ -338,19 +320,24 @@ export const translations = {
           "Szolgáltatási portfóliónkat kibővítettük webfejlesztéssel és webshop készítéssel.",
       },
       support: {
-        title: "24/7 szerver felügyelet bevezetése",
+        title: "24/7 szerver felügyelet",
         description:
-          "Bevezettük a nonstop ügyfélszolgálatot, hogy ügyfeleink bármikor számíthassanak ránk.",
+          "Már több mint 10db folyamatos üzemeltetésű szerver tartozik felügyeletünk alá.",
       },
       present: {
         title: "Jelenlegi helyzet",
         description:
           "Ma már több mint 500 elégedett ügyféllel rendelkezünk és folyamatosan bővülünk.",
       },
-      clients200: {
-        title: "200 ügyfél elérése",
+      endpoints250: {
+        title: "250+ üzemeltetett IT végpont",
         description:
-          "2024-ben elértük a 200 ügyfél mérföldkövet, ami jelentős növekedést jelent az előző évhez képest.",
+          "Elérjük üzemeltetési rendszerünk korlátját, magasabb szintre emeljük a támogatási rendszert.",
+      },
+      webshop: {
+        title: "Webshop",
+        description:
+          "Elindítjuk saját webshopunk, ahol általunk kiválasztott és előkészített magas minőségű eszközök vásárlására nyílik lehetőség.",
       },
     },
   },
@@ -458,9 +445,9 @@ export const translations = {
         icon: "H",
       },
       education: {
-        name: "Oktatás",
+        name: "Építőipar",
         count: "30+ partner",
-        icon: "E",
+        icon: "C",
       },
       commerce: {
         name: "Kereskedelem",
@@ -494,9 +481,9 @@ export const translations = {
             "Szállítmányozási cégek és logisztikai szolgáltatók rendszereinek üzemeltetése.",
         },
         {
-          title: "Oktatás",
+          title: "Építőipar",
           description:
-            "Iskolák, egyetemek és oktatási intézmények IT megoldásai.",
+            "Építőipari vállalatok, kivitelezők és építési szakemberek IT megoldásai.",
         },
         {
           title: "Kiskereskedelem",
@@ -569,7 +556,7 @@ export const translations = {
     },
     phone: {
       label: "Telefonszám",
-      value: "+36 30 123 4567",
+      value: "+36703915000",
     },
     email: {
       label: "E-mail cím",
@@ -580,7 +567,7 @@ export const translations = {
       description:
         "Kérdése van? Vegye fel velünk a kapcsolatot a következő módon:",
       email: "info@okosit.hu",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       address: "1043 Budapest, Berda József utca 12",
     },
     hours: {
@@ -718,7 +705,7 @@ export const translations = {
     emergency: {
       title: "Sürgős segítség",
       description: "Kritikus IT problémák esetén hívja sürgősségi vonalunkat:",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       steps: [
         "Hívja a sürgősségi vonalat",
         "Adja meg ügyfélkódját",
