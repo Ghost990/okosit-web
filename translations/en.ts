@@ -114,7 +114,7 @@ export const translations = {
       },
     },
     stats: {
-      clients: "Satisfied Clients",
+      clients: "Monitored Devices",
       support: "Server Monitoring",
       availability: "Availability",
       experience: "Years of Experience",
@@ -148,7 +148,7 @@ export const translations = {
       webDevelopment: "Web Development",
       webshop: "Webshop Creation",
       itImplementation: "IT Implementation",
-      deviceRental: "Device Rental",
+      deviceRental: "IT equipment rental",
     },
     descriptions: {
       rendszeruzemeltetes:
@@ -276,24 +276,6 @@ export const translations = {
         description: "Our clients' needs and satisfaction come first.",
       },
     },
-    team: {
-      title: "Our Team",
-      subtitle: "Our Professionals",
-      description:
-        "Meet the OkosIT team who work behind the scenes to ensure your IT systems run perfectly.",
-      expertiseLabel: "Areas of expertise:",
-      founder: {
-        name: "Sandor Tari",
-        position: "Founder & CEO",
-        description:
-          "With over 15 years of experience in the IT sector. His professional knowledge and leadership skills ensure the company's success.",
-        expertise: [
-          "System Operations",
-          "Project Management",
-          "IT Strategy",
-        ],
-      },
-    },
     stats: {
       clients: {
         value: "500+",
@@ -309,7 +291,7 @@ export const translations = {
       },
       experience: {
         value: "100%",
-        label: "Security compliance",
+        label: "100% trust",
       },
     },
     timeline: {
@@ -320,12 +302,12 @@ export const translations = {
       founding: {
         title: "OkosIT Founded",
         description:
-          "Our company was established in 2020 with the goal of providing quality IT services to local businesses.",
+          "Our company was established in 2014 with the goal of providing the highest level of IT support for domestic micro and small businesses.",
       },
-      clients50: {
-        title: "50 Satisfied Clients",
+      firstNetwork: {
+        title: "First Network Delivery",
         description:
-          "Within a year, we reached the milestone of 50 clients, which confirmed the quality of our services.",
+          "We deliver our first network, which was completely designed and implemented by us.",
       },
       expansion: {
         title: "Service Expansion",
@@ -333,19 +315,24 @@ export const translations = {
           "We expanded our service portfolio with web development and webshop creation.",
       },
       support: {
-        title: "Introduction of 24/7 Server Monitoring",
+        title: "24/7 Server Monitoring",
         description:
-          "We introduced non-stop customer service so our clients can count on us anytime.",
+          "More than 10 continuously operating servers are now under our supervision.",
       },
       present: {
         title: "Current Situation",
         description:
           "Today we have more than 500 satisfied clients and we continue to grow.",
       },
-      clients200: {
-        title: "Reaching 200 Clients",
+      endpoints250: {
+        title: "250+ Managed IT Endpoints",
         description:
-          "In 2024, we reached the milestone of 200 clients, which represents significant growth compared to the previous year.",
+          "We reach the limit of our operational system, elevating the support system to a higher level.",
+      },
+      webshop: {
+        title: "Webshop",
+        description:
+          "We launch our own webshop, where high-quality devices selected and prepared by us are available for purchase.",
       },
     },
   },
@@ -431,9 +418,9 @@ export const translations = {
         icon: "H",
       },
       education: {
-        name: "Education",
+        name: "Construction",
         count: "30+ partners",
-        icon: "E",
+        icon: "C",
       },
       commerce: {
         name: "Commerce",
@@ -467,9 +454,9 @@ export const translations = {
             "Operating systems for shipping companies and logistics providers.",
         },
         {
-          title: "Education",
+          title: "Construction",
           description:
-            "IT solutions for schools, universities, and educational institutions.",
+            "IT solutions for construction companies, contractors, and building industry professionals.",
         },
       ],
     },
@@ -554,7 +541,7 @@ export const translations = {
     },
     phone: {
       label: "Phone Number",
-      value: "+36 30 123 4567",
+      value: "+36703915000",
     },
     email: {
       label: "Email Address",
@@ -564,7 +551,7 @@ export const translations = {
       title: "Contact Us",
       description: "Have questions? Contact us in one of the following ways:",
       email: "info@okosit.hu",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       address: "1043 Budapest, Berda József utca 12",
     },
     hours: {
@@ -679,6 +666,108 @@ export const translations = {
       title: "Frequently Asked Questions",
       description: "Find answers to common questions about our services.",
       viewAll: "View all FAQs",
+    },
+    privacyPolicy: {
+      title: "Privacy Policy",
+      sections: [
+        {
+          heading: "1. Introduction",
+          content: [
+            "OkosIT is committed to protecting the personal data of its users. This privacy policy aims to explain what data we collect about you when you use our website, and how we use, transfer, and protect this data.",
+            "This policy is in accordance with the General Data Protection Regulation (GDPR) of the European Union and Hungarian data protection laws."
+          ]
+        },
+        {
+          heading: "2. Data Controller",
+          content: [
+            "Name: OkosIT",
+            "Email: info@okosit.hu",
+            "Website: www.okosit.hu"
+          ]
+        },
+        {
+          heading: "3. Scope of Data Processed",
+          content: [
+            "3.1 Data collected during website visits:",
+            "When using our website, we collect the following data:",
+            "- Time of visit",
+            "- Pages visited",
+            "- Type of device used",
+            "- Type of browser used",
+            "- IP address (in anonymized form)",
+            "- Referrer",
+            "This data is used exclusively for analytical purposes, to analyze the use of our website and to improve the user experience.",
+            "3.2 Use of cookies:",
+            "Our website uses cookies to enhance the user experience. Cookies are small data files stored by your browser on your device.",
+            "We use the following types of cookies on our website:",
+            "- Strictly necessary cookies: These are essential for the operation of the website.",
+            "- Analytical cookies: These help us understand how visitors use the website and are only activated with your consent.",
+            "The use of analytical cookies requires your explicit consent, which you can give or refuse using the cookie consent bar displayed on our website."
+          ]
+        },
+        {
+          heading: "4. Use of Google Analytics",
+          content: [
+            "Our website uses the Google Analytics service to analyze visitor traffic. Google Analytics places cookies on your device to collect data about how you use our website.",
+            "The main data collected by Google Analytics:",
+            "- Pages viewed",
+            "- Time spent on the website",
+            "- Where the visitor came from",
+            "- What device and browser is used",
+            "- Demographic data (gender, age) - only in anonymized, aggregated form",
+            "It is important to note that Google Analytics:",
+            "- Is only activated with your explicit consent",
+            "- Operates with IP anonymization on our website",
+            "- Your data is not linked to other personally identifiable information",
+            "For more information about Google Analytics, please visit Google's privacy policy: https://policies.google.com/privacy"
+          ]
+        },
+        {
+          heading: "5. Legal Basis for Data Processing",
+          content: [
+            "The legal basis for data processing is your voluntary consent under Article 6(1)(a) of the GDPR, which you can provide via the cookie consent bar displayed on our website."
+          ]
+        },
+        {
+          heading: "6. Data Retention Period",
+          content: [
+            "Data collected for analytical purposes is stored for 26 months and then automatically deleted."
+          ]
+        },
+        {
+          heading: "7. Your Rights",
+          content: [
+            "Under the GDPR, you have the right to:",
+            "- Request information about data processing",
+            "- Access your stored personal data",
+            "- Request correction or deletion of data",
+            "- Request restriction of data processing",
+            "- Object to data processing",
+            "- Right to data portability",
+            "- Right to withdraw consent at any time",
+            "To exercise your rights or for any data protection related questions, please contact us at info@okosit.hu."
+          ]
+        },
+        {
+          heading: "8. Data Security",
+          content: [
+            "We take all reasonable and appropriate security measures to protect personal data against loss, misuse, or alteration."
+          ]
+        },
+        {
+          heading: "9. Contact",
+          content: [
+            "If you have any questions regarding data processing, please contact us at info@okosit.hu."
+          ]
+        },
+        {
+          heading: "10. Changes to the Privacy Policy",
+          content: [
+            "We reserve the right to modify this privacy policy at any time. Users will be informed of any changes on our website.",
+            "Last updated: July 1, 2025."
+          ]
+        }
+      ]
     }
   },
 
@@ -725,7 +814,7 @@ export const translations = {
     emergency: {
       title: "Emergency Help",
       description: "For critical IT issues, call our emergency line:",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       steps: [
         "Call the emergency line",
         "Provide your client code",
@@ -874,4 +963,35 @@ export const translations = {
       button: "Contact Us",
     },
   },
+
+  // Cookie consent
+  cookieConsent: {
+    title: "Cookie Settings",
+    description: "To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behavior or unique IDs on this website. Not consenting or withdrawing consent, may adversely affect certain features and functions.",
+    settingsDescription: "Choose what types of cookies to allow. You can change these settings at any time.",
+    accept: "Accept",
+    decline: "Decline",
+    viewSettings: "View Settings",
+    saveSettings: "Save Settings",
+    back: "Back",
+    privacyPolicy: "Privacy Policy",
+    categories: {
+      essential: {
+        name: "Essential Cookies",
+        description: "These cookies are necessary for the proper functioning of the website.",
+        required: true
+      },
+      analytics: {
+        name: "Analytics Cookies",
+        description: "These cookies help us understand how you use the website so we can improve the user experience.",
+        required: false
+      },
+      marketing: {
+        name: "Marketing Cookies",
+        description: "These cookies help us display targeted advertisements.",
+        required: false
+      }
+    },
+    required: "required"
+  }
 };
