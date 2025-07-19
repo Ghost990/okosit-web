@@ -295,99 +295,120 @@ export default function ContactPage() {
               }
             }}
           >
-            {contactMethods.map((method, index) => (
-              <motion.div
-                key={index}
-                className="bg-white dark:bg-secondary-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-secondary-100 dark:border-secondary-700 hover:border-primary-200 dark:hover:border-primary-700 text-center group"
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: { 
-                      duration: 0.5, 
-                      ease: "easeOut" 
-                    } 
+            {contactMethods.map((method, index) => {
+              // Helper function to handle clicks
+              const handleClick = (e: React.MouseEvent) => {
+                if (method.phoneNumber) {
+                  e.preventDefault();
+                  window.location.href = `tel:${method.phoneNumber}`;
+                } else if (method.emailAddress) {
+                  e.preventDefault();
+                  window.location.href = `mailto:${method.emailAddress}`;
+                } else if (method.action) {
+                  e.preventDefault();
+                  if (method.action.startsWith('http')) {
+                    window.open(method.action, '_blank', 'noopener,noreferrer');
+                  } else {
+                    window.location.href = method.action;
                   }
-                }}
-                whileHover={{ 
-                  y: -5, 
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
-                  transition: { duration: 0.2 }
-                }}
-              >
-                <motion.div 
-                  className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-xl mb-6 group-hover:bg-primary-600 group-hover:text-white dark:group-hover:bg-primary-500 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  // Simplified animation to improve performance
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <method.icon size={32} />
-                </motion.div>
-                <motion.h3 
-                  className="text-lg font-bold text-secondary-900 dark:text-white mb-2"
+                }
+              };
+
+              // Determine if the card should be clickable
+              const isClickable = method.phoneNumber || method.emailAddress || method.action;
+
+              return (
+                <motion.div
+                  key={index}
+                  className={`bg-white dark:bg-secondary-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-secondary-100 dark:border-secondary-700 hover:border-primary-200 dark:hover:border-primary-700 text-center group ${isClickable ? 'cursor-pointer' : ''}`}
                   variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1, transition: { delay: 0.2 } }
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        duration: 0.5, 
+                        ease: "easeOut" 
+                      } 
+                    }
                   }}
-                >
-                  {method.title}
-                </motion.h3>
-                <motion.div 
-                  className="mb-4"
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1, transition: { delay: 0.3 } }
+                  whileHover={{ 
+                    y: -5, 
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
+                    transition: { duration: 0.2 }
                   }}
+                  onClick={isClickable ? handleClick : undefined}
                 >
-                  {method.phoneNumber ? (
-                    <ObfuscatedPhone
-                      phone={method.phoneNumber}
-                      className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                    />
-                  ) : method.emailAddress ? (
-                    <ObfuscatedEmail
-                      email={method.emailAddress}
-                      className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                    />
-                  ) : method.action ? (
-                    <motion.a
-                      href={method.action}
-                      target={method.action.startsWith('http') ? '_blank' : undefined}
-                      rel={method.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {method.primary}
-                    </motion.a>
-                  ) : (
-                    <div className="text-primary-600 dark:text-primary-400 font-semibold">
-                      {method.primary}
-                    </div>
-                  )}
                   <motion.div 
-                    className="text-sm text-secondary-500 dark:text-secondary-500 mt-1"
+                    className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-xl mb-6 group-hover:bg-primary-600 group-hover:text-white dark:group-hover:bg-primary-500 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    // Simplified animation to improve performance
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <method.icon size={32} />
+                  </motion.div>
+                  <motion.h3 
+                    className="text-lg font-bold text-secondary-900 dark:text-white mb-2"
                     variants={{
                       hidden: { opacity: 0 },
-                      visible: { opacity: 1, transition: { delay: 0.4 } }
+                      visible: { opacity: 1, transition: { delay: 0.2 } }
                     }}
                   >
-                    {method.secondary}
+                    {method.title}
+                  </motion.h3>
+                  <motion.div 
+                    className="mb-4"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1, transition: { delay: 0.3 } }
+                    }}
+                  >
+                    {method.phoneNumber ? (
+                      <ObfuscatedPhone
+                        phone={method.phoneNumber}
+                        className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                      />
+                    ) : method.emailAddress ? (
+                      <ObfuscatedEmail
+                        email={method.emailAddress}
+                        className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                      />
+                    ) : method.action ? (
+                      <motion.div
+                        className="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {method.primary}
+                      </motion.div>
+                    ) : (
+                      <div className="text-primary-600 dark:text-primary-400 font-semibold">
+                        {method.primary}
+                      </div>
+                    )}
+                    <motion.div 
+                      className="text-sm text-secondary-500 dark:text-secondary-500 mt-1"
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { delay: 0.4 } }
+                      }}
+                    >
+                      {method.secondary}
+                    </motion.div>
                   </motion.div>
+                  <motion.p 
+                    className="text-secondary-600 dark:text-secondary-400 text-sm"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1, transition: { delay: 0.5 } }
+                    }}
+                  >
+                    {method.description}
+                  </motion.p>
                 </motion.div>
-                <motion.p 
-                  className="text-secondary-600 dark:text-secondary-400 text-sm"
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1, transition: { delay: 0.5 } }
-                  }}
-                >
-                  {method.description}
-                </motion.p>
-              </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
 
           {/* Office Hours */}

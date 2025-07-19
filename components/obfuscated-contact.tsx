@@ -35,6 +35,7 @@ export const ObfuscatedEmail: React.FC<{ email: string; className?: string }> = 
       className={className}
       onClick={(e) => {
         e.preventDefault();
+        e.stopPropagation(); // Prevent parent click handlers
         window.location.href = `mailto:${username}@${domain}`;
       }}
       aria-label="Email address"
@@ -100,6 +101,7 @@ export const ObfuscatedPhone: React.FC<{
       className={className}
       onClick={(e) => {
         e.preventDefault();
+        e.stopPropagation(); // Prevent parent click handlers
         window.location.href = `tel:+${countryCode}${areaCode}${part1}${part2}`;
       }}
       aria-label="Phone number"
