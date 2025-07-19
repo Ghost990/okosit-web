@@ -196,7 +196,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       onOverlayClick={() => {
         // Do nothing on overlay click, prevent accidental closing
       }}
-      containerClasses={`fixed bottom-4 right-4 z-50 lg:max-w-lg max-w-md p-4 shadow-lg ${isDark ? "bg-secondary-800" : "bg-white"} rounded-lg`}
+      containerClasses={`fixed bottom-4 right-4 z-50 lg:max-w-lg max-w-md p-4 shadow-lg ${isDark ? "bg-gray-800 border border-gray-600" : "bg-white"} rounded-lg`}
       style={{
         position: "fixed",
         bottom: "2rem",

@@ -12,9 +12,7 @@ import {
   Users,
   Award,
   Clock,
-  ArrowRight,
 } from "lucide-react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -70,25 +68,17 @@ export default function AboutPage() {
     },
   ];
 
-  const team = [
-    {
-      name: t.about.team.founder.name,
-      position: t.about.team.founder.position,
-      description: t.about.team.founder.description,
-      expertise: t.about.team.founder.expertise,
-    },
-  ];
 
   const milestones = [
     {
-      year: "2013",
+      year: "2014",
       title: t.about.timeline.founding.title,
       description: t.about.timeline.founding.description,
     },
     {
-      year: "2015",
-      title: t.about.timeline.clients50.title,
-      description: t.about.timeline.clients50.description,
+      year: "2016",
+      title: t.about.timeline.firstNetwork.title,
+      description: t.about.timeline.firstNetwork.description,
     },
     {
       year: "2020",
@@ -101,9 +91,14 @@ export default function AboutPage() {
       description: t.about.timeline.support.description,
     },
     {
-      year: "2024",
-      title: t.about.timeline.clients200.title,
-      description: t.about.timeline.clients200.description,
+      year: "2023",
+      title: t.about.timeline.endpoints250.title,
+      description: t.about.timeline.endpoints250.description,
+    },
+    {
+      year: "2025",
+      title: t.about.timeline.webshop.title,
+      description: t.about.timeline.webshop.description,
     },
   ];
 
@@ -270,125 +265,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-white dark:bg-secondary-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h2 className="heading-2 text-secondary-900 dark:text-white mb-6">
-              {t.about.team.title}
-            </h2>
-            <p className="text-xl text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
-              {t.about.team.description}
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid md:grid-cols-1 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.3,
-                },
-              },
-            }}
-          >
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                className="bg-secondary-50 dark:bg-secondary-800 rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8"
-                variants={{
-                  hidden: { opacity: 0, y: 50 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.8,
-                      ease: "easeOut",
-                    },
-                  },
-                }}
-                whileHover={{
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
-                  scale: 1.01,
-                  transition: { duration: 0.3 },
-                }}
-              >
-                <motion.div
-                  className="w-32 h-32 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 text-4xl font-bold"
-                  whileHover={{ scale: 1.05, rotate: 5 }}
-                  animate={{
-                    boxShadow: [
-                      "0 0 0 0 rgba(99, 102, 241, 0)",
-                      "0 0 0 10px rgba(99, 102, 241, 0.2)",
-                      "0 0 0 0 rgba(99, 102, 241, 0)",
-                    ],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  {member.name.charAt(0)}
-                </motion.div>
-                <div className="flex-1 text-center md:text-left">
-                  <motion.h3
-                    className="text-2xl font-bold text-secondary-900 dark:text-white mb-2"
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0, transition: { delay: 0.2 } },
-                    }}
-                  >
-                    {member.name}
-                  </motion.h3>
-                  <motion.div
-                    className="text-primary-600 dark:text-primary-400 font-medium mb-4"
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0, transition: { delay: 0.3 } },
-                    }}
-                  >
-                    {member.position}
-                  </motion.div>
-                  <motion.p
-                    className="text-secondary-600 dark:text-secondary-400 mb-4"
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1, transition: { delay: 0.4 } },
-                    }}
-                  >
-                    {member.description}
-                  </motion.p>
-                  <motion.div
-                    className="font-medium text-secondary-900 dark:text-white"
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1, transition: { delay: 0.5 } },
-                    }}
-                  >
-                    {t.about.team.expertiseLabel}
-                  </motion.div>
-                  <motion.div
-                    className="text-secondary-600 dark:text-secondary-400"
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1, transition: { delay: 0.6 } },
-                    }}
-                  >
-                    {member.expertise}
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* Timeline Section */}
       <section className="py-20 bg-secondary-50 dark:bg-secondary-800">

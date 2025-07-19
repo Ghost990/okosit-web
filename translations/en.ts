@@ -114,7 +114,7 @@ export const translations = {
       },
     },
     stats: {
-      clients: "Satisfied Clients",
+      clients: "Monitored Devices",
       support: "Server Monitoring",
       availability: "Availability",
       experience: "Years of Experience",
@@ -148,7 +148,7 @@ export const translations = {
       webDevelopment: "Web Development",
       webshop: "Webshop Creation",
       itImplementation: "IT Implementation",
-      deviceRental: "Device Rental",
+      deviceRental: "IT equipment rental",
     },
     descriptions: {
       rendszeruzemeltetes:
@@ -276,24 +276,6 @@ export const translations = {
         description: "Our clients' needs and satisfaction come first.",
       },
     },
-    team: {
-      title: "Our Team",
-      subtitle: "Our Professionals",
-      description:
-        "Meet the OkosIT team who work behind the scenes to ensure your IT systems run perfectly.",
-      expertiseLabel: "Areas of expertise:",
-      founder: {
-        name: "Sandor Tari",
-        position: "Founder & CEO",
-        description:
-          "With over 15 years of experience in the IT sector. His professional knowledge and leadership skills ensure the company's success.",
-        expertise: [
-          "System Operations",
-          "Project Management",
-          "IT Strategy",
-        ],
-      },
-    },
     stats: {
       clients: {
         value: "500+",
@@ -309,7 +291,7 @@ export const translations = {
       },
       experience: {
         value: "100%",
-        label: "Security compliance",
+        label: "100% trust",
       },
     },
     timeline: {
@@ -320,12 +302,12 @@ export const translations = {
       founding: {
         title: "OkosIT Founded",
         description:
-          "Our company was established in 2020 with the goal of providing quality IT services to local businesses.",
+          "Our company was established in 2014 with the goal of providing the highest level of IT support for domestic micro and small businesses.",
       },
-      clients50: {
-        title: "50 Satisfied Clients",
+      firstNetwork: {
+        title: "First Network Delivery",
         description:
-          "Within a year, we reached the milestone of 50 clients, which confirmed the quality of our services.",
+          "We deliver our first network, which was completely designed and implemented by us.",
       },
       expansion: {
         title: "Service Expansion",
@@ -333,19 +315,24 @@ export const translations = {
           "We expanded our service portfolio with web development and webshop creation.",
       },
       support: {
-        title: "Introduction of 24/7 Server Monitoring",
+        title: "24/7 Server Monitoring",
         description:
-          "We introduced non-stop customer service so our clients can count on us anytime.",
+          "More than 10 continuously operating servers are now under our supervision.",
       },
       present: {
         title: "Current Situation",
         description:
           "Today we have more than 500 satisfied clients and we continue to grow.",
       },
-      clients200: {
-        title: "Reaching 200 Clients",
+      endpoints250: {
+        title: "250+ Managed IT Endpoints",
         description:
-          "In 2024, we reached the milestone of 200 clients, which represents significant growth compared to the previous year.",
+          "We reach the limit of our operational system, elevating the support system to a higher level.",
+      },
+      webshop: {
+        title: "Webshop",
+        description:
+          "We launch our own webshop, where high-quality devices selected and prepared by us are available for purchase.",
       },
     },
   },
@@ -431,9 +418,9 @@ export const translations = {
         icon: "H",
       },
       education: {
-        name: "Education",
+        name: "Construction",
         count: "30+ partners",
-        icon: "E",
+        icon: "C",
       },
       commerce: {
         name: "Commerce",
@@ -467,9 +454,9 @@ export const translations = {
             "Operating systems for shipping companies and logistics providers.",
         },
         {
-          title: "Education",
+          title: "Construction",
           description:
-            "IT solutions for schools, universities, and educational institutions.",
+            "IT solutions for construction companies, contractors, and building industry professionals.",
         },
       ],
     },
@@ -554,7 +541,7 @@ export const translations = {
     },
     phone: {
       label: "Phone Number",
-      value: "+36 30 123 4567",
+      value: "+36703915000",
     },
     email: {
       label: "Email Address",
@@ -564,7 +551,7 @@ export const translations = {
       title: "Contact Us",
       description: "Have questions? Contact us in one of the following ways:",
       email: "info@okosit.hu",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       address: "1043 Budapest, Berda József utca 12",
     },
     hours: {
@@ -827,7 +814,7 @@ export const translations = {
     emergency: {
       title: "Emergency Help",
       description: "For critical IT issues, call our emergency line:",
-      phone: "+36 30 123 4567",
+      phone: "+36703915000",
       steps: [
         "Call the emergency line",
         "Provide your client code",
