@@ -68,9 +68,10 @@ The site implements manual routing for languages:
 - Form validation and error handling implemented
 
 ### Cookie Consent
-- GDPR-compliant cookie banner
+- GDPR-compliant cookie banner with proper dark mode styling
 - Analytics only loaded after consent
 - Preferences stored in cookies
+- Uses `bg-gray-800 border border-gray-600` for dark mode visibility
 
 ## Common Development Tasks
 
@@ -92,12 +93,53 @@ The site implements manual routing for languages:
 2. Follow existing patterns for dark mode support (dark: prefix)
 3. Ensure responsive design with mobile-first approach
 4. Use TypeScript interfaces for props
+5. For card layouts, use `flex flex-col h-full` and `flex-grow` for equal heights
+6. Contact components use clickable card containers with obfuscated contact details
 
 ### Building for Production
 1. Run `npm run build` to create static export
 2. Output will be in `out/` directory
 3. Test locally with a static server before deployment
 4. Deploy to Vercel or any static hosting service
+
+## Current Website Configuration
+
+### Contact Information
+- **Phone**: +36703915000
+- **Email**: info@okosit.hu
+- **Statistics**: 200+ monitored devices (not satisfied clients)
+
+### Service Categories
+- Rendszerüzemeltetés (System Administration)
+- PC és laptop javítás (PC and Laptop Repair)  
+- Webfejlesztés (Web Development)
+- Webshop készítés (Webshop Creation)
+- IT kivitelezés (IT Implementation)
+- IT eszközök bérbeadása (IT Equipment Rental)
+
+### Industry Focus
+- Egészségügy (Healthcare)
+- Építőipar (Construction) - updated from Education
+- Kereskedelem (Commerce)
+- Szolgáltatások (Services)
+- Gyártás (Manufacturing)
+- Technológia (Technology)
+
+### Company Timeline
+- **2014**: Company founding focused on micro/small businesses
+- **2016**: First network delivery (fully designed and implemented)
+- **2020**: Service expansion (webdev/webshop)
+- **2022**: 24/7 server monitoring (10+ continuous servers)
+- **2023**: 250+ managed IT endpoints, system scaling
+- **2025**: Webshop launch with curated devices
+
+### About Page Structure
+- Hero section
+- Values section  
+- Stats section (includes "100% bizalom/trust")
+- Timeline section
+- CTA section
+- **Note**: Team section has been removed
 
 ## Important Notes
 
@@ -106,3 +148,4 @@ The site implements manual routing for languages:
 - Test files are not present despite Jest being configured
 - Email functionality requires server environment with Resend API key
 - All paths use absolute imports with `@/` prefix configured in TypeScript
+- Partners page displays partner logos instead of industry solutions section
