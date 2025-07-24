@@ -15,6 +15,7 @@ This is the OkosIT website - a modern, bilingual (Hungarian/English) static webs
 - **`npm run check-types`** - TypeScript type checking without emit
 - **`npm run analyze`** - Bundle size analysis (currently disabled in next.config.js)
 - **`npm test`** - Run Jest tests (no tests currently implemented)
+- **`npm run lint:fix`** - Auto-fix linting issues
 
 ## Architecture
 
@@ -149,3 +150,68 @@ The site implements manual routing for languages:
 - Email functionality requires server environment with Resend API key
 - All paths use absolute imports with `@/` prefix configured in TypeScript
 - Partners page displays partner logos instead of industry solutions section
+
+## Environment Variables
+
+Required for production:
+- **`RESEND_API_KEY`** - API key for Resend email service (contact form functionality)
+
+## TypeScript Configuration
+
+- Target: ES2017
+- Path aliases configured: `@/*` maps to project root
+- Strict mode partially enabled (consider enabling fully for better type safety)
+- JSX: preserve mode for Next.js compatibility
+
+## HTTPS Configuration (Updated)
+
+The website has been fully migrated from HTTP to HTTPS with the following security enhancements:
+
+### Security Headers Enhanced
+**Location**: `next.config.js` - Updated security headers for HTTPS compliance:
+- **Strict-Transport-Security**: `max-age=63072000; includeSubDomains; preload` (2 years)
+- **Referrer-Policy**: `strict-origin-when-cross-origin` 
+- **Permissions-Policy**: `camera=(), microphone=(), geolocation=()`
+- Existing headers maintained: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection
+
+### URL Updates Made
+**Location**: `lib/seo-utils.ts` - Lines 185 and 196:
+- Changed default site URL from `http://okosit.hu` → `https://okosit.hu`
+- Updated social sharing image URL from HTTP to HTTPS
+- All other configuration files already used HTTPS URLs correctly
+
+### Environment Configuration
+- **`.env.example`** created with HTTPS defaults
+- **`SITE_URL`** environment variable uses HTTPS
+- All external services (Google Fonts, Analytics) already use HTTPS connections
+
+## Favicon Configuration (Issue Identified)
+
+### Current Setup
+**Location**: `app/layout.tsx` - Lines 80-102:
+```html
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+```
+
+### Available Favicon Files
+**Location**: `public/` and `public/assets/`:
+- `/favicon.ico` (15.4KB) - Main favicon in root
+- `/assets/favicon.ico` (1.7KB) - Alternative favicon
+- `/assets/favicon-16x16.png`, `/assets/favicon-32x32.png` - PNG versions
+- `/assets/icon.svg` - SVG version
+- Complete set of PWA icons in `/assets/` directory
+
+### Known Issue
+- Tab icon may not display properly in some browsers
+- Development server may not serve favicon correctly due to static export configuration
+- **Solution**: Hard refresh browser (Ctrl+F5/Cmd+Shift+R) or test in production build
+
+### Troubleshooting Steps
+1. Clear browser cache and hard refresh
+2. Test in incognito/private mode
+3. Verify files exist in `public/` directory
+4. Check browser developer tools for 404 errors on favicon requests
+5. Test production build with `npm run build` to ensure proper static export
