@@ -182,7 +182,7 @@ export function generateBreadcrumbStructuredData(
 
 // Generate metadata for the home page
 export function generateHomePageMetadata(): Metadata {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://okosit.hu';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://okosit.hu';
   
   return generatePageMetadata({
     title: 'OkosIT - Az Ön okosIT partnere',
@@ -193,7 +193,7 @@ export function generateHomePageMetadata(): Metadata {
     type: 'website',
     images: [
       {
-        url: 'http://okosit.hu/00_share/okosit_share.png',
+        url: 'https://okosit.hu/00_share/okosit_share.png',
         width: 1200,
         height: 630,
         alt: 'OkosIT - Az Ön okosIT partnere',

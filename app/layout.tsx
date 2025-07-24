@@ -77,9 +77,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           as="style"
         />
 
-        {/* Favicon */}
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon - primary favicon.ico in root for browser compatibility */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
         <link
           rel="icon"
           type="image/png"
@@ -92,7 +92,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           sizes="16x16"
           href="/assets/favicon-16x16.png"
         />
-        <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
