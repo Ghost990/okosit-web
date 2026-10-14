@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://okosit-web.vercel.app',
+  siteUrl: process.env.SITE_URL || 'https://okosit.hu',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ['/server-sitemap.xml', '/admin/*'],
@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://okosit-web.vercel.app/sitemap.xml',
+      'https://okosit.hu/sitemap.xml',
     ],
   },
   i18n: {
