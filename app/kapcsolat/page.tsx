@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useTranslations } from "@/hooks/useTranslations"
 import Hero from "@/components/hero"
 import CTA from "@/components/cta"
@@ -39,6 +39,16 @@ export default function ContactPage() {
     isError: false,
     errorMessage: ''
   })
+  // Honeypot value (hidden field, only bots fill it)
+  const [website, setWebsite] = useState('')
+  // When the user started filling the form — server rejects instant (bot) submits
+  const startedAtRef = useRef(0)
+  // Synchronous guard against double submits
+  const submittingRef = useRef(false)
+
+  useEffect(() => {
+    startedAtRef.current = Date.now()
+  }, [])
 
   // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -88,6 +98,10 @@ export default function ContactPage() {
       return;
     }
 
+    // Ignore repeated clicks / Enter presses while a request is in flight
+    if (submittingRef.current) return;
+    submittingRef.current = true;
+
     setFormStatus({
       isSubmitting: true,
       isSubmitted: false,
@@ -95,74 +109,17 @@ export default function ContactPage() {
       errorMessage: ''
     });
 
+    const errors = t.contact.form.errors;
+
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, website, startedAt: startedAtRef.current }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        // Check if Resend returned a validation error despite HTTP 200 response
-        if (data.success && data.data && data.data.error) {
-          const resendError = data.data.error;
-          console.log('Resend validation error:', resendError);
-          
-          // Handle specific Resend errors
-          let errorMessage = t.contact.form.errors?.serverError || "Hiba történt az e-mail küldése során.";
-          
-          // Domain verification error
-          if (resendError.statusCode === 403 && resendError.message?.includes('domain is not verified')) {
-            // This is expected during development/testing
-            console.log('Domain verification error - expected during testing');
-            
-            // Show success message to the user anyway since this is just a testing limitation
-            setFormStatus({
-              isSubmitting: false,
-              isSubmitted: true,
-              isError: false,
-              errorMessage: ''
-            });
-            
-            // Reset form data
-            setFormData({
-              firstName: "",
-              lastName: "",
-              company: "",
-              email: "",
-              phone: "",
-              subject: "",
-              message: "",
-              terms: false,
-            });
-            
-            return;
-          }
-          
-          // Other Resend errors
-          setFormStatus({
-            isSubmitting: false,
-            isSubmitted: false,
-            isError: true,
-            errorMessage: errorMessage
-          });
-          
-          return;
-        }
-        
-        // Success
-        setFormStatus({
-          isSubmitting: false,
-          isSubmitted: true,
-          isError: false,
-          errorMessage: ''
-        });
-        
-        // Reset form data
+        setFormStatus({ isSubmitting: false, isSubmitted: true, isError: false, errorMessage: '' });
         setFormData({
           firstName: "",
           lastName: "",
@@ -173,24 +130,26 @@ export default function ContactPage() {
           message: "",
           terms: false,
         });
-      } else {
-        // API error
-        setFormStatus({
-          isSubmitting: false,
-          isSubmitted: false,
-          isError: true,
-          errorMessage: data.error || t.contact.form.errors?.serverError || t.contact.form.error
-        });
+        return;
       }
+
+      const data = await response.json().catch(() => ({}));
+      let errorMessage = errors?.serverError || t.contact.form.error;
+      if (response.status === 429) errorMessage = errors?.rateLimited || errorMessage;
+      else if (data.error === 'invalid_email') errorMessage = errors?.invalidEmail || errorMessage;
+      else if (response.status === 422) errorMessage = errors?.invalidFields || errorMessage;
+
+      setFormStatus({ isSubmitting: false, isSubmitted: false, isError: true, errorMessage });
     } catch (error) {
-      // Network or other error
       console.error('Error submitting form:', error);
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,
         isError: true,
-        errorMessage: t.contact.form.error
+        errorMessage: errors?.networkError || t.contact.form.error
       });
+    } finally {
+      submittingRef.current = false;
     }
   };
   
@@ -703,14 +662,27 @@ export default function ContactPage() {
                   </div>
                 </motion.div>
               )}
+              {/* Honeypot — hidden from humans and assistive tech, bots tend to fill it */}
+              <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                 }}
               >
-                <motion.label 
-                  htmlFor="firstName" 
+                <motion.label
+                  htmlFor="firstName"
                   className="block text-sm font-medium text-secondary-700 dark:text-secondary-300"
                   variants={{
                     hidden: { opacity: 0 },

@@ -68,7 +68,7 @@ export function generateMetadata({
   languageAlternates = [],
   additionalMetaTags = []
 }: SeoProps = {}): Metadata {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://okosit-web.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://okosit.hu';
   const defaultOgImage = {
     url: `${siteUrl}/og-image.jpg`,
     width: 1200,

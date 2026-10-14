@@ -77,9 +77,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           as="style"
         />
 
-        {/* Favicon */}
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon - primary favicon.ico in root for browser compatibility */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
         <link
           rel="icon"
           type="image/png"
@@ -92,7 +92,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           sizes="16x16"
           href="/assets/favicon-16x16.png"
         />
-        <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -117,13 +116,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "@type": "WebSite",
                 "@id": "#website",
                 name: "OkosIT",
-                url: "https://okosit-web.vercel.app",
-                potentialAction: {
-                  "@type": "SearchAction",
-                  target:
-                    "https://okosit-web.vercel.app/kereses?q={search_term_string}",
-                  "query-input": "required name=search_term_string",
-                },
+                url: "https://okosit.hu",
               }),
             }}
           />
@@ -139,11 +132,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "@type": "Organization",
                 "@id": "#organization",
                 name: "OkosIT",
-                url: "https://okosit-web.vercel.app",
-                logo: "https://okosit-web.vercel.app/logo.png",
+                url: "https://okosit.hu",
+                logo: "https://okosit.hu/assets/logo.png",
                 sameAs: [
-                  "https://www.facebook.com/okosit",
-                  "https://www.instagram.com/okosit",
+                  "https://www.facebook.com/okosITsysadmin/",
                   "https://www.linkedin.com/company/okosit",
                 ],
                 contactPoint: [
@@ -168,7 +160,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "@context": "https://schema.org",
                 "@type": "WebPage",
                 "@id": "#webpage",
-                url: "https://okosit-web.vercel.app",
+                url: "https://okosit.hu",
                 name: "OkosIT - IT Megoldások és Szolgáltatások",
                 description:
                   "Szakértő IT megoldások és szolgáltatások vállalkozások számára. Ingyenes konzultáció, testreszabott megoldások, kiváló üzemeltetés és szerviz.",

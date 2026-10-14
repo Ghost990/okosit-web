@@ -1,0 +1,35 @@
+# Supply-chain hardening
+
+# Don't install package versions published less than 3 days ago
+# (most hijacked releases are caught and pulled within hours).
+minimumReleaseAge: 4320
+
+# Only these packages may run install/postinstall scripts.
+allowBuilds:
+  '@tailwindcss/oxide': true
+  sharp: true
+  unrs-resolver: true
+
+# Fail if a transitive dependency comes from a git URL / tarball instead of the registry
+blockExoticSubdeps: true
+
+# Refuse installs where a package's trust level dropped (e.g. lost provenance)
+trustPolicy: no-downgrade
+
+# Known-good old releases published before these packages adopted provenance
+trustPolicyExclude:
+  - eslint-import-resolver-typescript@3.10.1
+  - semver@5.7.2
+  - semver@6.3.1
+  - tailwind-merge@2.6.0
+  - undici-types@6.21.0
+
+# Force patched versions of vulnerable transitive deps (same major only)
+overrides:
+  postcss: ^8.5.10
+  js-cookie: ^3.0.7
+  browserslist: ^4.28.7
+  picomatch@2: ^2.3.2
+  picomatch@4: ^4.0.4
+  yaml@2: ^2.8.3
+  postcss-selector-parser@6: ^6.1.3

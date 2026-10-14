@@ -1,0 +1,66 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Allow Facebook crawler and other social media bots
+<IfModule mod_setenvif.c>
+  SetEnvIf User-Agent "facebookexternalhit/[0-9]|Facebot|Twitterbot|Pinterest|LinkedInBot" social_bot
+</IfModule>
+
+# Ensure no blocking rules apply to social media crawlers
+<IfModule mod_rewrite.c>
+  RewriteCond %{ENV:social_bot} ^social_bot$
+  RewriteRule .* - [E=no_bot_block:1]
+</IfModule>
+
+# If the requested resource exists as a file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Extensionless URLs: serve the .html file only if it actually exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Everything else is a real 404 — use the exported Next.js 404 page
+ErrorDocument 404 /404.html
+
+# Set proper caching headers for static assets
+<FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+   php_flag display_errors On
+   php_value max_execution_time 500
+   php_value max_input_time 500
+   php_value max_input_vars 3000
+   php_value memory_limit 756M
+   php_value post_max_size 512M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php83"
+   php_value upload_max_filesize 512M
+   php_flag zlib.output_compression Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag display_errors On
+   php_value max_execution_time 500
+   php_value max_input_time 500
+   php_value max_input_vars 3000
+   php_value memory_limit 756M
+   php_value post_max_size 512M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php83"
+   php_value upload_max_filesize 512M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit

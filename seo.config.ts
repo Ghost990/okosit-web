@@ -5,7 +5,7 @@ export const siteConfig = {
   titleTemplate: '%s | Okosit',
   description: 'Okosit provides innovative solutions for your business needs. Discover our services and products today.',
   siteName: 'Okosit',
-  siteUrl: 'https://okosit-web.vercel.app',
+  siteUrl: 'https://okosit.hu',
   twitter: {
     handle: '@okosit',
     site: '@okosit',
@@ -14,7 +14,7 @@ export const siteConfig = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://okosit-web.vercel.app',
+    url: 'https://okosit.hu',
     siteName: 'Okosit',
   },
 };
