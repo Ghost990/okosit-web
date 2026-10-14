@@ -48,6 +48,7 @@ export const translations = {
     about: "Rólunk",
     partners: "Partnereink",
     help: "Segítség",
+    shop: "Shop",
     contact: "Kapcsolat",
   },
 
@@ -615,7 +616,9 @@ export const translations = {
         termsRequired: "Kérjük, fogadja el az adatvédelmi irányelveket.",
         serverError: "Szerver hiba történt. Kérjük, próbálja újra később.",
         networkError: "Hálózati hiba történt. Kérjük, ellenőrizze az internetkapcsolatát.",
-        submitError: "Hiba történt az űrlap beküldése során. Kérjük, próbálja újra."
+        submitError: "Hiba történt az űrlap beküldése során. Kérjük, próbálja újra.",
+        invalidFields: "Kérjük, ellenőrizze a megadott adatokat (az üzenet legalább 10 karakter legyen).",
+        rateLimited: "Túl sok üzenetet küldött rövid idő alatt. Kérjük, próbálja újra néhány perc múlva, vagy hívjon minket telefonon."
       },
     },
     methods: {

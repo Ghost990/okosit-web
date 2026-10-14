@@ -8,6 +8,7 @@ This is the OkosIT website - a modern, bilingual (Hungarian/English) static webs
 
 ## Development Commands
 
+- Package manager: **pnpm** (supply-chain policies in `pnpm-workspace.yaml`). `npm run x` → `pnpm x`
 - **`npm run dev`** - Start development server at http://localhost:3000
 - **`npm run build`** - Create production build (static export to `out/` directory)
 - **`npm run lint`** - Run ESLint for code quality checks
@@ -50,6 +51,10 @@ The site implements manual routing for languages:
 - **Dynamic Routes**: Not supported in static export mode
 - **API Routes**: Contact form endpoint (requires server for email functionality)
 
+## Deployment (FTP)
+- `pnpm build` → upload the whole `out/` folder (incl. hidden `.htaccess` and `api/contact.php`) to `public_html`
+- `public/.htaccess`: HTTPS redirect, extensionless URLs → `.html`, real 404 via `404.html`
+
 ## Key Implementation Details
 
 ### Theme System
@@ -64,9 +69,11 @@ The site implements manual routing for languages:
 - Bundle optimization with tree-shaking for large libraries
 
 ### Contact Form
-- Server-side API route at `/api/contact`
-- Uses Resend for email delivery (requires RESEND_API_KEY in .env)
-- Form validation and error handling implemented
+- PHP endpoint at `public/api/contact.php` (served as `/api/contact.php` on the cPanel/Apache host — Next API routes don't exist in static export)
+- Sends via Resend HTTP API (okosit.hu must be verified in Resend). Optional `smtp` transport via Enexis (`mail.enexis.hu:465`, mailbox login) — note PHP `mail()` won't work: the web host (Rackhost) is not in the okosit.hu SPF.
+- Credentials live in `~/okosit-contact-config.php` OUTSIDE the webroot (template: `deploy/contact-config.example.php`, local real copy `deploy/okosit-contact-config.php` is gitignored)
+- Abuse protection: Origin check, honeypot (`website`), fill-time trap (`startedAt`), field limits, per-IP (3/10min, 10/day) + global (50/day) rate limits, 24h duplicate-message suppression, no retries
+- Client guards against double submit (`submittingRef`)
 
 ### Cookie Consent
 - GDPR-compliant cookie banner with proper dark mode styling
@@ -154,7 +161,7 @@ The site implements manual routing for languages:
 ## Environment Variables
 
 Required for production:
-- **`RESEND_API_KEY`** - API key for Resend email service (contact form functionality)
+- No build-time env vars. The Resend key goes in `~/okosit-contact-config.php` on the host (see Contact Form).
 
 ## TypeScript Configuration
 

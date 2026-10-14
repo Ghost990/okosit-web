@@ -29,7 +29,7 @@ const languages: Language[] = [
 ];
 
 const defaultLanguage = 'en';
-const siteUrl = process.env.SITE_URL || 'https://okosit-web.vercel.app';
+const siteUrl = process.env.SITE_URL || 'https://okosit.hu';
 
 // This function would typically fetch your dynamic routes from a CMS or database
 const getDynamicRoutes = async (locale: string): Promise<string[]> => {
