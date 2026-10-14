@@ -68,6 +68,8 @@ export default function Footer() {
       { name: t.navigation.about, href: "/rolunk" },
       { name: t.navigation.partners, href: "/partnereink" },
       { name: t.navigation.help, href: "/segitseg" },
+      // Separate WordPress install on the same host — plain link, not a Next route
+      { name: t.navigation.shop, href: "/shop/", external: true },
       { name: t.navigation.contact, href: "/kapcsolat" },
     ],
     services: [
@@ -230,12 +232,21 @@ export default function Footer() {
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 400 }}
                       >
-                        <LocaleLink
-                          href={item.href}
-                          className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
-                        >
-                          {item.name}
-                        </LocaleLink>
+                        {"external" in item && item.external ? (
+                          <a
+                            href={item.href}
+                            className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <LocaleLink
+                            href={item.href}
+                            className="text-sm leading-6 text-secondary-600 hover:text-secondary-900 dark:text-secondary-400 dark:hover:text-white"
+                          >
+                            {item.name}
+                          </LocaleLink>
+                        )}
                       </motion.div>
                     </motion.li>
                   ))}

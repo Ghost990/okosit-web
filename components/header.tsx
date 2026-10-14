@@ -66,6 +66,8 @@ export default function Header() {
     { name: t.navigation.about, href: "/rolunk" },
     { name: t.navigation.partners, href: "/partnereink" },
     { name: t.navigation.help, href: "/segitseg" },
+    // Separate WordPress install on the same host — plain link, not a Next route
+    { name: t.navigation.shop, href: "/shop/", external: true },
     { name: t.navigation.contact, href: "/kapcsolat" },
   ];
   
@@ -142,12 +144,21 @@ export default function Header() {
                 }),
               }}
             >
-              <LocaleLink
-                href={item.href}
-                className={`${isActive(item.href, item.exact) ? "text-primary-600 dark:text-primary-400" : "text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white"} px-3 py-2 text-sm font-medium transition-colors`}
-              >
-                {item.name}
-              </LocaleLink>
+              {item.external ? (
+                <a
+                  href={item.href}
+                  className="text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <LocaleLink
+                  href={item.href}
+                  className={`${isActive(item.href, item.exact) ? "text-primary-600 dark:text-primary-400" : "text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white"} px-3 py-2 text-sm font-medium transition-colors`}
+                >
+                  {item.name}
+                </LocaleLink>
+              )}
             </motion.div>
           ))}
         </motion.div>
@@ -226,7 +237,15 @@ export default function Header() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-secondary-100 dark:divide-secondary-800">
                 <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
+                  {navigation.map((item) => item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium text-secondary-700 hover:bg-secondary-50 dark:text-secondary-200 dark:hover:bg-secondary-800"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
                     <LocaleLink
                       key={item.href}
                       href={item.href}

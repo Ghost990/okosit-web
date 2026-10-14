@@ -48,6 +48,7 @@ export const translations = {
     about: "About",
     partners: "Partners",
     help: "Help",
+    shop: "Shop",
     contact: "Contact",
   },
 
