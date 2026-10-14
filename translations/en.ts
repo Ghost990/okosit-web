@@ -597,7 +597,9 @@ export const translations = {
         termsRequired: "Please accept the privacy policy.",
         serverError: "A server error occurred. Please try again later.",
         networkError: "A network error occurred. Please check your internet connection.",
-        submitError: "An error occurred while submitting the form. Please try again."
+        submitError: "An error occurred while submitting the form. Please try again.",
+        invalidFields: "Please check the details you entered (the message must be at least 10 characters).",
+        rateLimited: "Too many messages in a short time. Please try again in a few minutes, or give us a call."
       },
       validation: {
         name: "Please enter your name",
