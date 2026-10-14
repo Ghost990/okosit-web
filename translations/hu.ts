@@ -48,6 +48,7 @@ export const translations = {
     about: "Rólunk",
     partners: "Partnereink",
     help: "Segítség",
+    shop: "Shop",
     contact: "Kapcsolat",
   },
 
