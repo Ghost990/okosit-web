@@ -13,6 +13,8 @@ const webpack = require('webpack');
 
 const nextConfig = {
   reactStrictMode: true,
+  // Pin workspace root (a stray lockfile higher up confuses Next)
+  outputFileTracingRoot: __dirname,
   // Image optimization settings
   images: {
     unoptimized: true, // Critical for static exports - generates regular <img> tags
