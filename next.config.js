@@ -21,10 +21,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'okosit-web.vercel.app',
+        hostname: 'okosit.hu',
       },
     ],
-    domains: ['okosit-web.vercel.app'],
+    domains: ['okosit.hu'],
     minimumCacheTTL: 86400, // 24 hours
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -44,6 +44,8 @@ const nextConfig = {
 
   // Enable React features
   reactStrictMode: true,
+  // Pin workspace root (a stray lockfile higher up confuses Next)
+  outputFileTracingRoot: __dirname,
 
   // Enable compression
   compress: true,

@@ -48,7 +48,7 @@ export function generatePageMetadata(options: PageMetadataOptions): Metadata {
   const metadata: Metadata = {
     title,
     description,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://okosit-web.vercel.app'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://okosit.hu'),
     alternates: {
       canonical: canonicalUrl || url,
     },
