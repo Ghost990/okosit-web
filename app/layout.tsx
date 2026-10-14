@@ -141,8 +141,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 url: "https://okosit-web.vercel.app",
                 logo: "https://okosit-web.vercel.app/logo.png",
                 sameAs: [
-                  "https://www.facebook.com/okosit",
-                  "https://www.instagram.com/okosit",
+                  "https://www.facebook.com/okosITsysadmin/",
                   "https://www.linkedin.com/company/okosit",
                 ],
                 contactPoint: [

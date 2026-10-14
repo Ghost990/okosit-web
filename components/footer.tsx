@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Facebook,
-  Instagram,
   Linkedin,
   Mail,
   MapPin,
@@ -97,13 +96,8 @@ export default function Footer() {
     social: [
       {
         name: "Facebook",
-        href: "https://facebook.com/okosit",
+        href: "https://www.facebook.com/okosITsysadmin/",
         icon: Facebook,
-      },
-      {
-        name: "Instagram",
-        href: "https://instagram.com/okosit",
-        icon: Instagram,
       },
       {
         name: "LinkedIn",
