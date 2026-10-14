@@ -12,7 +12,6 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { motion, Variants } from "framer-motion";
 import { useLocalizedPath } from "@/utils/navigation";
 import { LocaleLink } from "@/utils/locale-links";
-import { config } from "@/config";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,7 +94,7 @@ export default function Header() {
               <div className="h-10 w-[120px] bg-transparent" />
             ) : resolvedTheme === "dark" ? (
               <Image
-                src={`${config.baseUrl}/assets/logo_dark.png`}
+                src="/assets/logo_dark.png"
                 alt="OkosIT Logo"
                 width={120}
                 height={40}
@@ -104,7 +103,7 @@ export default function Header() {
               />
             ) : (
              <Image
-                src={`${config.baseUrl}/assets/logo.png`}
+                src="/assets/logo.png"
                 alt="OkosIT Logo"
                 width={120}
                 height={40}
@@ -199,7 +198,7 @@ export default function Header() {
                   <div className="h-10 w-[120px] bg-transparent" />
                 ) : resolvedTheme === "dark" ? (
                   <Image
-                    src={`${config.baseUrl}/assets/logo_dark.png`}
+                    src="/assets/logo_dark.png"
                     alt="OkosIT Logo"
                     width={120}
                     height={40}
@@ -207,7 +206,7 @@ export default function Header() {
                   />
                 ) : (
                   <Image
-                    src={`${config.baseUrl}/assets/logo.png`}
+                    src="/assets/logo.png"
                     alt="OkosIT Logo"
                     width={120}
                     height={40}
