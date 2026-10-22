@@ -60,3 +60,9 @@ sketch
 
 # Real contact config with Resend key — upload to host home dir, never commit
 okosit-contact-config.php
+
+# env files (never commit secrets)
+.env
+.env.*
+.env*.local
+!.env.example
